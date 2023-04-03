@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">ComputerShop</string>
+
+    <string name="denied_permission">Permission denied</string>
+    <string name="cancel_dialog">Cancel</string>
+    <string name="request_permission_cause">\"This app can\'t run because it does not have the read and write permissions. Please grant permission.\"</string>
+    <string name="permission_title">Permission request</string>
+    <string name="granted_permission">Permission granted</string>
+    <string name="ok">OK</string>
+    <string name="gia_25000_d">Gia : 25000 d</string>
+    <string name="ten_san_pham">Ten san pham</string>
+    <string name="them_vao_gio_hang">Them vao gio hang</string>
+    <string name="mo_ta_chi_tiet_san_pham">Mo ta chi tiet san pham</string>
+    <string name="dang_nhap">Đăng Nhập</string>
+    <string name="dang_ki">Đăng Kí</string>
 </resources>
