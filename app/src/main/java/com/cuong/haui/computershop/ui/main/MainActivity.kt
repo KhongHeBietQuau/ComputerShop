@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.cuong.haui.computershop.R
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityMainBinding
+import com.cuong.haui.computershop.utils.ViewUtils
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
     MainViewModel::class.java
@@ -20,6 +21,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initData()
+        ViewUtils.setCorners(resources,25f,binding.viewlipper)
         ActionBar()
         if (isConnected(this)) {
             Toast.makeText(applicationContext, "ok", Toast.LENGTH_LONG).show()
@@ -69,7 +71,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
     private fun ActionBar() {
         setSupportActionBar(binding.toobarmanhinhchinh)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        binding.toobarmanhinhchinh.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size)
+       // binding.toobarmanhinhchinh.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size)
         binding.toobarmanhinhchinh.setNavigationOnClickListener(View.OnClickListener {
             binding.drawerlayout.openDrawer(
                 GravityCompat.START

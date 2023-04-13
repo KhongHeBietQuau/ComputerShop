@@ -22,8 +22,10 @@
                 android:orientation="vertical">
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toobarmanhinhchinh"
+                    app:navigationIcon="@drawable/ic_baseline_menu_24"
                     app:title="Trang chính"
-                    android:background="#ff00dfff"
+                    app:titleTextColor="@color/white"
+                    android:background="@color/color_app"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize">
                     <FrameLayout
@@ -32,6 +34,15 @@
                         android:layout_gravity="right"
                         android:layout_width="60dp"
                         android:layout_height="?attr/actionBarSize">
+
+                        <ImageView
+                            android:padding="5dp"
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/ic_cart_24"
+                            app:tint="@color/white">
+
+                        </ImageView>
                         <com.nex3z.notificationbadge.NotificationBadge
                             android:layout_width="28dp"
                             android:layout_height="28dp"
@@ -39,46 +50,57 @@
                             android:id="@+id/menu_sl">
 
                         </com.nex3z.notificationbadge.NotificationBadge>
-                        <ImageView
-                            android:layout_marginTop="15dp"
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:src="@drawable/ic_cart_24">
-
-                        </ImageView>
                     </FrameLayout>
 
                 </androidx.appcompat.widget.Toolbar>
-                <ViewFlipper
-                    android:id="@+id/viewlipper"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                <androidx.core.widget.NestedScrollView
 
-                </ViewFlipper>
-                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:background="#ff00dfff">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@android:color/black"
-                        android:textStyle="bold"
-                        android:text="Sản phẩm mới nhất">
-
-                    </TextView>
-                    <androidx.recyclerview.widget.RecyclerView
+                    android:layout_height="0dp"
+                    android:fillViewport="true"
+                    android:layout_weight="1">
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="10dp"
-                        android:id="@+id/recycleview">
+                        android:orientation="vertical">
+                        <ViewFlipper
+                            android:layout_marginTop="12dp"
+                            android:layout_marginHorizontal="8dp"
+                            android:id="@+id/viewlipper"
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp">
 
-                    </androidx.recyclerview.widget.RecyclerView>
-                </LinearLayout>
+                        </ViewFlipper>
+                        <LinearLayout
+                            android:paddingHorizontal="8dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_marginTop="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:layout_marginLeft="10dp"
+                                android:textColor="@android:color/black"
+                                android:textStyle="bold"
+                                android:text="Sản phẩm mới nhất">
+
+                            </TextView>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recycleview"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="10dp">
+
+                            </androidx.recyclerview.widget.RecyclerView>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
 
             </LinearLayout>
             <com.google.android.material.navigation.NavigationView
@@ -86,13 +108,41 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
                 android:id="@+id/navigationview">
-                <ListView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/listviewmanhinhchinh">
+                <LinearLayout
+                    android:weightSum="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="vertical">
 
-                </ListView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_900"
+                    android:textSize="30sp"
+
+                    android:text="Chưa có tên">
+                </TextView>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_400"
+                    android:text="Xem thông tin">
+                </TextView>
+                </LinearLayout>
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+                    <ListView
+                        android:layout_marginTop="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/listviewmanhinhchinh">
+
+                    </ListView>
+                </androidx.core.widget.NestedScrollView>
+
             </com.google.android.material.navigation.NavigationView>
         </androidx.drawerlayout.widget.DrawerLayout>
 
