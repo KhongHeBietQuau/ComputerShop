@@ -1,118 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="4dp">
 
-    <data>
-
-    </data>
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:elevation="8dp"
-        app:cardCornerRadius="4dp"
-        android:layout_margin="5dp"
-        >
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/item_giohang_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/iconnew"></ImageView>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/item_giohang_image"
-                android:scaleType="centerCrop"
-                android:src="@drawable/iconnew"
-                >
-            </ImageView>
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_giohang_tensp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="tên sản phẩm"
+                android:textColor="@color/color_app"
+                android:textSize="18sp"
+                android:textStyle="bold">
+
+            </TextView>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="18">
+
                 <TextView
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="match_parent"
+                    android:id="@+id/item_giohang_gia"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:text="15000"
                     android:textColor="@color/color_app"
-                    android:id="@+id/item_giohang_tensp"
-                    android:text="tên sản phẩm">
+                    android:textSize="15sp"></TextView>
+
+                <ImageView
+                    android:id="@+id/item_giohang_tru"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_baseline_remove_24"
+                    app:tint="@color/color_app"></ImageView>
+
+                <TextView
+                    android:id="@+id/item_giohang_soluong"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="1"
+                    android:textColor="@color/color_app"
+                    android:textSize="15sp"
+                    android:textStyle="bold">
 
                 </TextView>
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:weightSum="18"
-                    android:layout_width="match_parent"
+
+                <ImageView
+                    android:id="@+id/item_giohang_cong"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:gravity="center"
-                        android:layout_weight="5"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/item_giohang_gia"
-                        android:text="15000"
-                        android:textSize="15sp"
-                        android:textColor="@color/color_app">
-                    </TextView>
-                    <ImageView
-                        android:layout_weight="2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/item_giohang_tru"
-                        android:src="@drawable/ic_baseline_remove_24"
-                        app:tint="@color/color_app"
-                        >
-                    </ImageView>
-                    <TextView
-                        android:layout_weight="3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
-                        android:text="1"
-                        android:textColor="@color/color_app"
-                        android:gravity="center"
-                        android:id="@+id/item_giohang_soluong">
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_baseline_add_24"
+                    app:tint="@color/color_app"></ImageView>
 
-                    </TextView>
-                    <ImageView
-                        android:layout_weight="2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/item_giohang_cong"
-                        android:src="@drawable/ic_baseline_add_24"
-                        app:tint="@color/color_app"
-                        >
-                    </ImageView>
-                    <ImageView
-                        android:layout_weight="2"
-                        android:layout_width="0dp"
-                        app:tint="@color/color_app"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_drag_handle_24"
-                        >
-                    </ImageView>
-                    <TextView
-                        android:layout_weight="4"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="15sp"
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:src="@drawable/ic_baseline_drag_handle_24"
+                    app:tint="@color/color_app"></ImageView>
 
-                        android:gravity="center|center_vertical"
-                        android:text="25000 d"
-                        android:textColor="@color/color_app"
-                        android:id="@+id/item_giohang_giasp2">
+                <TextView
+                    android:id="@+id/item_giohang_giasp2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:gravity="center|center_vertical"
 
-                    </TextView>
-                </LinearLayout>
+                    android:text="25000 d"
+                    android:textColor="@color/color_app"
+                    android:textSize="15sp"
+                    android:textStyle="bold">
+
+                </TextView>
             </LinearLayout>
         </LinearLayout>
-    </androidx.cardview.widget.CardView >
-
-</layout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

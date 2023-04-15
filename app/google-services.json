@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "835703170464",
+    "project_id": "computershop-9543c",
+    "storage_bucket": "computershop-9543c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835703170464:android:431f39a8e06974624770c5",
+        "android_client_info": {
+          "package_name": "com.cuong.haui.computershop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835703170464-vt63r4it7kecg0p15a5aiq67ph0keou6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cuong.haui.computershop",
+            "certificate_hash": "e86c5666c338d84e8d90725e5c61f4f73a4827cb"
+          }
+        },
+        {
+          "client_id": "835703170464-v40rrcuvhq727he8rco9ir880hhk1j9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyUgOtje5tQPrBtZMb0rPcHnPUB2VN9VQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835703170464-v40rrcuvhq727he8rco9ir880hhk1j9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

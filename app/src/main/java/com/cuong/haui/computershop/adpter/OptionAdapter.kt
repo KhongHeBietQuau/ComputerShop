@@ -8,7 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.cuong.haui.computershop.R
-import com.cuong.haui.computershop.di.module.OptionSupport
+import com.cuong.haui.computershop.model.OptionSupport
 
 class OptionAdapter constructor(var context: Context,var mangmonan : ArrayList<OptionSupport>) :BaseAdapter() {
     class ViewHolder(row: View) {

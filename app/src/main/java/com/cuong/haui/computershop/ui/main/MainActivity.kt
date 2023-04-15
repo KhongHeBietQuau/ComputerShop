@@ -3,6 +3,7 @@ package com.cuong.haui.computershop.ui.main
 import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
@@ -13,15 +14,12 @@ import com.cuong.haui.computershop.R
 import com.cuong.haui.computershop.adpter.OptionAdapter
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityMainBinding
-import com.cuong.haui.computershop.di.module.OptionSupport
+import com.cuong.haui.computershop.model.OptionSupport
 import com.cuong.haui.computershop.utils.ViewUtils
 
-class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
-    MainViewModel::class.java
-) {
+class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun initCreate() {
         initData()
         ViewUtils.setCorners(resources,25f,binding.viewlipper)
         ActionBar()
@@ -96,10 +94,9 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainActivity,arrayOption)
     }
 
-    override fun getLayoutRes(): Int {
-        return R.layout.activity_main
+    override fun inflateViewBinding(inflater: LayoutInflater): ActivityMainBinding {
+        return ActivityMainBinding.inflate(inflater)
     }
 
-    override fun initViewModel(viewModel: MainViewModel) {}
 
 }

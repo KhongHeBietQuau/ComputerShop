@@ -1,4 +1,4 @@
-package com.cuong.haui.computershop.di.module
+package com.cuong.haui.computershop.model
 
 data class OptionSupport (var ten : String,var hinhanh:Int){
 }

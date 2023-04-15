@@ -1,63 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="4dp">
 
-    <data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    </data>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="top|right"
+            android:src="@drawable/iconnew">
 
-    <androidx.cardview.widget.CardView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:elevation="8dp"
-        app:cardCornerRadius="4dp"
-        android:layout_width="160dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="wrap_content">
-        <FrameLayout
+        </ImageView>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <ImageView
-                android:src="@drawable/iconnew"
-                android:layout_gravity="top|right"
-                android:layout_width="50dp"
-                android:layout_height="50dp">
-
-            </ImageView>
-            <LinearLayout
+                android:id="@+id/itemsp_image"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <ImageView
-                    android:id="@+id/itemsp_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:src="@drawable/ic_media_24">
-                </ImageView>
-                <TextView
-                    android:id="@+id/itemsp_ten"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:textColor="@color/color_app"
-                    android:text="Laptop">
+                android:layout_height="160dp"
+                android:src="@drawable/ic_media_24"></ImageView>
 
-                </TextView>
-                <TextView
-                    android:id="@+id/itemsp_gia"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textStyle="bold"
+            <TextView
+                android:id="@+id/itemsp_ten"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Laptop"
+                android:textColor="@color/color_app"
+                android:textSize="20sp"
+                android:textStyle="bold">
 
-                    android:textSize="15sp"
-                    android:text="gia : 25000 đ"
-                    android:textColor="@color/color_app"
-                    >
+            </TextView>
 
-                </TextView>
+            <TextView
+                android:id="@+id/itemsp_gia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="gia : 25000 đ"
 
-            </LinearLayout>
-        </FrameLayout>
-    </androidx.cardview.widget.CardView>
-</layout>
+                android:textColor="@color/color_app"
+                android:textSize="15sp"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </LinearLayout>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>
