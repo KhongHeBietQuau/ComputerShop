@@ -37,8 +37,9 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="@color/color_app"
                     android:id="@+id/item_giohang_tensp"
-                    android:text="ten san pham">
+                    android:text="tên sản phẩm">
 
                 </TextView>
                 <LinearLayout
@@ -56,7 +57,7 @@
                         android:id="@+id/item_giohang_gia"
                         android:text="15000"
                         android:textSize="15sp"
-                        android:textColor="@android:color/holo_red_light">
+                        android:textColor="@color/color_app">
                     </TextView>
                     <ImageView
                         android:layout_weight="2"
@@ -64,6 +65,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/item_giohang_tru"
                         android:src="@drawable/ic_baseline_remove_24"
+                        app:tint="@color/color_app"
                         >
                     </ImageView>
                     <TextView
@@ -73,6 +75,7 @@
                         android:textStyle="bold"
                         android:textSize="15sp"
                         android:text="1"
+                        android:textColor="@color/color_app"
                         android:gravity="center"
                         android:id="@+id/item_giohang_soluong">
 
@@ -83,11 +86,13 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/item_giohang_cong"
                         android:src="@drawable/ic_baseline_add_24"
+                        app:tint="@color/color_app"
                         >
                     </ImageView>
                     <ImageView
                         android:layout_weight="2"
                         android:layout_width="0dp"
+                        app:tint="@color/color_app"
                         android:layout_height="wrap_content"
                         android:src="@drawable/ic_baseline_drag_handle_24"
                         >
@@ -101,7 +106,7 @@
 
                         android:gravity="center|center_vertical"
                         android:text="25000 d"
-                        android:textColor="@android:color/holo_red_light"
+                        android:textColor="@color/color_app"
                         android:id="@+id/item_giohang_giasp2">
 
                     </TextView>

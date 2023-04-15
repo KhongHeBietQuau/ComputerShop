@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/item_image_option"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ic_media_24">
+
+        </ImageView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/color_app"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="điện thoại"
+            android:id="@+id/item_txt_name_option">
+
+        </TextView>
+    </LinearLayout>
+</layout>

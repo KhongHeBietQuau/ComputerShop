@@ -15,8 +15,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="Chi tiet san pham"
-            android:background="#3AD541"
+            app:title="Chi tiết sản phẩm"
+            android:background="@color/color_app"
+            app:titleTextColor="@color/white"
             android:id="@+id/toobar">
             <FrameLayout
                 android:id="@+id/framegiohang"
@@ -35,6 +36,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    app:tint="@color/white"
                     android:src="@drawable/ic_cart_24">
 
                 </ImageView>
@@ -65,6 +67,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/ten_san_pham"
                     android:layout_gravity="center"
+                    android:textColor="@color/color_app"
                     android:textStyle="bold"
                     android:textSize="20sp">
                 </TextView>
@@ -75,7 +78,7 @@
                     android:text="@string/gia_25000_d"
                     android:textStyle="bold"
                     android:textSize="15sp"
-                    android:textColor="@android:color/holo_red_light"
+                    android:textColor="@color/color_app"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     >
@@ -94,7 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/them_vao_gio_hang"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/color_app"
 
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
@@ -118,6 +121,7 @@
                 android:text="@string/mo_ta_chi_tiet_san_pham"
                 android:textStyle="bold"
                 android:textSize="18sp"
+                android:textColor="@color/color_app"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="5dp"
                 >

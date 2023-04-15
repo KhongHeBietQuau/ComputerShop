@@ -39,6 +39,7 @@
                     android:layout_gravity="center"
                     android:textStyle="bold"
                     android:textSize="20sp"
+                    android:textColor="@color/color_app"
                     android:text="Laptop">
 
                 </TextView>
@@ -48,9 +49,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textStyle="bold"
+
                     android:textSize="15sp"
-                    android:text="gia : 25000d"
-                    android:textColor="@android:color/holo_red_light"
+                    android:text="gia : 25000 đ"
+                    android:textColor="@color/color_app"
                     >
 
                 </TextView>

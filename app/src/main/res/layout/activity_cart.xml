@@ -30,7 +30,8 @@
             android:id="@+id/toobar"
             app:layout_constraintTop_toTopOf="parent"
             app:title="Giỏ hàng"
-            android:background="#36DD07">
+            app:titleTextColor="@color/white"
+            android:background="@color/color_app">
         </androidx.appcompat.widget.Toolbar>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -54,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@color/color_app"
                 android:textSize="18sp"
                 android:text="Tổng Tiền">
             </TextView>
@@ -66,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:textColor="@android:color/holo_red_light"
+                android:textColor="@color/color_app"
                 android:textSize="18sp"
                 android:text="50.000"
                 android:id="@+id/txttongtien"
@@ -81,6 +82,7 @@
             android:layout_marginEnd="20dp"
             android:id="@+id/btnmuahang"
             android:text="Mua Hàng"
+            android:textColor="@color/color_app"
             app:layout_constraintBottom_toBottomOf="parent"
             >
         </Button>

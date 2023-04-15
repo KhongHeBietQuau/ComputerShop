@@ -10,8 +10,10 @@ import android.widget.Toast
 import androidx.core.view.GravityCompat
 import com.bumptech.glide.Glide
 import com.cuong.haui.computershop.R
+import com.cuong.haui.computershop.adpter.OptionAdapter
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityMainBinding
+import com.cuong.haui.computershop.di.module.OptionSupport
 import com.cuong.haui.computershop.utils.ViewUtils
 
 class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
@@ -79,7 +81,19 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>(
         })
     }
     private fun initData() {
-
+        var arrayOption : ArrayList<OptionSupport> = ArrayList()
+        arrayOption.add(OptionSupport("Trang chủ",R.drawable.house))
+        arrayOption.add(OptionSupport("Laptop văn phòng",R.drawable.laptop))
+        arrayOption.add(OptionSupport("Laptop gaming",R.drawable.laptop_gaming))
+        arrayOption.add(OptionSupport("Quản lý đơn hàng",R.drawable.clock))
+        arrayOption.add(OptionSupport("Đơn nháp",R.drawable.draft))
+        arrayOption.add(OptionSupport("Đặt lịch bảo hành",R.drawable.guarantee))
+        arrayOption.add(OptionSupport("Thông báo",R.drawable.notification))
+        arrayOption.add(OptionSupport("Chat với nhân viên",R.drawable.speak))
+        arrayOption.add(OptionSupport("Gọi điện",R.drawable.phone))
+        arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
+        arrayOption.add(OptionSupport("cài đặt",R.drawable.gear))
+        binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainActivity,arrayOption)
     }
 
     override fun getLayoutRes(): Int {

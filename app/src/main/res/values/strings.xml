@@ -7,10 +7,12 @@
     <string name="permission_title">Permission request</string>
     <string name="granted_permission">Permission granted</string>
     <string name="ok">OK</string>
-    <string name="gia_25000_d">Gia : 25000 d</string>
-    <string name="ten_san_pham">Ten san pham</string>
-    <string name="them_vao_gio_hang">Them vao gio hang</string>
-    <string name="mo_ta_chi_tiet_san_pham">Mo ta chi tiet san pham</string>
+    <string name="gia_25000_d">Giá : 25000 đ</string>
+    <string name="ten_san_pham">Tên sản phẩm</string>
+    <string name="them_vao_gio_hang">Thêm vào giỏ hàng</string>
+    <string name="mo_ta_chi_tiet_san_pham">Mô tả chi tiết sản phẩm</string>
     <string name="dang_nhap">Đăng Nhập</string>
     <string name="dang_ki">Đăng Kí</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

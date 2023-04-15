@@ -1,0 +1,33 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <shape>
+            <solid android:color="#606060"/>
+        </shape>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <gradient
+                    android:startColor="@color/tt_rating_star"
+                    android:endColor="@color/tt_rating_star"
+                    android:angle="180"
+                    />
+            </shape>
+        </clip>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <gradient
+                    android:startColor="@color/tt_rating_star"
+                    android:endColor="@color/tt_rating_star"
+                    android:angle="180"
+                    />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

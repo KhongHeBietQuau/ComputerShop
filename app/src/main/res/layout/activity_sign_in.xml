@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/dang_nhap"
             android:textSize="25sp"
-            android:textColor="@color/colortext"
+            android:textColor="@color/color_app"
             android:gravity="center"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/inter_500"
@@ -73,6 +73,8 @@
             android:layout_marginRight="25dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
+            android:textColor="@color/color_app"
+            android:fontFamily="@font/inter_500"
             android:text="Đăng nhập">
         </Button>
         <LinearLayout
@@ -84,12 +86,14 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/btndangnhap">
             <TextView
+                android:textColor="@color/color_app"
                 android:layout_width="wrap_content"
                 android:text="Quên tài khoản hoặc mật khẩu   "
                 android:layout_height="wrap_content">
 
             </TextView>
             <TextView
+                android:textColor="@color/color_app"
                 android:layout_width="wrap_content"
                 android:text="Đăng kí"
                 android:layout_height="wrap_content">
