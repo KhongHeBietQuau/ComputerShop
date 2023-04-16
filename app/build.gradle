@@ -106,6 +106,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
     // even bus
     implementation("org.greenrobot:eventbus:3.3.1")
+
 }
 kapt {
     generateStubs = true

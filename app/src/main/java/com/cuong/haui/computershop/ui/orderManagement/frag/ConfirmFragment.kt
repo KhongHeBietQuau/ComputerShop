@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.cuong.haui.computershop.R
 import com.cuong.haui.computershop.base.BaseFragment
 import com.cuong.haui.computershop.databinding.FragmentConfirmBinding
+import com.cuong.haui.computershop.view.openActivity
 
 
 class ConfirmFragment : BaseFragment<FragmentConfirmBinding>() {

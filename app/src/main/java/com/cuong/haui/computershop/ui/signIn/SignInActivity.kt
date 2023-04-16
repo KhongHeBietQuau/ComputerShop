@@ -2,12 +2,9 @@ package com.cuong.haui.computershop.ui.signIn
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.widget.Toast
-import com.cuong.haui.computershop.R
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivitySignInBinding
 import com.cuong.haui.computershop.ui.main.MainActivity
@@ -15,8 +12,9 @@ import com.cuong.haui.computershop.ui.signUp.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class SignInActivity : BaseActivity<ActivitySignInBinding>() {
-    override fun inflateViewBinding(inflater: LayoutInflater): ActivitySignInBinding { return ActivitySignInBinding.inflate(inflater) }
-
+    override fun inflateViewBinding(inflater: LayoutInflater): ActivitySignInBinding {
+        return ActivitySignInBinding.inflate(inflater)
+    }
 
 
     override fun initCreate() {
@@ -30,18 +28,23 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
     }
 
 
-
     private fun initListener() {
 
     }
+
     private fun loginUser() {
         val email = binding.emailLogin.text.toString()
         val password = binding.passwordLogin.text.toString()
 
-        when{
-            TextUtils.isEmpty(email) -> Toast.makeText(this,"email is required", Toast.LENGTH_LONG).show()
-            TextUtils.isEmpty(password) -> Toast.makeText(this,"password is required", Toast.LENGTH_LONG).show()
-            else ->{
+        when {
+            TextUtils.isEmpty(email) -> Toast.makeText(this, "email is required", Toast.LENGTH_LONG)
+                .show()
+            TextUtils.isEmpty(password) -> Toast.makeText(
+                this,
+                "password is required",
+                Toast.LENGTH_LONG
+            ).show()
+            else -> {
                 val progressDialog = ProgressDialog(this@SignInActivity)
                 progressDialog.setTitle("Login")
                 progressDialog.setMessage("Please wait, this may take a while ...")
@@ -51,18 +54,17 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                 val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
 
-                mAuth.signInWithEmailAndPassword(email,password)
-                    .addOnCompleteListener{ task->
-                        if(task.isSuccessful){
+                mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
                             progressDialog.dismiss()
-                            val intent = Intent(this@SignInActivity,MainActivity::class.java)
+                            val intent = Intent(this@SignInActivity, MainActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                             finish()
-                        }
-                        else{
+                        } else {
                             val message = task.exception!!.toString()
-                            Toast.makeText(this,"Error: $message", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Error: $message", Toast.LENGTH_LONG).show()
                             FirebaseAuth.getInstance().signOut()
                             progressDialog.dismiss()
                         }
@@ -73,9 +75,8 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
 
     override fun onStart() {
         super.onStart()
-        if(FirebaseAuth.getInstance().currentUser != null)
-        {
-            val intent = Intent(this@SignInActivity,MainActivity::class.java)
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            val intent = Intent(this@SignInActivity, MainActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()

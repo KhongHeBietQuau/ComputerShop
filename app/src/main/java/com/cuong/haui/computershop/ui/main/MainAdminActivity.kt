@@ -2,6 +2,8 @@ package com.cuong.haui.computershop.ui.main
 
 import android.content.Context
 import android.net.ConnectivityManager
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -15,7 +17,7 @@ import com.cuong.haui.computershop.R
 import com.cuong.haui.computershop.adpter.OptionAdapter
 import com.cuong.haui.computershop.adpter.SanPhamMoiAdapter
 import com.cuong.haui.computershop.base.BaseActivity
-import com.cuong.haui.computershop.databinding.ActivityMainBinding
+import com.cuong.haui.computershop.databinding.ActivityMainAdminBinding
 import com.cuong.haui.computershop.model.OptionSupport
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
@@ -25,12 +27,10 @@ import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : BaseActivity<ActivityMainBinding>() {
+class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
     private lateinit var spAdapter : SanPhamMoiAdapter
     private var mangSpMoi  = ArrayList<SanPhamMoi>()
-
     override fun initCreate() {
-
         initData()
         inClick()
         ViewUtils.setCorners(resources,25f,binding.viewlipper)
@@ -46,15 +46,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             Toast.makeText(applicationContext, "ko co internet", Toast.LENGTH_LONG).show()
         }
     }
+
     private fun isConnected(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
         val wifi = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI)
         val mobile = connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE)
         return if (wifi != null && wifi.isConnected || mobile != null && mobile.isConnected) {
-                    true
+            true
         } else {
-                    false
+            false
         }
     }
 
@@ -83,10 +84,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun ActionBar() {
         setSupportActionBar(binding.toobarmanhinhchinh)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-       // binding.toobarmanhinhchinh.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size)
+        // binding.toobarmanhinhchinh.setNavigationIcon(android.R.drawable.ic_menu_sort_by_size)
         binding.toobarmanhinhchinh.setNavigationOnClickListener(View.OnClickListener {
             binding.drawerlayout.openDrawer(
                 GravityCompat.START
+
             )
         })
     }
@@ -99,11 +101,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         arrayOption.add(OptionSupport("Đơn nháp",R.drawable.draft))
         arrayOption.add(OptionSupport("Đặt lịch bảo hành",R.drawable.guarantee))
         arrayOption.add(OptionSupport("Thông báo",R.drawable.notification))
-        arrayOption.add(OptionSupport("Chat với nhân viên",R.drawable.speak))
-        arrayOption.add(OptionSupport("Gọi điện",R.drawable.phone))
+        arrayOption.add(OptionSupport("Chat với khách hàng",R.drawable.speak))
+        arrayOption.add(OptionSupport("Thêm hàng",R.drawable.add_compuetr))
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
         arrayOption.add(OptionSupport("cài đặt",R.drawable.gear))
-        binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainActivity,arrayOption)
+        binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainAdminActivity,arrayOption)
         // them sp moi
         // them sp moi
         mangSpMoi.add(
@@ -217,9 +219,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         spAdapter = SanPhamMoiAdapter(applicationContext, mangSpMoi)
         binding.recycleview.setAdapter(spAdapter)
     }
-    override fun inflateViewBinding(inflater: LayoutInflater): ActivityMainBinding {
-        return ActivityMainBinding.inflate(inflater)
+    override fun inflateViewBinding(inflater: LayoutInflater): ActivityMainAdminBinding {
+        return ActivityMainAdminBinding.inflate(inflater)
     }
-
 
 }
