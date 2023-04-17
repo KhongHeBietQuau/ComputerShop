@@ -110,8 +110,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             SanPhamMoi(
                 1,
                 "Laptop Dell Vostro V3568",
+                10000000,
+                12000000,
                 "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
-                "12200000",
                 "Chip: Intel Core i5-7200U\n" +
                         "RAM: DDR4 4GB (2 khe cắm)\n" +
                         "Ổ cứng: HDD 1TB\n" +
@@ -119,88 +120,159 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                         "Màn hình: 15.6 Inches\n" +
                         "Hệ điều hành: Free Dos\n" +
                         "Pin: 4 Cell Lithium-ion",
-                2
+                "1",
+                "1",
+                "1",
+                "1",
+                "1",
+                1,
+                "1",
+                "1",
+                1,
+                1,
+                1,
+                1
             )
         )
 
         mangSpMoi.add(
             SanPhamMoi(
-                2,
+                1,
                 "Laptop Dell Vostro V3568",
-                "https://firebasestorage.googleapis.com/v0/b/computershop-9543c.appspot.com/o/6637_ac_m___i_100__full_box_laptop_asus_rog_strix_g15_g513ih_hn015w_amd.jpg?alt=media&token=a50102d4-e401-4bf3-ad3a-9b0c2e8ccb6a",
-                "12200000",
-                ("Chip: Intel Core i5-7200U\n" +
+                10000000,
+                12000000,
+                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
+                "Chip: Intel Core i5-7200U\n" +
                         "RAM: DDR4 4GB (2 khe cắm)\n" +
                         "Ổ cứng: HDD 1TB\n" +
                         "Chipset đồ họa: Intel HD Graphics 620\n" +
                         "Màn hình: 15.6 Inches\n" +
                         "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion"),
-                2
+                        "Pin: 4 Cell Lithium-ion",
+                "1",
+                "1",
+                "1",
+                "1",
+                "1",
+                1,
+                "1",
+                "1",
+                1,
+                1,
+                1,
+                1
             )
         )
         mangSpMoi.add(
             SanPhamMoi(
-                3,
+                1,
                 "Laptop Dell Vostro V3568",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/mac-pro-2017-01.jpg",
-                "12200000",
-                ("Chip: Intel Core i5-7200U\n" +
+                10000000,
+                12000000,
+                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
+                "Chip: Intel Core i5-7200U\n" +
                         "RAM: DDR4 4GB (2 khe cắm)\n" +
                         "Ổ cứng: HDD 1TB\n" +
                         "Chipset đồ họa: Intel HD Graphics 620\n" +
                         "Màn hình: 15.6 Inches\n" +
                         "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion"),
-                2
+                        "Pin: 4 Cell Lithium-ion",
+                "1",
+                "1",
+                "1",
+                "1",
+                "1",
+                1,
+                "1",
+                "1",
+                1,
+                1,
+                1,
+                1
             )
         )
         mangSpMoi.add(
             SanPhamMoi(
-                4,
+                1,
                 "Laptop Dell Vostro V3568",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/mac-pro-2017-01.jpg",
-                "12200000",
-                ("Chip: Intel Core i5-7200U\n" +
+                10000000,
+                12000000,
+                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
+                "Chip: Intel Core i5-7200U\n" +
                         "RAM: DDR4 4GB (2 khe cắm)\n" +
                         "Ổ cứng: HDD 1TB\n" +
                         "Chipset đồ họa: Intel HD Graphics 620\n" +
                         "Màn hình: 15.6 Inches\n" +
                         "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion"),
-                2
+                        "Pin: 4 Cell Lithium-ion",
+                "1",
+                "1",
+                "1",
+                "1",
+                "1",
+                1,
+                "1",
+                "1",
+                1,
+                1,
+                1,
+                1
             )
         )
         mangSpMoi.add(
             SanPhamMoi(
-                5,
+                1,
                 "Laptop Dell Vostro V3568",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/mac-pro-2017-01.jpg",
-                "12200000",
-                ("Chip: Intel Core i5-7200U\n" +
+                10000000,
+                12000000,
+                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
+                "Chip: Intel Core i5-7200U\n" +
                         "RAM: DDR4 4GB (2 khe cắm)\n" +
                         "Ổ cứng: HDD 1TB\n" +
                         "Chipset đồ họa: Intel HD Graphics 620\n" +
                         "Màn hình: 15.6 Inches\n" +
                         "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion"),
-                2
+                        "Pin: 4 Cell Lithium-ion",
+                "1",
+                "1",
+                "1",
+                "1",
+                "1",
+                1,
+                "1",
+                "1",
+                1,
+                1,
+                1,
+                1
             )
         )
         mangSpMoi.add(
             SanPhamMoi(
-                6,
+                1,
                 "Laptop Dell Vostro V3568",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/mac-pro-2017-01.jpg",
-                "12200000",
-                ("Chip: Intel Core i5-7200U\n" +
+                10000000,
+                12000000,
+                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
+                "Chip: Intel Core i5-7200U\n" +
                         "RAM: DDR4 4GB (2 khe cắm)\n" +
                         "Ổ cứng: HDD 1TB\n" +
                         "Chipset đồ họa: Intel HD Graphics 620\n" +
                         "Màn hình: 15.6 Inches\n" +
                         "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion"),
-                2
+                        "Pin: 4 Cell Lithium-ion",
+                "1",
+                "1",
+                "1",
+                "1",
+                "1",
+                1,
+                "1",
+                "1",
+                1,
+                1,
+                1,
+                1
             )
         )
     }

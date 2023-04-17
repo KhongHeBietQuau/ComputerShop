@@ -90,7 +90,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                         //               ,val description:String?="",val cpu: String?="",val ram: String?="",val hard_drive: String?="",val graphics:String?="",
                         //               val screen:String?="",val precent_discount: Int,val created_at:String?="",val update_at:String?="",val deleted: Int,
                         //               val current_quantity: Int,val warranty_period: Int,val category_id: Int
-                        val product_id = 1
+                        val product_id = 2
                         val product_name = binding.productName.text.toString()
                         val price_new = binding.priceNew.text.toString().toInt()
                         val price_old = binding.priceOld.text.toString().toInt()
@@ -116,10 +116,18 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                         val products = Products(product_id,product_name,price_new,price_old,thumbnail_url,description,cpu,ram,hard_drive,graphics,screen,precent_discount,created_at,update_at,deleted,current_quantity,warranty_period,category_id)
                         database.child(product_id.toString()).setValue(products).addOnSuccessListener {
 
-                            /*binding.firstName.text.clear()
-                            binding.lastName.text.clear()
-                            binding.age.text.clear()
-                            binding.userName.text.clear()*/
+                            binding.cpu.text.clear()
+                            binding.description.text.clear()
+                            binding.productName.text.clear()
+                            binding.currentQuantity.text.clear()
+                            binding.graphicsCard.text.clear()
+                            binding.hardDrive.text.clear()
+                            binding.precentDiscount.text.clear()
+                            binding.priceNew.text.clear()
+                            binding.priceOld.text.clear()
+                            binding.ram.text.clear()
+                            binding.screen.text.clear()
+                            binding.warrantyPeriod.text.clear()
 
                             Toast.makeText(this,"Successfully Saved",Toast.LENGTH_SHORT).show()
 
@@ -152,89 +160,3 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
     }
 
 }
-/*fun insert_data(view : View){
-      db = FirebaseDatabase.getInstance().getReference("items")
-      val item = itemDs(sImage)
-      val databaseReference = FirebaseDatabase.getInstance().reference
-      val id = databaseReference.push().key
-      db.child(id.toString()).setValue(item).addOnSuccessListener {
-          sImage = ""
-          Toast.makeText(this,"data inserted",Toast.LENGTH_SHORT).show()
-      }.addOnFailureListener {
-          Toast.makeText(this,"data Not inserted",Toast.LENGTH_SHORT).show()
-      }
-  }
-  fun insert_Img(view: View){
-      var myfileintent = Intent(Intent.ACTION_GET_CONTENT)
-      myfileintent.setType("image/*")
-     // ActivityResultLauncher.launch(myfileintent)
-
-  }
-  private val ActivityResultLauncher = registerForActivityResult<Intent,ActivityResult>(
-      ActivityResultContracts.StartActivityForResult()
-  ){ result: ActivityResult ->
-      if (result.resultCode == RESULT_OK){
-          val uri = result.data!!.data
-          try {
-              val inputStream = contentResolver.openInputStream(uri!!)
-              val myBitmap = BitmapFactory.decodeStream(inputStream)
-              val stream = ByteArrayOutputStream()
-              myBitmap.compress(Bitmap.CompressFormat.PNG,100,stream)
-              val bytes = stream.toByteArray()
-              sImage = Base64.encodeToString(bytes,Base64.DEFAULT)
-              binding.imageView.setImageBitmap(myBitmap)
-              inputStream!!.close()
-              Toast.makeText(this,"Image Selected",Toast.LENGTH_SHORT).show()
-          }catch (ex: Exception){
-              Toast.makeText(this,ex.message.toString(),Toast.LENGTH_LONG).show()
-          }
-
-      }
-
-
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if(requestCode == 2 && resultCode == RESULT_OK && data != null){
-            imageUri = data.data!!
-            binding.imageView.setImageURI(imageUri)
-        }
-    }
-    fun uploadToFirebase(uri: Uri){
-        var fileRef = reference.child(System.currentTimeMillis().toString() + "." + getFileExtension(uri))
-        fileRef.putFile(uri).addOnSuccessListener {
-            fileRef.downloadUrl.addOnSuccessListener {
-
-            }
-
-        }.addOnProgressListener {
-            progerssBar.visibility
-
-        }.addOnFailureListener{
-            Toast.makeText(this,"uploading Failed ",Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    private fun getFileExtension(uri: Uri): Any? {
-        var cr = contentResolver
-        var mime = MimeTypeMap.getSingleton()
-        return mime.getExtensionFromMimeType(cr.getType(uri))
-    }
-
-binding.imageView.setOnSafeClick {
-            var galleryIntent = Intent()
-            galleryIntent.setAction(Intent.ACTION_GET_CONTENT)
-            galleryIntent.setType("image/*")
-            startActivityForResult(galleryIntent,2)
-
-        }
-        binding.btnUpload.setOnSafeClick {
-            if(imageUri!= null){
-                uploadToFirebase(imageUri)
-            }
-        }
-        binding.btnShowall.setOnSafeClick {
-
-        }
-  }*/

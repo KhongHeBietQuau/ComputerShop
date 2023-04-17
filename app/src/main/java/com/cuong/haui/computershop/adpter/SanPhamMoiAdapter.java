@@ -41,9 +41,9 @@ public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.My
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         SanPhamMoi sanPhamMoi = array.get(position);
-        holder.txtten.setText(sanPhamMoi.getTensp());
-        holder.txtgia.setText(sanPhamMoi.getGiasp());
-        Glide.with(context).load(sanPhamMoi.getHinhanh()).into(holder.imghinhanh);
+        holder.txtten.setText(sanPhamMoi.getProduct_name().toString());
+        holder.txtgia.setText(String.valueOf(sanPhamMoi.getPrice_new()));
+        Glide.with(context).load(sanPhamMoi.getThumbnail_url()).into(holder.imghinhanh);
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
