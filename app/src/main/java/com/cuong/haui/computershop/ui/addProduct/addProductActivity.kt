@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityAddProductBinding
 import com.cuong.haui.computershop.model.Products
+import com.cuong.haui.computershop.model.SanPhamMoi
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -90,7 +91,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                         //               ,val description:String?="",val cpu: String?="",val ram: String?="",val hard_drive: String?="",val graphics:String?="",
                         //               val screen:String?="",val precent_discount: Int,val created_at:String?="",val update_at:String?="",val deleted: Int,
                         //               val current_quantity: Int,val warranty_period: Int,val category_id: Int
-                        val product_id = 2
+                        val product_id = 4
                         val product_name = binding.productName.text.toString()
                         val price_new = binding.priceNew.text.toString().toInt()
                         val price_old = binding.priceOld.text.toString().toInt()
@@ -113,7 +114,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
 
 
                         database = FirebaseDatabase.getInstance().getReference("Products")
-                        val products = Products(product_id,product_name,price_new,price_old,thumbnail_url,description,cpu,ram,hard_drive,graphics,screen,precent_discount,created_at,update_at,deleted,current_quantity,warranty_period,category_id)
+                        val products = SanPhamMoi(product_id,product_name,price_new,price_old,thumbnail_url,description,cpu,ram,hard_drive,graphics,screen,precent_discount,created_at,update_at,deleted,current_quantity,warranty_period,category_id)
                         database.child(product_id.toString()).setValue(products).addOnSuccessListener {
 
                             binding.cpu.text.clear()

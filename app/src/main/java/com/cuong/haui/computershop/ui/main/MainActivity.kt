@@ -2,6 +2,7 @@ package com.cuong.haui.computershop.ui.main
 
 import android.content.Context
 import android.net.ConnectivityManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -23,9 +24,13 @@ import com.cuong.haui.computershop.utils.ViewUtils
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+    var database =FirebaseDatabase.getInstance()
+
     private lateinit var spAdapter : SanPhamMoiAdapter
     private var mangSpMoi  = ArrayList<SanPhamMoi>()
 
@@ -283,6 +288,26 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
     }
     private fun getSpMoi() {
+
+        var myRef : DatabaseReference = database.getReference("Products")
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (postSnapshot in dataSnapshot.children) {
+                    val sanPhamMoi = postSnapshot.getValue(SanPhamMoi::class.java)
+                    if(sanPhamMoi != null){
+                        mangSpMoi.add(sanPhamMoi)
+                        Toast.makeText(applicationContext, "haha " + mangSpMoi.size, Toast.LENGTH_LONG).show()
+                    }
+                }
+                spAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 2)
         binding.recycleview.setLayoutManager(layoutManager)
         binding.recycleview.setHasFixedSize(true)
