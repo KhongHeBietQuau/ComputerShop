@@ -21,8 +21,10 @@ import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityMainBinding
 import com.cuong.haui.computershop.model.OptionSupport
 import com.cuong.haui.computershop.model.SanPhamMoi
+import com.cuong.haui.computershop.ui.cart.CartActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
+import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.utils.ViewUtils
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
@@ -39,6 +41,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun initCreate() {
 
         initData()
+
         inClick()
         ViewUtils.setCorners(resources,25f,binding.viewlipper)
         ActionBar()
@@ -137,8 +140,30 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
         arrayOption.add(OptionSupport("cài đặt",R.drawable.gear))
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainActivity,arrayOption)
-        // them sp moi
-        // them sp moi
+        //
+
+            var totalItem = 0
+            for (i in 0 until DefaultFirst1.manggiohang.size) {
+                totalItem = totalItem + DefaultFirst1.manggiohang.get(i).getSoluong()
+            }
+            binding.menuSl.setText(totalItem.toString())
+
+        binding.framegiohang.setOnSafeClick {
+            val giohang = Intent(applicationContext, CartActivity::class.java)
+            startActivity(giohang)
+        }
+
+    }
+    override fun onResume() {
+        super.onResume()
+        var totalItem = 0
+
+        for (i in 0 until DefaultFirst1.manggiohang.size) {
+            totalItem = totalItem + DefaultFirst1.manggiohang.get(i).getSoluong()
+        }
+
+        binding.menuSl!!.setText(totalItem.toString())
+
     }
     private fun inClick(){
         binding.btnDangXuat.setOnSafeClick {
@@ -173,6 +198,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         spAdapter = SanPhamMoiAdapter(applicationContext, mangSpMoi)
         binding.recycleview.setAdapter(spAdapter)
     }
+
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityMainBinding {
         return ActivityMainBinding.inflate(inflater)
     }

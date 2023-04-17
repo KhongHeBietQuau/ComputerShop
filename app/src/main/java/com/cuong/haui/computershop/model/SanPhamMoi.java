@@ -3,24 +3,24 @@ package com.cuong.haui.computershop.model;
 import java.io.Serializable;
 
 public class SanPhamMoi implements Serializable {
-    int product_id;
-    String product_name;
-    int price_new;
-    int price_old;
-    String thumbnail_url;
-    String description;
-    String cpu;
-    String ram;
-    String hard_drive;
-    String graphics;
-    String screen;
-    int precent_discount;
-    String created_at;
-    String update_at;
-    int deleted;
-    int current_quantity;
-    int warranty_period;
-    int category_id;
+    public int product_id;
+    public String product_name;
+    public int price_new;
+    public int price_old;
+    public String thumbnail_url;
+    public String description;
+    public String cpu;
+    public String ram;
+    public String hard_drive;
+    public String graphics;
+    public String screen;
+    public int precent_discount;
+    public String created_at;
+    public String update_at;
+    public int deleted;
+    public int current_quantity;
+    public int warranty_period;
+    public int category_id;
 
 
 
