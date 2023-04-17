@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -25,9 +26,11 @@ import com.cuong.haui.computershop.utils.ViewUtils
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 
 class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
+    var database = FirebaseDatabase.getInstance()
     private lateinit var spAdapter : SanPhamMoiAdapter
     private var mangSpMoi  = ArrayList<SanPhamMoi>()
     override fun initCreate() {
@@ -108,175 +111,7 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainAdminActivity,arrayOption)
         // them sp moi
         // them sp moi
-        mangSpMoi.add(
-            SanPhamMoi(
-                1,
-                "Laptop Dell Vostro V3568",
-                10000000,
-                12000000,
-                "Chip: Intel Core i5-7200U\n" +
-                        "RAM: DDR4 4GB (2 khe cắm)\n" +
-                        "Ổ cứng: HDD 1TB\n" +
-                        "Chipset đồ họa: Intel HD Graphics 620\n" +
-                        "Màn hình: 15.6 Inches\n" +
-                        "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1",
-                1,
-                "1",
-                "1",
-                1,
-                1,
-                1,
-                1
-            )
-        )
 
-        mangSpMoi.add(
-            SanPhamMoi(
-                1,
-                "Laptop Dell Vostro V3568",
-                10000000,
-                12000000,
-                "Chip: Intel Core i5-7200U\n" +
-                        "RAM: DDR4 4GB (2 khe cắm)\n" +
-                        "Ổ cứng: HDD 1TB\n" +
-                        "Chipset đồ họa: Intel HD Graphics 620\n" +
-                        "Màn hình: 15.6 Inches\n" +
-                        "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1",
-                1,
-                "1",
-                "1",
-                1,
-                1,
-                1,
-                1
-            )
-        )
-        mangSpMoi.add(
-            SanPhamMoi(
-                1,
-                "Laptop Dell Vostro V3568",
-                10000000,
-                12000000,
-                "Chip: Intel Core i5-7200U\n" +
-                        "RAM: DDR4 4GB (2 khe cắm)\n" +
-                        "Ổ cứng: HDD 1TB\n" +
-                        "Chipset đồ họa: Intel HD Graphics 620\n" +
-                        "Màn hình: 15.6 Inches\n" +
-                        "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1",
-                1,
-                "1",
-                "1",
-                1,
-                1,
-                1,
-                1
-            )
-        )
-        mangSpMoi.add(
-            SanPhamMoi(
-                1,
-                "Laptop Dell Vostro V3568",
-                10000000,
-                12000000,
-                "Chip: Intel Core i5-7200U\n" +
-                        "RAM: DDR4 4GB (2 khe cắm)\n" +
-                        "Ổ cứng: HDD 1TB\n" +
-                        "Chipset đồ họa: Intel HD Graphics 620\n" +
-                        "Màn hình: 15.6 Inches\n" +
-                        "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1",
-                1,
-                "1",
-                "1",
-                1,
-                1,
-                1,
-                1
-            )
-        )
-        mangSpMoi.add(
-            SanPhamMoi(
-                1,
-                "Laptop Dell Vostro V3568",
-                10000000,
-                12000000,
-                "Chip: Intel Core i5-7200U\n" +
-                        "RAM: DDR4 4GB (2 khe cắm)\n" +
-                        "Ổ cứng: HDD 1TB\n" +
-                        "Chipset đồ họa: Intel HD Graphics 620\n" +
-                        "Màn hình: 15.6 Inches\n" +
-                        "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1",
-                1,
-                "1",
-                "1",
-                1,
-                1,
-                1,
-                1
-            )
-        )
-        mangSpMoi.add(
-            SanPhamMoi(
-                1,
-                "Laptop Dell Vostro V3568",
-                10000000,
-                12000000,
-                "Chip: Intel Core i5-7200U\n" +
-                        "RAM: DDR4 4GB (2 khe cắm)\n" +
-                        "Ổ cứng: HDD 1TB\n" +
-                        "Chipset đồ họa: Intel HD Graphics 620\n" +
-                        "Màn hình: 15.6 Inches\n" +
-                        "Hệ điều hành: Free Dos\n" +
-                        "Pin: 4 Cell Lithium-ion",
-                "http://mauweb.monamedia.net/hanoicomputer/wp-content/uploads/2017/12/dell-V3568-XF6C61-01.jpg",
-                "1",
-                "1",
-                "1",
-                "1",
-                "1",
-                1,
-                "1",
-                "1",
-                1,
-                1,
-                1,
-                1
-            )
-        )
     }
     private fun inClick(){
         binding.btnDangXuat.setOnSafeClick {
@@ -285,6 +120,25 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         }
     }
     private fun getSpMoi() {
+        var myRef : DatabaseReference = database.getReference("Products")
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (postSnapshot in dataSnapshot.children) {
+                    val sanPhamMoi = postSnapshot.getValue(SanPhamMoi::class.java)
+                    if(sanPhamMoi != null){
+                        mangSpMoi.add(sanPhamMoi)
+
+                    }
+                }
+                spAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this, 2)
         binding.recycleview.setLayoutManager(layoutManager)
         binding.recycleview.setHasFixedSize(true)

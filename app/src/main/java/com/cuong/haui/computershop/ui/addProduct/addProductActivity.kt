@@ -17,8 +17,7 @@ import com.cuong.haui.computershop.databinding.ActivityAddProductBinding
 import com.cuong.haui.computershop.model.Products
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.google.android.gms.tasks.Task
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import java.io.IOException
@@ -31,7 +30,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
     private val btnChoose: Button? = null
     private  var btnUpload:Button? = null
     private val imageView: ImageView? = null
-
+    var product_id : Int = 0
     private var filePath: Uri? = null
 
     private val PICK_IMAGE_REQUEST = 71
@@ -41,6 +40,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun initCreate() {
+        getElementLast()
         binding.btnChoose.setOnClickListener{
             chooseImage()
         }
@@ -51,7 +51,36 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
 
 
     }
+    private fun getElementLast(){
+        database = FirebaseDatabase.getInstance().getReference("Products")
+        var databaseIndexLast: Query
+        databaseIndexLast = database.limitToLast(1)
+        var mangSpMoi = ArrayList<SanPhamMoi>()
+        databaseIndexLast.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (postSnapshot in dataSnapshot.children) {
+                    val sanPhamMoi = postSnapshot.getValue(SanPhamMoi::class.java)
+                    if (sanPhamMoi != null) {
+                        mangSpMoi.add(sanPhamMoi)
+                        product_id = sanPhamMoi.product_id+1
+                        Toast.makeText(
+                            applicationContext,
+                            "haha" + product_id,
 
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
+    }
     private fun chooseImage() {
         val intent = Intent()
         intent.type = "image/*"
@@ -85,13 +114,13 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                     val downloadUri: Task<Uri> = it.storage.downloadUrl
                     downloadUri.addOnSuccessListener {
                         var imageLink = it.toString()
-                        Log.d("cuongnm", "uploadImage: $imageLink")
+                        // lay phan tu cuoi
 
-                        //val product_id: Int,val product_name:String?="",val price_new: Int,val price_old: Int,val thumbnail_url:String?=""
-                        //               ,val description:String?="",val cpu: String?="",val ram: String?="",val hard_drive: String?="",val graphics:String?="",
-                        //               val screen:String?="",val precent_discount: Int,val created_at:String?="",val update_at:String?="",val deleted: Int,
-                        //               val current_quantity: Int,val warranty_period: Int,val category_id: Int
-                        val product_id = 4
+
+
+                        Log.d("cuongnm", "uploadImage: $imageLink")
+                        // kiem tra xem co phan tu cuoi cung chua
+
                         val product_name = binding.productName.text.toString()
                         val price_new = binding.priceNew.text.toString().toInt()
                         val price_old = binding.priceOld.text.toString().toInt()
@@ -113,31 +142,52 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                         val category_id = 1
 
 
-                        database = FirebaseDatabase.getInstance().getReference("Products")
-                        val products = SanPhamMoi(product_id,product_name,price_new,price_old,thumbnail_url,description,cpu,ram,hard_drive,graphics,screen,precent_discount,created_at,update_at,deleted,current_quantity,warranty_period,category_id)
-                        database.child(product_id.toString()).setValue(products).addOnSuccessListener {
+                        val products = SanPhamMoi(
+                            product_id,
+                            product_name,
+                            price_new,
+                            price_old,
+                            thumbnail_url,
+                            description,
+                            cpu,
+                            ram,
+                            hard_drive,
+                            graphics,
+                            screen,
+                            precent_discount,
+                            created_at,
+                            update_at,
+                            deleted,
+                            current_quantity,
+                            warranty_period,
+                            category_id
+                        )
+                        database.child(product_id.toString()).setValue(products)
+                            .addOnSuccessListener {
 
-                            binding.cpu.text.clear()
-                            binding.description.text.clear()
-                            binding.productName.text.clear()
-                            binding.currentQuantity.text.clear()
-                            binding.graphicsCard.text.clear()
-                            binding.hardDrive.text.clear()
-                            binding.precentDiscount.text.clear()
-                            binding.priceNew.text.clear()
-                            binding.priceOld.text.clear()
-                            binding.ram.text.clear()
-                            binding.screen.text.clear()
-                            binding.warrantyPeriod.text.clear()
+                                binding.cpu.text.clear()
+                                binding.description.text.clear()
+                                binding.productName.text.clear()
+                                binding.currentQuantity.text.clear()
+                                binding.graphicsCard.text.clear()
+                                binding.hardDrive.text.clear()
+                                binding.precentDiscount.text.clear()
+                                binding.priceNew.text.clear()
+                                binding.priceOld.text.clear()
+                                binding.ram.text.clear()
+                                binding.screen.text.clear()
+                                binding.warrantyPeriod.text.clear()
 
-                            Toast.makeText(this,"Successfully Saved",Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT)
+                                    .show()
 
-                        }.addOnFailureListener{
+                            }.addOnFailureListener {
 
-                            Toast.makeText(this,"Failed",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
 
 
                         }
+
 
                     }.addOnFailureListener {
                         Log.d("cuongnm", "uploadImage: fail")
