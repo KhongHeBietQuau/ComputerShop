@@ -6,24 +6,139 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.addProduct.addProductActivity">
+        <ImageView
+            android:id="@+id/imgView"
+            android:layout_gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
         <Button
             android:id="@+id/btnChoose"
+            android:layout_gravity="center"
             android:text="Choose"
-
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
-
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="500dp"
+                        android:orientation="vertical">
+                        <EditText
+                            android:id="@+id/product_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Tên sản phẩm"/>
+                        <EditText
+                            android:id="@+id/price_new"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Giá mới"/>
+                        <EditText
+                            android:id="@+id/price_old"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Giá cũ"/>
+                        <EditText
+                            android:id="@+id/description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Mô tả"/>
+                        <EditText
+                            android:id="@+id/cpu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="CPU"/>
+                        <EditText
+                            android:id="@+id/ram"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="RAM"/>
+                        <EditText
+                            android:id="@+id/hard_drive"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Ổ cứng"/>
+                        <EditText
+                            android:id="@+id/graphics_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Card đồ họa"/>
+                        <EditText
+                            android:id="@+id/screen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Màn hình"/>
+                        <EditText
+                            android:id="@+id/precent_discount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Phần trăm giảm giá"/>
+                        <EditText
+                            android:id="@+id/current_quantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Số lượng"/>
+                        <EditText
+                            android:id="@+id/warranty_period"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginTop="6dp"
+                            android:hint="Thời gian bảo hành(theo tháng)"/>
+                    </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
         <Button
             android:id="@+id/btnUpload"
+            android:layout_gravity="center"
             android:text="Upload"
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
-
-        <ImageView
-            android:id="@+id/imgView"
-            android:layout_width="100dp"
-            android:layout_height="100dp" />
-
-
 
 </LinearLayout>
