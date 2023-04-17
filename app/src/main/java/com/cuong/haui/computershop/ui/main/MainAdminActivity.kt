@@ -1,6 +1,7 @@
 package com.cuong.haui.computershop.ui.main
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
@@ -21,6 +23,8 @@ import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityMainAdminBinding
 import com.cuong.haui.computershop.model.OptionSupport
 import com.cuong.haui.computershop.model.SanPhamMoi
+import com.cuong.haui.computershop.ui.addProduct.addProductActivity
+import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
 import com.cuong.haui.computershop.utils.ViewUtils
 import com.cuong.haui.computershop.view.openActivity
@@ -44,7 +48,7 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
             //themList()
             getSpMoi()
             //getLoaiSanPham();
-            //getEventClick()
+            getEventClick()
         } else {
             Toast.makeText(applicationContext, "ko co internet", Toast.LENGTH_LONG).show()
         }
@@ -62,6 +66,38 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         }
     }
 
+    private fun getEventClick() {
+        binding.listviewmanhinhchinh.setOnItemClickListener(AdapterView.OnItemClickListener { adapterView, view, i, l ->
+            when (i) {
+                0 -> {
+                    val trangchu = Intent(applicationContext, MainActivity::class.java)
+                    finish()
+                    startActivity(trangchu)
+                }
+                /*1 -> {
+                    val dienthoai = Intent(applicationContext, DienThoaiActivity::class.java)
+                    finish()
+                    startActivity(dienthoai)
+                }
+                2 -> {
+                    val laptop = Intent(applicationContext, DienThoaiActivity::class.java)
+                    finish()
+                    startActivity(laptop)
+                }*/
+                3 -> {
+                    val laptop = Intent(applicationContext, OrderManagementActivity::class.java)
+                    finish()
+                    startActivity(laptop)
+                }
+                8 -> {
+                    val laptop = Intent(applicationContext, addProductActivity::class.java)
+                    finish()
+                    startActivity(laptop)
+                }
+
+            }
+        })
+    }
     private fun ActionViewFlipper() {
         val mangquangcao: MutableList<String> = ArrayList()
         mangquangcao.add("http://mauweb.monamedia.net/thegioididong/wp-content/uploads/2017/12/banner-big-ky-nguyen-800-300.jpg")
