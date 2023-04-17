@@ -112,7 +112,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
             for (i in 0 until DefaultFirst1.manggiohang.size) {
                 totalItem = totalItem + DefaultFirst1.manggiohang.get(i).getSoluong()
             }
-            
+
             binding.menuSl!!.setText(totalItem.toString())
 
     }
