@@ -23,6 +23,7 @@ import com.cuong.haui.computershop.model.OptionSupport
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.ui.cart.CartActivity
 import com.cuong.haui.computershop.ui.laptopGaming.LaptopGamingActivity
+import com.cuong.haui.computershop.ui.laptopOffice.LaptopOfficeActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
@@ -77,7 +78,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     startActivity(trangchu)
                 }
                 1 -> {
-                    val dienthoai = Intent(applicationContext, LaptopGamingActivity::class.java)
+                    val dienthoai = Intent(applicationContext, LaptopOfficeActivity::class.java)
                     finish()
                     startActivity(dienthoai)
                 }

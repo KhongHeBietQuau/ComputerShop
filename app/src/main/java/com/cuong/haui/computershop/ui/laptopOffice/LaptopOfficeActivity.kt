@@ -1,4 +1,4 @@
-package com.cuong.haui.computershop.ui.laptopGaming
+package com.cuong.haui.computershop.ui.laptopOffice
 
 import android.text.Editable
 import android.text.TextWatcher
@@ -9,15 +9,15 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cuong.haui.computershop.adpter.LaptopAdapter
 import com.cuong.haui.computershop.base.BaseActivity
-import com.cuong.haui.computershop.databinding.ActivityLaptopGamingBinding
+import com.cuong.haui.computershop.databinding.ActivityLaptopOfficeBinding
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.database.*
 
-class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
-    var database =FirebaseDatabase.getInstance()
+class LaptopOfficeActivity : BaseActivity<ActivityLaptopOfficeBinding>() {
+    var database = FirebaseDatabase.getInstance()
     private lateinit var spAdapter : LaptopAdapter
     private var mangSpMoi  = ArrayList<SanPhamMoi>()
     override fun initCreate() {
@@ -25,7 +25,6 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
         SearchChange()
         CloseScreenLaptopGaming()
     }
-
     private fun CloseScreenLaptopGaming() {
         binding.returnApp.setOnSafeClick {
             openActivity(MainActivity::class.java,true)
@@ -35,7 +34,7 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
     private fun InitData(){
         var myRef : DatabaseReference = database.getReference("Products")
         val query = FirebaseDatabase.getInstance().getReference()
-            .child("Products").orderByChild("description").equalTo("laptop gaming")
+            .child("Products").orderByChild("description").equalTo("laptop văn phòng")
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (postSnapshot in dataSnapshot.children) {
@@ -61,7 +60,7 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
         binding.recyclerViewSearch.setAdapter(spAdapter)
     }
     private fun SearchChange() {
-        binding.searchEditText.addTextChangedListener(object : TextWatcher{
+        binding.searchEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -90,7 +89,7 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
             .startAt(input)
             .endAt(input + "\uf8ff")
 
-        query.addValueEventListener(object : ValueEventListener{
+        query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot)
             {
                 mangSpMoi?.clear()
@@ -112,7 +111,7 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
 
     private fun retrieveUsers() {
         val usersRef = FirebaseDatabase.getInstance().getReference().child("Users")
-        usersRef.addValueEventListener(object : ValueEventListener{
+        usersRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if(binding.searchEditText?.text.toString() == "")
                 {
@@ -133,10 +132,8 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
 
         })
     }
-
-    override fun inflateViewBinding(inflater: LayoutInflater): ActivityLaptopGamingBinding {
-        return ActivityLaptopGamingBinding.inflate(inflater)
+    override fun inflateViewBinding(inflater: LayoutInflater): ActivityLaptopOfficeBinding {
+        return ActivityLaptopOfficeBinding.inflate(inflater)
     }
-
 
 }
