@@ -7,6 +7,7 @@
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable-hdpi/inputs_background.xml" value="0.1" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable-mdpi/bg_brogress_load_splash.xml" value="0.152" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.192" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable/button_black_background.xml" value="0.1805" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.192" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable/ic_baseline_drag_handle_24.xml" value="0.192" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.1335" />
@@ -21,6 +22,7 @@
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_add_product.xml" value="0.1" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_cart.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_laptop_gaming.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_main_admin.xml" value="0.34375" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_order_management.xml" value="0.33" />
@@ -32,6 +34,8 @@
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/fragment_delivered.xml" value="0.16" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/fragment_delivering.xml" value="0.1" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_giohang.xml" value="0.24895833333333334" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_laptop.xml" value="0.24895833333333334" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_loading.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_sanpham.xml" value="0.16" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_sp_moi.xml" value="0.24895833333333334" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/menu/menu.xml" value="0.1578125" />

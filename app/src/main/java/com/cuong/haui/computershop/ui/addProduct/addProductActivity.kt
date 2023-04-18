@@ -7,14 +7,12 @@ import android.os.Build
 import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityAddProductBinding
-import com.cuong.haui.computershop.model.Products
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.*

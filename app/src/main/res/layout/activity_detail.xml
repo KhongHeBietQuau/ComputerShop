@@ -65,6 +65,7 @@
 
             <TextView
                 android:id="@+id/txttensp"
+                android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -75,9 +76,10 @@
 
             <TextView
                 android:id="@+id/txtgiasp"
+                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="5dp"
                 android:text="@string/gia_25000_d"
                 android:textColor="@color/color_app"
