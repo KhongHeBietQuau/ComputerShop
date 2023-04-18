@@ -30,6 +30,7 @@ import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.utils.ViewUtils
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
@@ -49,6 +50,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         ActionBar()
         if (isConnected(this)) {
             Toast.makeText(applicationContext, "ok", Toast.LENGTH_LONG).show()
+            Log.d("cuongnm", FirebaseAuth.getInstance().currentUser.toString())
+
             ActionViewFlipper()
             //themList()
             getSpMoi()
@@ -89,6 +92,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
                 3 -> {
                     val laptop = Intent(applicationContext, OrderManagementActivity::class.java)
+                    finish()
+                    startActivity(laptop)
+                }
+                4 -> {
+                    val laptop = Intent(applicationContext, CartActivity::class.java)
                     finish()
                     startActivity(laptop)
                 }

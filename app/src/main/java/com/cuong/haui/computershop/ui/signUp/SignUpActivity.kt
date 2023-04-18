@@ -5,20 +5,26 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import com.cuong.haui.computershop.R
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivitySignInBinding
 import com.cuong.haui.computershop.databinding.ActivitySignUpBinding
+import com.cuong.haui.computershop.model.SanPhamMoi
+import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
+import java.util.ArrayList
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
+    private lateinit var database : DatabaseReference
+    var user_id : Int = 0
     override fun initCreate() {
+        getElementLast()
         binding.signinLinkBtn.setOnClickListener {
             startActivity(Intent(this,SignInActivity::class.java))
         }
@@ -30,6 +36,30 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
 
     override fun inflateViewBinding(inflater: LayoutInflater): ActivitySignUpBinding {
         return ActivitySignUpBinding.inflate(inflater)
+    }
+    private fun getElementLast(){
+        database = FirebaseDatabase.getInstance().getReference("Users")
+        var databaseIndexLast: Query
+        databaseIndexLast = database.limitToLast(1)
+        var mangUser = ArrayList<User>()
+        databaseIndexLast.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (postSnapshot in dataSnapshot.children) {
+                    val user = postSnapshot.getValue(User::class.java)
+                    if (user != null) {
+                        mangUser.add(user)
+                        user_id = user.user_id+1
+                    }
+                }
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
     }
     private fun CreateAccount() {
         val fullName = binding.fullnameSignup.text.toString()
@@ -47,7 +77,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
             else ->{
                 val progressDialog = ProgressDialog(this@SignUpActivity)
                 progressDialog.setTitle("SignUp")
-                progressDialog.setMessage("Please wait, this may take a while ...")
+                progressDialog.setMessage("Vui lòng đợi trong giây lát ...")
                 progressDialog.setCanceledOnTouchOutside(false)
                 progressDialog.show()
 
@@ -56,7 +86,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                 mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener{ task ->
                         if(task.isSuccessful){
-                            saveUserInfo(fullName,userName,email,progressDialog)
+                            saveUserInfo(fullName,userName,email,progressDialog,password)
                         }
                         else{
                             val message = task.exception!!.toString()
@@ -70,19 +100,14 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
         }
     }
 
-    private fun saveUserInfo(fullName: String, userName: String, email: String, progressDialog: ProgressDialog) {
+    private fun saveUserInfo(fullName: String?, userName: String?, email: String?, progressDialog: ProgressDialog, password: String?) {
         val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
         val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
 
-        val userMap = HashMap<String,Any>()
-        userMap["uid"] = currentUserID
-        userMap["fullname"] = fullName.toLowerCase()
-        userMap["username"] = userName.toLowerCase()
-        userMap["email"] = email
-        userMap["bio"] = "hey i am using Coding Cafe Instagram Clone App."
-        userMap["image"] = "https://firebasestorage.googleapis.com/v0/b/instagram-clone-deeb5.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=644c083d-fa83-490b-af51-a8855fcdd94b"
+        val userMap = User(user_id,1,fullName,userName,email,password,"","","https://firebasestorage.googleapis.com/v0/b/instagram-clone-deeb5.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=644c083d-fa83-490b-af51-a8855fcdd94b")
 
-        usersRef.child(currentUserID).setValue(userMap)
+
+        usersRef.child(user_id.toString()).setValue(userMap)
             .addOnCompleteListener{ task ->
                 if (task.isSuccessful){
                     progressDialog.dismiss()
