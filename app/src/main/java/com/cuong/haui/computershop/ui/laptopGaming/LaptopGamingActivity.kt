@@ -11,6 +11,9 @@ import com.cuong.haui.computershop.adpter.LaptopAdapter
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityLaptopGamingBinding
 import com.cuong.haui.computershop.model.SanPhamMoi
+import com.cuong.haui.computershop.ui.main.MainActivity
+import com.cuong.haui.computershop.view.openActivity
+import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.database.*
 
 class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
@@ -20,8 +23,15 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
     override fun initCreate() {
         InitData()
         SearchChange()
-
+        CloseScreenLaptopGaming()
     }
+
+    private fun CloseScreenLaptopGaming() {
+        binding.returnApp.setOnSafeClick {
+            openActivity(MainActivity::class.java,true)
+        }
+    }
+
     private fun InitData(){
         var myRef : DatabaseReference = database.getReference("Products")
         myRef.addValueEventListener(object : ValueEventListener {
