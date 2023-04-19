@@ -41,14 +41,14 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                     DefaultFirst1.manggiohang.get(i)
                         .setSoluong(soluong + DefaultFirst1.manggiohang.get(i).getSoluong())
                     val gia: Long =
-                        (sanPhamMoi?.price_new?.toLong() ?: 0) * DefaultFirst1.manggiohang.get(i).getSoluong()
+                        (sanPhamMoi?.price_new?.toLong() ?: 0)
                     DefaultFirst1.manggiohang.get(i).setGiasp(gia)
                     Toast.makeText(applicationContext, "đang ấn", Toast.LENGTH_LONG).show()
                     flag = true
                 }
             }
             if (flag == false) {
-                val gia: Long = (sanPhamMoi?.price_new?.toLong() ?: 0) * soluong
+                val gia: Long = (sanPhamMoi?.price_new?.toLong() ?: 0)
                 val gioHang = GioHang()
                 gioHang.setGiasp(gia)
                 gioHang.setSoluong(soluong)
@@ -59,7 +59,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
             }
         } else {
             val soluong = binding.spinnerr!!.selectedItem.toString().toInt()
-            val gia: Long = (sanPhamMoi?.price_new?.toLong() ?: 0) * soluong
+            val gia: Long = (sanPhamMoi?.price_new?.toLong() ?: 0)
             val gioHang = GioHang()
             gioHang.setGiasp(gia)
             gioHang.setSoluong(soluong)

@@ -47,12 +47,12 @@
                 <TextView
                     android:id="@+id/item_giohang_gia"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="5"
                     android:gravity="center"
                     android:text="15000"
                     android:textColor="@color/color_app"
-                    android:textSize="15sp"></TextView>
+                    android:textSize="15sp"/>
 
                 <ImageView
                     android:id="@+id/item_giohang_tru"
@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:src="@drawable/ic_baseline_remove_24"
-                    app:tint="@color/color_app"></ImageView>
+                    app:tint="@color/color_app"/>
 
                 <TextView
                     android:id="@+id/item_giohang_soluong"

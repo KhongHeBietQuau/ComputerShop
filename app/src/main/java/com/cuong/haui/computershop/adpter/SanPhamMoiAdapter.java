@@ -19,7 +19,7 @@ import com.cuong.haui.computershop.Interface.ItemClickListener;
 import com.cuong.haui.computershop.ui.detail.DetailActivity;
 
 
-
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.MyViewHolder> {
@@ -42,7 +42,9 @@ public class SanPhamMoiAdapter extends RecyclerView.Adapter<SanPhamMoiAdapter.My
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         SanPhamMoi sanPhamMoi = array.get(position);
         holder.txtten.setText(sanPhamMoi.getProduct_name().toString());
-        holder.txtgia.setText(String.valueOf(sanPhamMoi.getPrice_new() + "  VNĐ"));
+        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
+
+        holder.txtgia.setText(String.valueOf(decimalFormat.format(sanPhamMoi.getPrice_new()) + "  VNĐ"));
         Glide.with(context).load(sanPhamMoi.getThumbnail_url()).into(holder.imghinhanh);
 
         holder.setItemClickListener(new ItemClickListener() {

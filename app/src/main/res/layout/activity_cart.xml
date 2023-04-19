@@ -16,7 +16,7 @@
         android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toobar"
@@ -25,7 +25,7 @@
         android:background="@color/color_app"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Giỏ hàng"
-        app:titleTextColor="@color/white"></androidx.appcompat.widget.Toolbar>
+        app:titleTextColor="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleviewgiohang"
@@ -53,7 +53,7 @@
             android:text="Tổng Tiền"
             android:textColor="@color/color_app"
             android:textSize="18sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/txttongtien"
@@ -66,7 +66,7 @@
             android:text="50.000"
             android:textColor="@color/color_app"
             android:textSize="18sp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <Button
@@ -78,5 +78,5 @@
         android:layout_marginBottom="10dp"
         android:text="Mua Hàng"
         android:textColor="@color/color_app"
-        app:layout_constraintBottom_toBottomOf="parent"></Button>
+        app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

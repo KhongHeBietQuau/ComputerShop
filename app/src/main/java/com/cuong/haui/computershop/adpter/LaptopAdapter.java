@@ -52,7 +52,7 @@ public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int positi
         SanPhamMoi sanPham = array.get(position);
         myViewHolder.tensp.setText(sanPham.getProduct_name());
         DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-        myViewHolder.giasp.setText("Gia: " + decimalFormat.format(sanPham.getPrice_new()) + "Đ");
+        myViewHolder.giasp.setText("Giá: " + decimalFormat.format(sanPham.getPrice_new()) + "VNĐ");
         myViewHolder.mota.setText(sanPham.getDescription());
         Glide.with(context).load(sanPham.getThumbnail_url()).into(myViewHolder.hinhanh);
         myViewHolder.setItemClickListener(new ItemClickListener() {
