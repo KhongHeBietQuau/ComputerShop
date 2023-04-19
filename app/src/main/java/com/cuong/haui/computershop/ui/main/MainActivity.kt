@@ -21,6 +21,7 @@ import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityMainBinding
 import com.cuong.haui.computershop.model.OptionSupport
 import com.cuong.haui.computershop.model.SanPhamMoi
+import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.cart.CartActivity
 import com.cuong.haui.computershop.ui.laptopGaming.LaptopGamingActivity
 import com.cuong.haui.computershop.ui.laptopOffice.LaptopOfficeActivity
@@ -37,7 +38,6 @@ import com.google.firebase.ktx.Firebase
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
     var database =FirebaseDatabase.getInstance()
-
     private lateinit var spAdapter : SanPhamMoiAdapter
     private var mangSpMoi  = ArrayList<SanPhamMoi>()
 
@@ -137,6 +137,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         })
     }
     private fun initData() {
+        //userCurrent = intent.getSerializableExtra("userCurrent") as User?
         var arrayOption : ArrayList<OptionSupport> = ArrayList()
         arrayOption.add(OptionSupport("Trang chủ",R.drawable.house))
         arrayOption.add(OptionSupport("Laptop văn phòng",R.drawable.laptop))
@@ -164,8 +165,32 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         }
 
     }
+
+
     override fun onResume() {
         super.onResume()
+        // lấy user đang dùng
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val name = it.displayName
+            val email = it.email
+            var myRef : DatabaseReference = database.getReference("Users").child(name.toString())
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                        DefaultFirst1.userCurrent = dataSnapshot.getValue(User::class.java)
+                    //Toast.makeText(applicationContext, DefaultFirst1.userCurrent.toString() , Toast.LENGTH_LONG).show()
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Getting Post failed, log a message
+                    Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                    // ...
+                }
+            })
+
+        }
+
         var totalItem = 0
 
         for (i in 0 until DefaultFirst1.manggiohang.size) {
@@ -175,6 +200,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.menuSl!!.setText(totalItem.toString())
 
     }
+
+
     private fun inClick(){
         binding.btnDangXuat.setOnSafeClick {
             Firebase.auth.signOut()

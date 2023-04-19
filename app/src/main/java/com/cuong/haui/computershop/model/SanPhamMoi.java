@@ -198,4 +198,28 @@ public class SanPhamMoi implements Serializable {
         this.warranty_period = warranty_period;
         this.category_id = category_id;
     }
+
+    @Override
+    public String toString() {
+        return "SanPhamMoi{" +
+                "product_id=" + product_id +
+                ", product_name='" + product_name + '\'' +
+                ", price_new=" + price_new +
+                ", price_old=" + price_old +
+                ", thumbnail_url='" + thumbnail_url + '\'' +
+                ", description='" + description + '\'' +
+                ", cpu='" + cpu + '\'' +
+                ", ram='" + ram + '\'' +
+                ", hard_drive='" + hard_drive + '\'' +
+                ", graphics='" + graphics + '\'' +
+                ", screen='" + screen + '\'' +
+                ", precent_discount=" + precent_discount +
+                ", created_at='" + created_at + '\'' +
+                ", update_at='" + update_at + '\'' +
+                ", deleted=" + deleted +
+                ", current_quantity=" + current_quantity +
+                ", warranty_period=" + warranty_period +
+                ", category_id=" + category_id +
+                '}';
+    }
 }

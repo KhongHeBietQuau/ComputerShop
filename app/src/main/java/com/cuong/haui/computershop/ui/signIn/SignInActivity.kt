@@ -10,6 +10,8 @@ import com.cuong.haui.computershop.databinding.ActivitySignInBinding
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.signUp.SignUpActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class SignInActivity : BaseActivity<ActivitySignInBinding>() {
     override fun inflateViewBinding(inflater: LayoutInflater): ActivitySignInBinding {
@@ -47,7 +49,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
             else -> {
                 val progressDialog = ProgressDialog(this@SignInActivity)
                 progressDialog.setTitle("Login")
-                progressDialog.setMessage("Please wait, this may take a while ...")
+                progressDialog.setMessage("Vui lòng đợi trong giây lát ...")
                 progressDialog.setCanceledOnTouchOutside(false)
                 progressDialog.show()
 
@@ -60,6 +62,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                             progressDialog.dismiss()
                             val intent = Intent(this@SignInActivity, MainActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+
                             startActivity(intent)
                             finish()
                         } else {

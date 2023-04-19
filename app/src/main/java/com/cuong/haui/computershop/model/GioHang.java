@@ -49,4 +49,15 @@ public class GioHang {
     public void setSoluong(int soluong) {
         this.soluong = soluong;
     }
+
+    @Override
+    public String toString() {
+        return "GioHang{" +
+                "idsp=" + idsp +
+                ", tensp='" + tensp + '\'' +
+                ", giasp=" + giasp +
+                ", hinhsp='" + hinhsp + '\'' +
+                ", soluong=" + soluong +
+                '}';
+    }
 }

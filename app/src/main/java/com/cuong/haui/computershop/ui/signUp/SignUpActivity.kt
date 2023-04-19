@@ -2,23 +2,19 @@ package com.cuong.haui.computershop.ui.signUp
 
 import android.app.ProgressDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
-import com.cuong.haui.computershop.R
 import com.cuong.haui.computershop.base.BaseActivity
-import com.cuong.haui.computershop.databinding.ActivitySignInBinding
 import com.cuong.haui.computershop.databinding.ActivitySignUpBinding
-import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.*
-import java.util.ArrayList
+
 
 class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
     private lateinit var database : DatabaseReference
@@ -87,6 +83,14 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                     .addOnCompleteListener{ task ->
                         if(task.isSuccessful){
                             saveUserInfo(fullName,userName,email,progressDialog,password)
+                            // truyền thêm dữ liệu cho tài khoản Authenication hiện tại
+                            val user = FirebaseAuth.getInstance().currentUser
+
+                            val profileUpdates =
+                                UserProfileChangeRequest.Builder().setDisplayName(user_id.toString())
+                                    .build()
+
+                            user!!.updateProfile(profileUpdates)
                         }
                         else{
                             val message = task.exception!!.toString()
@@ -111,9 +115,10 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
             .addOnCompleteListener{ task ->
                 if (task.isSuccessful){
                     progressDialog.dismiss()
-                    Toast.makeText(this,"Account has been created successfull", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Tài khoản đã được tạo thành công", Toast.LENGTH_LONG).show()
 
                     val intent = Intent(this@SignUpActivity,MainActivity::class.java)
+                    intent.putExtra("userCurrent", userMap)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                     finish()
