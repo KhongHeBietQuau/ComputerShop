@@ -7,12 +7,12 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cuong.haui.computershop.adpter.ConfirmAdapter
 import com.cuong.haui.computershop.base.BaseFragment
-import com.cuong.haui.computershop.databinding.FragmentDeliveringBinding
+import com.cuong.haui.computershop.databinding.FragmentProductReturnBinding
 import com.cuong.haui.computershop.model.SaleOrder
 import com.google.firebase.database.*
 
 
-class DeliveringFragment : BaseFragment<FragmentDeliveringBinding>() {
+class ProductReturnFragment : BaseFragment<FragmentProductReturnBinding>(){
     var database = FirebaseDatabase.getInstance()
     private lateinit var confirmspAdapter : ConfirmAdapter
     private var mangSaleOrder  = ArrayList<SaleOrder>()
@@ -23,7 +23,7 @@ class DeliveringFragment : BaseFragment<FragmentDeliveringBinding>() {
         //Toast.makeText(activity, "ngu", Toast.LENGTH_LONG).show()
         var myRef : DatabaseReference = database.getReference("SaleOrders")
         val query = FirebaseDatabase.getInstance().getReference()
-            .child("SaleOrders").orderByChild("status").equalTo("3")
+            .child("SaleOrders").orderByChild("status").equalTo("4")
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (postSnapshot in dataSnapshot.children) {
@@ -45,15 +45,16 @@ class DeliveringFragment : BaseFragment<FragmentDeliveringBinding>() {
         })
 //
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this.getActivity(), 1)
-        binding.recyclerViewDelivering.setLayoutManager(layoutManager)
-        binding.recyclerViewDelivering.setHasFixedSize(true)
+        binding.recyclerViewProductReturn.setLayoutManager(layoutManager)
+        binding.recyclerViewProductReturn.setHasFixedSize(true)
         confirmspAdapter = ConfirmAdapter(this.activity, mangSaleOrder)
-        binding.recyclerViewDelivering.setAdapter(confirmspAdapter)
+        binding.recyclerViewProductReturn.setAdapter(confirmspAdapter)
     }
     override fun inflateLayout(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): FragmentDeliveringBinding {
-        return FragmentDeliveringBinding.inflate(inflater)
+    ): FragmentProductReturnBinding {
+        return FragmentProductReturnBinding.inflate(inflater)
     }
+
 }

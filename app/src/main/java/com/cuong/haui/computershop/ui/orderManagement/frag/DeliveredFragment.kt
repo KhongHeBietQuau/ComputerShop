@@ -1,20 +1,55 @@
 package com.cuong.haui.computershop.ui.orderManagement.frag
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.cuong.haui.computershop.R
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.cuong.haui.computershop.adpter.ConfirmAdapter
 import com.cuong.haui.computershop.base.BaseFragment
 import com.cuong.haui.computershop.databinding.FragmentDeliveredBinding
+import com.cuong.haui.computershop.model.SaleOrder
+import com.google.firebase.database.*
 
 
 class DeliveredFragment : BaseFragment<FragmentDeliveredBinding>() {
+    var database = FirebaseDatabase.getInstance()
+    private lateinit var confirmspAdapter : ConfirmAdapter
+    private var mangSaleOrder  = ArrayList<SaleOrder>()
     override fun initViewCreated() {
-
+        InitData()
     }
+    private fun InitData(){
+        //Toast.makeText(activity, "ngu", Toast.LENGTH_LONG).show()
+        var myRef : DatabaseReference = database.getReference("SaleOrders")
+        val query = FirebaseDatabase.getInstance().getReference()
+            .child("SaleOrders").orderByChild("status").equalTo("2")
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (postSnapshot in dataSnapshot.children) {
+                    val saleOrder = postSnapshot.getValue(SaleOrder::class.java)
+                    if(saleOrder != null){
+                        //Toast.makeText(activity, "okkk", Toast.LENGTH_LONG).show()
+                        mangSaleOrder.add(saleOrder)
 
+                    }
+                }
+                confirmspAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
+//
+        val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this.getActivity(), 1)
+        binding.recyclerViewDelivered.setLayoutManager(layoutManager)
+        binding.recyclerViewDelivered.setHasFixedSize(true)
+        confirmspAdapter = ConfirmAdapter(this.activity, mangSaleOrder)
+        binding.recyclerViewDelivered.setAdapter(confirmspAdapter)
+    }
     override fun inflateLayout(
         inflater: LayoutInflater,
         container: ViewGroup?

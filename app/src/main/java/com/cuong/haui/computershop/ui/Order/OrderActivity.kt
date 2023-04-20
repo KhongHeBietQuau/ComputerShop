@@ -1,10 +1,12 @@
 package com.cuong.haui.computershop.ui.Order
 
 import android.app.ProgressDialog
+import android.os.Build
 import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityOrderBinding
 import com.cuong.haui.computershop.model.SaleOrder
@@ -16,10 +18,13 @@ import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.*
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class OrderActivity : BaseActivity<ActivityOrderBinding>() {
     private lateinit var database : DatabaseReference
     var saleOrder_current_id : Int = 0
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun initCreate() {
         initData()
         getElementLast()
@@ -56,6 +61,7 @@ class OrderActivity : BaseActivity<ActivityOrderBinding>() {
             }
         })
     }
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun datHang() {
         binding.btnDatHang.setOnSafeClick {
         val deliveryAddress = binding.deliveryAddress.text.toString()
@@ -68,7 +74,7 @@ class OrderActivity : BaseActivity<ActivityOrderBinding>() {
             TextUtils.isEmpty(receiver) -> Toast.makeText(this,"Vui lòng nhập tên người nhận", Toast.LENGTH_LONG).show()
 
             else ->{
-                DefaultFirst1.saleOrderCurrent.setStatus(1)
+                DefaultFirst1.saleOrderCurrent.setStatus("1")
                 DefaultFirst1.saleOrderCurrent.setAdmin_id(0)
                 DefaultFirst1.saleOrderCurrent.setUser_id(DefaultFirst1.userCurrent.user_id)
                 DefaultFirst1.saleOrderCurrent.setShipper_id(0)
@@ -80,8 +86,10 @@ class OrderActivity : BaseActivity<ActivityOrderBinding>() {
                     payment_method = 2
                 DefaultFirst1.saleOrderCurrent.setPayment_method(payment_method.toString())
                 DefaultFirst1.saleOrderCurrent.setReceiver(binding.receiver.text.toString())
-                DefaultFirst1.saleOrderCurrent.setCreate_at("")
-                DefaultFirst1.saleOrderCurrent.setUpdate_at("")
+                val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+                val current = LocalDateTime.now().format(formatter)
+                DefaultFirst1.saleOrderCurrent.setCreate_at(current)
+                DefaultFirst1.saleOrderCurrent.setUpdate_at(current)
                 DefaultFirst1.saleOrderCurrent.setDelivery_address(binding.deliveryAddress.text.toString())
                 DefaultFirst1.saleOrderCurrent.setPhone_number(binding.phoneNumber.text.toString())
 

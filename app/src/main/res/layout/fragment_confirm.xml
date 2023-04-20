@@ -6,16 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.orderManagement.frag.ConfirmFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="abc" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_confirm"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"></androidx.recyclerview.widget.RecyclerView>
+        android:layout_margin="5dp"/>
 
 </RelativeLayout>

@@ -35,6 +35,9 @@
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/fragment_confirm.xml" value="0.1578125" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/fragment_delivered.xml" value="0.16" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/fragment_delivering.xml" value="0.1" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/fragment_product_return.xml" value="0.23177083333333334" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_confirm_order.xml" value="0.23177083333333334" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_delivered.xml" value="0.23072916666666668" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_giohang.xml" value="0.24895833333333334" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_laptop.xml" value="0.24895833333333334" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_loading.xml" value="0.25" />

@@ -14,6 +14,7 @@ import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.orderManagement.frag.ConfirmFragment
 import com.cuong.haui.computershop.ui.orderManagement.frag.DeliveredFragment
 import com.cuong.haui.computershop.ui.orderManagement.frag.DeliveringFragment
+import com.cuong.haui.computershop.ui.orderManagement.frag.ProductReturnFragment
 import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.view.openActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,6 +37,12 @@ class OrderManagementActivity : BaseActivity<ActivityOrderManagementBinding>() {
             R.id.deliveryed -> {
 
                 moveToFragment(DeliveredFragment())
+                return@OnNavigationItemSelectedListener  true
+
+            }
+            R.id.product_return -> {
+
+                moveToFragment(ProductReturnFragment())
                 return@OnNavigationItemSelectedListener  true
 
             }

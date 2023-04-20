@@ -18,4 +18,10 @@
         android:icon="@drawable/deliveryed"
         >
     </item>
+    <item
+        android:id="@+id/product_return"
+        android:title="Đã giao"
+        android:icon="@drawable/product_return"
+        >
+    </item>
 </menu>

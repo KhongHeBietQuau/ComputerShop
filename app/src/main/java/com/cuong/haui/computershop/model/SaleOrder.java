@@ -10,7 +10,7 @@ public class SaleOrder implements Serializable {
     public String hinhsp;
     public int soluong;
     //1 : cho xac nhan 2 : dang van chuyen 3: da giao 4: tra hang
-    public int status;
+    public String status;
     public int admin_id;
     public int user_id;
     public int shipper_id;
@@ -74,11 +74,11 @@ public class SaleOrder implements Serializable {
         this.soluong = soluong;
     }
 
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -181,7 +181,7 @@ public class SaleOrder implements Serializable {
     public SaleOrder() {
     }
 
-    public SaleOrder(int sale_order_id, int idsp, String tensp, long giasp, String hinhsp, int soluong, int status, int admin_id, int user_id, int shipper_id, int status_pay, int warranty_period, String note, String payment_method, String receiver, String create_at, String update_at, String delivery_address, String phone_number) {
+    public SaleOrder(int sale_order_id, int idsp, String tensp, long giasp, String hinhsp, int soluong, String status, int admin_id, int user_id, int shipper_id, int status_pay, int warranty_period, String note, String payment_method, String receiver, String create_at, String update_at, String delivery_address, String phone_number) {
         this.sale_order_id = sale_order_id;
         this.idsp = idsp;
         this.tensp = tensp;
@@ -202,5 +202,4 @@ public class SaleOrder implements Serializable {
         this.delivery_address = delivery_address;
         this.phone_number = phone_number;
     }
-
 }
