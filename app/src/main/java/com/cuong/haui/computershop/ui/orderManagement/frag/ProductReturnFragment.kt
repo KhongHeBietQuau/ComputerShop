@@ -9,6 +9,7 @@ import com.cuong.haui.computershop.adpter.ConfirmAdapter
 import com.cuong.haui.computershop.base.BaseFragment
 import com.cuong.haui.computershop.databinding.FragmentProductReturnBinding
 import com.cuong.haui.computershop.model.SaleOrder
+import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.google.firebase.database.*
 
 
@@ -23,12 +24,12 @@ class ProductReturnFragment : BaseFragment<FragmentProductReturnBinding>(){
         //Toast.makeText(activity, "ngu", Toast.LENGTH_LONG).show()
         var myRef : DatabaseReference = database.getReference("SaleOrders")
         val query = FirebaseDatabase.getInstance().getReference()
-            .child("SaleOrders").orderByChild("status").equalTo("4")
+            .child("SaleOrders").orderByChild("user_id").equalTo(DefaultFirst1.userCurrent.user_id.toDouble())
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (postSnapshot in dataSnapshot.children) {
                     val saleOrder = postSnapshot.getValue(SaleOrder::class.java)
-                    if(saleOrder != null){
+                    if(saleOrder != null  && saleOrder.status.equals("4")){
                         //Toast.makeText(activity, "okkk", Toast.LENGTH_LONG).show()
                         mangSaleOrder.add(saleOrder)
 
