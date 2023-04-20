@@ -64,15 +64,15 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
         val password = binding.passwordSignup.text.toString()
 
         when{
-            TextUtils.isEmpty(fullName) -> Toast.makeText(this,"full name is required", Toast.LENGTH_LONG).show()
-            TextUtils.isEmpty(userName) -> Toast.makeText(this,"user name is required", Toast.LENGTH_LONG).show()
-            TextUtils.isEmpty(email) -> Toast.makeText(this,"email is required", Toast.LENGTH_LONG).show()
-            TextUtils.isEmpty(password) -> Toast.makeText(this,"password is required", Toast.LENGTH_LONG).show()
+            TextUtils.isEmpty(fullName) -> Toast.makeText(this,"Không được bỏ trống họ tên", Toast.LENGTH_LONG).show()
+            TextUtils.isEmpty(userName) -> Toast.makeText(this,"Không được bỏ trống tên tài khoản", Toast.LENGTH_LONG).show()
+            TextUtils.isEmpty(email) -> Toast.makeText(this,"Không được bỏ trống email ", Toast.LENGTH_LONG).show()
+            TextUtils.isEmpty(password) -> Toast.makeText(this,"Không được bỏ trống mật khẩu", Toast.LENGTH_LONG).show()
 
 
             else ->{
                 val progressDialog = ProgressDialog(this@SignUpActivity)
-                progressDialog.setTitle("SignUp")
+                progressDialog.setTitle("Đăng kí")
                 progressDialog.setMessage("Vui lòng đợi trong giây lát ...")
                 progressDialog.setCanceledOnTouchOutside(false)
                 progressDialog.show()

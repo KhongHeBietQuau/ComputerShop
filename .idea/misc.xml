@@ -19,13 +19,14 @@
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable/ic_media_24.xml" value="0.192" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable/inputs_background.xml" value="0.1" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/drawable/spinner.xml" value="0.192" />
-        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_add_product.xml" value="0.1" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_add_product.xml" value="0.2" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_cart.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_detail.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_laptop_gaming.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_laptop_office.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_main_admin.xml" value="0.34375" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_order.xml" value="0.23177083333333334" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_order_management.xml" value="0.152" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_sign_up.xml" value="0.2359375" />

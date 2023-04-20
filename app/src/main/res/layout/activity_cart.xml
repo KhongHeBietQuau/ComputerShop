@@ -63,7 +63,7 @@
             android:layout_weight="1"
             android:gravity="right"
             android:padding="5dp"
-            android:text="50.000"
+            android:text="0 VNĐ"
             android:textColor="@color/color_app"
             android:textSize="18sp"
             android:textStyle="bold"/>
@@ -76,7 +76,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="10dp"
-        android:text="Mua Hàng"
+        android:text="Tiến hành Đặt Hàng"
         android:textColor="@color/color_app"
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

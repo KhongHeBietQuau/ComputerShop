@@ -20,6 +20,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.Order.OrderActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.laptopOffice.LaptopOfficeActivity"
             android:exported="false" />
         <activity
@@ -54,7 +57,7 @@
         <activity
             android:name=".ui.signIn.SignInActivity"
             android:exported="true"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,9 +67,7 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

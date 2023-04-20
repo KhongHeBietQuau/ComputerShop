@@ -151,6 +151,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
         arrayOption.add(OptionSupport("cài đặt",R.drawable.gear))
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainActivity,arrayOption)
+        // set Ten nguoi dung
+        binding.nameUserCurrent.setText(DefaultFirst1.userCurrent.fullname.toString())
         //
 
             var totalItem = 0

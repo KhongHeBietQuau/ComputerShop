@@ -17,8 +17,10 @@ import com.cuong.haui.computershop.databinding.ActivityCartBinding
 import com.cuong.haui.computershop.model.EventBus.TinhTongEvent
 import com.cuong.haui.computershop.model.SaleOrder
 import com.cuong.haui.computershop.model.User
+import com.cuong.haui.computershop.ui.Order.OrderActivity
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
+import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -39,7 +41,8 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
 
     private fun datHang() {
         binding.btnmuahang.setOnSafeClick {
-            val progressDialog = ProgressDialog(this@CartActivity)
+            openActivity(OrderActivity::class.java,false)
+            /*val progressDialog = ProgressDialog(this@CartActivity)
             progressDialog.setTitle("Cart")
             progressDialog.setMessage("Vui lòng đợi trong giây lát ...")
             progressDialog.setCanceledOnTouchOutside(false)
@@ -70,7 +73,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
                             progressDialog.dismiss()
                         }
                     }
-            }
+            }*/
         }
 
     }
