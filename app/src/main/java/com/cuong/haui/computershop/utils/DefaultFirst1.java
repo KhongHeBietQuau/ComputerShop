@@ -12,6 +12,6 @@ import java.util.List;
 public class DefaultFirst1 {
     public static final String BASE_URL = "http://localhost/banhang/";
     public static List<GioHang> manggiohang = new ArrayList<>();
-    public static User userCurrent = new User();
+    public static User userCurrent = new User(0,0,"0","0","0","0","0","0","0");
     public static SaleOrder saleOrderCurrent = new SaleOrder();
 }

@@ -43,6 +43,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initCreate() {
 
+        SelectUserCurrent()
         initData()
 
         inClick()
@@ -61,6 +62,30 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             Toast.makeText(applicationContext, "ko co internet", Toast.LENGTH_LONG).show()
         }
     }
+
+    private fun SelectUserCurrent() {
+        val user = Firebase.auth.currentUser
+        user?.let {
+            val name = it.displayName
+            val email = it.email
+            var myRef : DatabaseReference = database.getReference("Users").child(name.toString())
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                    DefaultFirst1.userCurrent = dataSnapshot.getValue(User::class.java)
+                    //Toast.makeText(applicationContext, DefaultFirst1.userCurrent.toString() , Toast.LENGTH_LONG).show()
+                }
+
+                override fun onCancelled(databaseError: DatabaseError) {
+                    // Getting Post failed, log a message
+                    Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                    // ...
+                }
+            })
+
+        }
+    }
+
     private fun isConnected(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager

@@ -11,6 +11,7 @@ import com.cuong.haui.computershop.databinding.ActivitySignUpBinding
 import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
+import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.*
@@ -109,7 +110,15 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
         val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
 
         val userMap = User(user_id,1,fullName,userName,email,password,"","","https://firebasestorage.googleapis.com/v0/b/instagram-clone-deeb5.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=644c083d-fa83-490b-af51-a8855fcdd94b")
-
+        DefaultFirst1.userCurrent.setUser_id(user_id)
+        DefaultFirst1.userCurrent.setRole(1)
+        DefaultFirst1.userCurrent.setFullname(fullName)
+        DefaultFirst1.userCurrent.setUsername(userName)
+        DefaultFirst1.userCurrent.setEmail(email)
+        DefaultFirst1.userCurrent.setPassword(password)
+        DefaultFirst1.userCurrent.setPhone("")
+        DefaultFirst1.userCurrent.setAddress("")
+        DefaultFirst1.userCurrent.setImage("https://firebasestorage.googleapis.com/v0/b/instagram-clone-deeb5.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=644c083d-fa83-490b-af51-a8855fcdd94b")
 
         usersRef.child(user_id.toString()).setValue(userMap)
             .addOnCompleteListener{ task ->

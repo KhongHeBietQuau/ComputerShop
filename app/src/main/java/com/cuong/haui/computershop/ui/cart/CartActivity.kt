@@ -37,6 +37,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
         initControl()
         tinhTongTien()
         datHang()
+        ActionToolBar()
     }
 
     private fun datHang() {
@@ -101,7 +102,11 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
             binding.recycleviewgiohang!!.adapter = adapter
         }
     }
-
+    private fun ActionToolBar() {
+        setSupportActionBar(binding.toobar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        binding.toobar!!.setNavigationOnClickListener { finish() }
+    }
     private fun initView() {
 
     }

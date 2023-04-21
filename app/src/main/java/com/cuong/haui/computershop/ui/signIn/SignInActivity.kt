@@ -94,7 +94,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                         DefaultFirst1.userCurrent = dataSnapshot.getValue(User::class.java)
-                        //Toast.makeText(applicationContext, DefaultFirst1.userCurrent.toString() , Toast.LENGTH_LONG).show()
+                        //Toast.makeText(applicationContext, name.toString() , Toast.LENGTH_LONG).show()
                         if(DefaultFirst1.userCurrent.role==1){
                             val intent = Intent(this@SignInActivity, MainActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
