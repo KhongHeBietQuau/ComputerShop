@@ -3,6 +3,7 @@ package com.cuong.haui.computershop.ui.main
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,7 @@ import com.cuong.haui.computershop.ui.chatMain.ChatMainActivity
 import com.cuong.haui.computershop.ui.laptopGaming.LaptopGamingActivity
 import com.cuong.haui.computershop.ui.laptopOffice.LaptopOfficeActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
+import com.cuong.haui.computershop.ui.resetPassword.ResetPasswordActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.utils.ViewUtils
@@ -129,6 +131,16 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 7 -> {
                     val laptop = Intent(applicationContext, ChatMainActivity::class.java)
                     finish()
+                    startActivity(laptop)
+                }
+                8 -> {
+                    val phone_number = "+84́862816585"
+                    val phone_intent = Intent(Intent.ACTION_CALL)
+                    phone_intent.data = Uri.parse("tel:$phone_number")
+                    startActivity(phone_intent)
+                }
+                9 -> {
+                    val laptop = Intent(applicationContext, ResetPasswordActivity::class.java)
                     startActivity(laptop)
                 }
 

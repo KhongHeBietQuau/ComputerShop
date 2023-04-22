@@ -79,7 +79,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                 progressDialog.show()
 
                 val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
-
                 mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener{ task ->
                         if(task.isSuccessful){
