@@ -27,6 +27,7 @@ import com.cuong.haui.computershop.ui.addProduct.addProductActivity
 import com.cuong.haui.computershop.ui.chatAdminMain.ChatAdminMainActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
+import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.utils.ViewUtils
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
@@ -71,7 +72,7 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         binding.listviewmanhinhchinh.setOnItemClickListener(AdapterView.OnItemClickListener { adapterView, view, i, l ->
             when (i) {
                 0 -> {
-                    val trangchu = Intent(applicationContext, MainActivity::class.java)
+                    val trangchu = Intent(applicationContext, MainAdminActivity::class.java)
                     finish()
                     startActivity(trangchu)
                 }
@@ -151,6 +152,7 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
         arrayOption.add(OptionSupport("cài đặt",R.drawable.gear))
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainAdminActivity,arrayOption)
+        binding.nameUserCurrent.setText(DefaultFirst1.userCurrent.fullname.toString())
         // them sp moi
         // them sp moi
 

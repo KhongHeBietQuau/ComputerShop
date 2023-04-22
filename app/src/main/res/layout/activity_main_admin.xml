@@ -141,10 +141,12 @@
                         android:textSize="15sp"/>
 
                     <TextView
+                        android:id="@+id/nameUserCurrent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/inter_900"
                         android:gravity="center"
+
                         android:text="Nguyễn Mạnh Cường"
                         android:textColor="@color/color_app"
                         android:textSize="20sp"/>

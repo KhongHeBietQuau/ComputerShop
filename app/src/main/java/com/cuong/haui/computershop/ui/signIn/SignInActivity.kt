@@ -66,11 +66,44 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             progressDialog.dismiss()
-                            val intent = Intent(this@SignInActivity, MainActivity::class.java)
+                            /*val intent = Intent(this@SignInActivity, MainActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
 
                             startActivity(intent)
-                            finish()
+                            finish()*/
+                            // phan quyen o day
+                            val user = Firebase.auth.currentUser
+                            user?.let {
+                                val name = it.displayName
+                                val email = it.email
+                                var myRef : DatabaseReference = database.getReference("Users").child(name.toString())
+                                myRef.addValueEventListener(object : ValueEventListener {
+                                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                                        DefaultFirst1.userCurrent = dataSnapshot.getValue(User::class.java)
+                                        //Toast.makeText(applicationContext, DefaultFirst1.userCurrent.toString() , Toast.LENGTH_LONG).show()
+                                        if(DefaultFirst1.userCurrent.role==1){
+                                            val intent = Intent(this@SignInActivity, MainActivity::class.java)
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                        else if(DefaultFirst1.userCurrent.role==2){
+                                            val intent = Intent(this@SignInActivity, MainAdminActivity::class.java)
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                    }
+
+                                    override fun onCancelled(databaseError: DatabaseError) {
+                                        // Getting Post failed, log a message
+                                        Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                                        // ...
+                                    }
+                                })
+
+                            }
                         } else {
                             val message = task.exception!!.toString()
                             Toast.makeText(this, "Error: $message", Toast.LENGTH_LONG).show()
@@ -94,7 +127,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
 
                         DefaultFirst1.userCurrent = dataSnapshot.getValue(User::class.java)
-                        //Toast.makeText(applicationContext, name.toString() , Toast.LENGTH_LONG).show()
+                        //Toast.makeText(applicationContext, DefaultFirst1.userCurrent.toString() , Toast.LENGTH_LONG).show()
                         if(DefaultFirst1.userCurrent.role==1){
                             val intent = Intent(this@SignInActivity, MainActivity::class.java)
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)

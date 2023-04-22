@@ -14,6 +14,9 @@ import androidx.annotation.RequiresApi
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityAddProductBinding
 import com.cuong.haui.computershop.model.SanPhamMoi
+import com.cuong.haui.computershop.ui.main.MainAdminActivity
+import com.cuong.haui.computershop.view.openActivity
+import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -46,7 +49,14 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
         binding.btnUpload.setOnClickListener{
             uploadImage()
         }
+        CloseScreen()
 
+    }
+    private fun CloseScreen() {
+
+        binding.returnApp.setOnSafeClick {
+            openActivity(MainAdminActivity::class.java,true)
+        }
 
     }
     private fun getElementLast(){

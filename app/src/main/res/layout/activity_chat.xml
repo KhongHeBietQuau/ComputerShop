@@ -18,20 +18,20 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="15dp"
-            android:src="@drawable/arrow_app"/>
+            android:src="@drawable/arrow_app" />
 
         <TextView
             android:id="@+id/txt_name_user_friend"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:text="Tên Khách Hàng"
-            android:textColor="@color/color_app"
-            android:textSize="20sp"
             android:layout_gravity="center"
-            android:textAlignment="center"
             android:layout_marginLeft="60dp"
             android:layout_marginTop="4dp"
-            android:layout_marginRight="60dp">
+            android:layout_marginRight="60dp"
+            android:text="Tên Khách Hàng"
+            android:textAlignment="center"
+            android:textColor="@color/color_app"
+            android:textSize="20sp">
 
         </TextView>
     </LinearLayout>
