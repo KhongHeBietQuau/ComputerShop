@@ -23,6 +23,7 @@ import com.cuong.haui.computershop.model.OptionSupport
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.cart.CartActivity
+import com.cuong.haui.computershop.ui.chatMain.ChatMainActivity
 import com.cuong.haui.computershop.ui.laptopGaming.LaptopGamingActivity
 import com.cuong.haui.computershop.ui.laptopOffice.LaptopOfficeActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
@@ -122,6 +123,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
                 4 -> {
                     val laptop = Intent(applicationContext, CartActivity::class.java)
+                    finish()
+                    startActivity(laptop)
+                }
+                7 -> {
+                    val laptop = Intent(applicationContext, ChatMainActivity::class.java)
                     finish()
                     startActivity(laptop)
                 }

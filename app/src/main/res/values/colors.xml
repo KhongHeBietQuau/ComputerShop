@@ -12,4 +12,5 @@
     <color name="colorPrimaryDark">#5552FF</color>
     <color name="color_status_bar">#FF000000</color>
     <color name="tt_rating_star">#f5a623</color>
+    <color name="green">#008009</color>
 </resources>
