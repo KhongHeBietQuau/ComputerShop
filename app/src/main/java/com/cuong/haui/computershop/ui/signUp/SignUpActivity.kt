@@ -105,7 +105,6 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
     }
 
     private fun saveUserInfo(fullName: String?, userName: String?, email: String?, progressDialog: ProgressDialog, password: String?) {
-        val currentUserID = FirebaseAuth.getInstance().currentUser!!.uid
         val usersRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
 
         val userMap = User(user_id,1,fullName,userName,email,password,"","","https://firebasestorage.googleapis.com/v0/b/instagram-clone-deeb5.appspot.com/o/Default%20Images%2Fprofile.png?alt=media&token=644c083d-fa83-490b-af51-a8855fcdd94b")

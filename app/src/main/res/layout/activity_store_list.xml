@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.chat.ChatActivity">
-
+    android:orientation="vertical"
+    tools:context=".ui.storeList.StoreListActivity">
     <LinearLayout
         android:id="@+id/app_bar_layout_search"
         android:layout_width="match_parent"
@@ -28,46 +28,36 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="4dp"
             android:layout_marginRight="60dp"
-            android:text="Tên Khách Hàng"
+            android:text="Thêm cửa hàng"
             android:textAlignment="center"
             android:textColor="@color/color_app"
             android:textSize="20sp">
 
         </TextView>
     </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chatRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_below="@+id/app_bar_layout_search">
-
-    </androidx.recyclerview.widget.RecyclerView>
-
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        >
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
         <EditText
-            android:layout_width="wrap_content"
+            android:id="@+id/edt_add_store"
+            android:layout_width="250dp"
             android:layout_height="50dp"
-            android:id="@+id/messageBox"
-            android:hint="Type a message"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="80">
-        </EditText>
-        <ImageView
-            android:id="@+id/sentButton"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/send"
-            android:layout_weight="20">
-
-        </ImageView>
+            android:layout_marginLeft="20dp"
+            android:hint="Nhập địa chỉ cửa hàng"
+            android:layout_margin="5dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/btn_add_store"
+            android:text="Thêm"
+            android:layout_margin="5dp"/>
     </LinearLayout>
-</RelativeLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/storeListRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

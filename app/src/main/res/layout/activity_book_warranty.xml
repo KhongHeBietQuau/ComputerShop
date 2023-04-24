@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.bookWarranty.BookWarrantyActivity">
+    <LinearLayout
+        android:id="@+id/app_bar_layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal">
+
+        <ImageView
+
+            android:id="@+id/return_app"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="15dp"
+            android:src="@drawable/arrow_app"/>
+
+        <TextView
+            android:id="@+id/txt_name_user_friend"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="Đặt lịch bảo hành ,bảo dưỡng"
+            android:textColor="@color/color_app"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginRight="60dp">
+
+        </TextView>
+    </LinearLayout>
+    <TextView
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="6dp"
+        android:text="Chọn ngày bảo dưỡng"
+        android:textColor="@color/color_app"
+        />
+    <EditText
+        android:id="@+id/edt_pick_date_warranty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="6dp"
+        android:hint="Nhập ngày bảo hành"/>
+    <TextView
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="6dp"
+        android:text="Chọn cửa hàng bảo dưỡng"
+        android:textColor="@color/color_app"
+        />
+    <Spinner
+        android:id="@+id/spinnerr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="17sp"
+        android:background="@drawable/spinner"/>
+    <TextView
+        android:textSize="17sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="6dp"
+        android:text="Vấn đề cửa thiết bị"
+        android:textColor="@color/color_app"
+        />
+    <EditText
+        android:id="@+id/edt_problem_maintain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+       />
+    <Button
+        android:id="@+id/btn_submit_maintain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:text="Đặt lịch"
+        android:layout_marginEnd="40dp"
+        />
+</LinearLayout>

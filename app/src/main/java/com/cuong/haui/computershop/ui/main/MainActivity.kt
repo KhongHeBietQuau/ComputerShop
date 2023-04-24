@@ -23,10 +23,12 @@ import com.cuong.haui.computershop.databinding.ActivityMainBinding
 import com.cuong.haui.computershop.model.OptionSupport
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.model.User
+import com.cuong.haui.computershop.ui.bookWarranty.BookWarrantyActivity
 import com.cuong.haui.computershop.ui.cart.CartActivity
 import com.cuong.haui.computershop.ui.chatMain.ChatMainActivity
 import com.cuong.haui.computershop.ui.laptopGaming.LaptopGamingActivity
 import com.cuong.haui.computershop.ui.laptopOffice.LaptopOfficeActivity
+import com.cuong.haui.computershop.ui.listProductWarranty.ListProductWarrantyActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
 import com.cuong.haui.computershop.ui.resetPassword.ResetPasswordActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
@@ -125,6 +127,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
                 4 -> {
                     val laptop = Intent(applicationContext, CartActivity::class.java)
+                    startActivity(laptop)
+                }
+                5 -> {
+                    val laptop = Intent(applicationContext, ListProductWarrantyActivity::class.java)
                     finish()
                     startActivity(laptop)
                 }
@@ -185,14 +191,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         arrayOption.add(OptionSupport("Trang chủ",R.drawable.house))
         arrayOption.add(OptionSupport("Laptop văn phòng",R.drawable.laptop))
         arrayOption.add(OptionSupport("Laptop gaming",R.drawable.laptop_gaming))
-        arrayOption.add(OptionSupport("Quản lý đơn hàng",R.drawable.clock))
+        arrayOption.add(OptionSupport("Theo dõi đơn hàng",R.drawable.clock))
         arrayOption.add(OptionSupport("Đơn nháp",R.drawable.draft))
         arrayOption.add(OptionSupport("Đặt lịch bảo hành",R.drawable.guarantee))
         arrayOption.add(OptionSupport("Thông báo",R.drawable.notification))
         arrayOption.add(OptionSupport("Chat với nhân viên",R.drawable.speak))
         arrayOption.add(OptionSupport("Gọi điện",R.drawable.phone))
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
-        arrayOption.add(OptionSupport("cài đặt",R.drawable.gear))
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainActivity,arrayOption)
         // set Ten nguoi dung
         binding.nameUserCurrent.setText(DefaultFirst1.userCurrent.fullname.toString())

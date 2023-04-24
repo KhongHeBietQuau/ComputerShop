@@ -29,6 +29,7 @@ class ConfirmFragment : BaseFragment<FragmentConfirmBinding>() {
             .child("SaleOrders").orderByChild("user_id").equalTo(DefaultFirst1.userCurrent.user_id.toDouble())
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                mangSaleOrder.clear()
                 for (postSnapshot in dataSnapshot.children) {
                     val saleOrder = postSnapshot.getValue(SaleOrder::class.java)
                     if(saleOrder != null && saleOrder.status.equals("1")){

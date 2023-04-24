@@ -26,6 +26,7 @@ import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.ui.addProduct.addProductActivity
 import com.cuong.haui.computershop.ui.chatAdminMain.ChatAdminMainActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
+import com.cuong.haui.computershop.ui.orderManagementAdmin.OrderManagementAdminActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.utils.ViewUtils
@@ -87,7 +88,7 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
                     startActivity(laptop)
                 }*/
                 3 -> {
-                    val laptop = Intent(applicationContext, OrderManagementActivity::class.java)
+                    val laptop = Intent(applicationContext, OrderManagementAdminActivity::class.java)
                     finish()
                     startActivity(laptop)
                 }

@@ -62,9 +62,9 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
                     else if(gioHangList.get(pos).getSoluong()== 1){
                         //Toast.makeText(context.getApplicationContext(), "a",Toast.LENGTH_LONG).show();
                         AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
-                        builder.setTitle("Thong bao");
-                        builder.setMessage("Ban co muon xoa san pham nay khoi gio hang");
-                        builder.setPositiveButton("Dong y", new DialogInterface.OnClickListener() {
+                        builder.setTitle("Thông báo");
+                        builder.setMessage("Bạn có muốn xóa sản phẩm này khỏi giỏ hàng");
+                        builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 DefaultFirst1.manggiohang.remove(pos);
@@ -72,7 +72,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.MyViewHo
                                 EventBus.getDefault().postSticky(new TinhTongEvent());
                             }
                         });
-                        builder.setNegativeButton("Huy", new DialogInterface.OnClickListener() {
+                        builder.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();

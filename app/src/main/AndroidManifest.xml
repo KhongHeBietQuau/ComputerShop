@@ -20,6 +20,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.listProductWarranty.ListProductWarrantyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.orderManagementAdmin.OrderManagementAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.storeList.StoreListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.bookWarranty.BookWarrantyActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".ui.resetPassword.ResetPasswordActivity"
             android:exported="false" />
         <activity
