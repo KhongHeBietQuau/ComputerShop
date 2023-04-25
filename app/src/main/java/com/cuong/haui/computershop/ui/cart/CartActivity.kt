@@ -42,7 +42,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
 
     private fun datHang() {
         binding.btnmuahang.setOnSafeClick {
-            openActivity(OrderActivity::class.java,false)
+            openActivity(OrderActivity::class.java,true)
             /*val progressDialog = ProgressDialog(this@CartActivity)
             progressDialog.setTitle("Cart")
             progressDialog.setMessage("Vui lòng đợi trong giây lát ...")
@@ -86,6 +86,7 @@ class CartActivity : BaseActivity<ActivityCartBinding>() {
         }
         val decimalFormat = DecimalFormat("###,###,###")
         binding.txttongtien!!.text = decimalFormat.format(tongtiensp)
+        DefaultFirst1.total_pay_oline = tongtiensp
     }
 
     private fun initControl() {

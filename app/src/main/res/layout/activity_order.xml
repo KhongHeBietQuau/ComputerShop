@@ -87,7 +87,7 @@
                     android:id="@+id/online_payment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thanh toán online qua ZaloPay" />
+                    android:text="Thanh toán online" />
             </RadioGroup>
             <Button
                 android:id="@+id/btnDatHang"

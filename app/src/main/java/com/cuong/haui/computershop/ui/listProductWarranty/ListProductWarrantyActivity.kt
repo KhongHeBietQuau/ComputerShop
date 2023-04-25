@@ -2,9 +2,9 @@ package com.cuong.haui.computershop.ui.listProductWarranty
 
 import android.util.Log
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.cuong.haui.computershop.adpter.ConfirmAdapter
 import com.cuong.haui.computershop.adpter.ProductWarrantyAdapter
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityListProductWarrantyBinding
@@ -14,14 +14,36 @@ import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ListProductWarrantyActivity : BaseActivity<ActivityListProductWarrantyBinding>() {
     var database = FirebaseDatabase.getInstance()
     private lateinit var confirmspAdapter : ProductWarrantyAdapter
     private var mangSaleOrder  = ArrayList<SaleOrder>()
     override fun initCreate() {
+
         CloseScreen()
         InitData()
+        checkDateWarranty()
+    }
+
+    private fun checkDateWarranty() {
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val date = Date()
+        System.out.println("Current Date " + dateFormat.format(date))
+
+
+
+        // Convert Date to Calendar
+        val c: Calendar = Calendar.getInstance()
+        c.setTime(date)
+
+        c.add(Calendar.MONTH, 1)
+
+        val currentDatePlusOne: Date = c.getTime()
+        Toast.makeText(applicationContext, "Updated Date " + dateFormat.format(currentDatePlusOne), Toast.LENGTH_LONG).show()
     }
 
     private fun InitData(){
