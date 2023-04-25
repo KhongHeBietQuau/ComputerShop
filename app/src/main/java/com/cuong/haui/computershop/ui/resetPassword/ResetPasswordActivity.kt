@@ -16,7 +16,7 @@ import com.google.firebase.ktx.Firebase
 
 class ResetPasswordActivity : BaseActivity<ActivityResetPasswordBinding>() {
     override fun initCreate() {
-        //CloseScreen()
+        CloseScreen()
 
         binding.btnResetPassword.setOnSafeClick {
         if(DefaultFirst1.userCurrent.password.toString().equals(binding.passwordOld.getText().toString())){

@@ -40,7 +40,7 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (postSnapshot in dataSnapshot.children) {
                     val sanPhamMoi = postSnapshot.getValue(SanPhamMoi::class.java)
-                    if(sanPhamMoi != null){
+                    if(sanPhamMoi != null ){
                         mangSpMoi.add(sanPhamMoi)
 
                     }
@@ -119,7 +119,7 @@ class LaptopGamingActivity : BaseActivity<ActivityLaptopGamingBinding>() {
                     mangSpMoi?.clear()
                     for(snapshot in dataSnapshot.children){
                         val sanPhamMoi = snapshot.getValue(SanPhamMoi::class.java)
-                        if(sanPhamMoi != null){
+                        if(sanPhamMoi != null && sanPhamMoi.description.equals("laptop gaming")){
                             mangSpMoi?.add(sanPhamMoi)
                         }
                     }

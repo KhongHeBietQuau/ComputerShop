@@ -95,7 +95,7 @@ class LaptopOfficeActivity : BaseActivity<ActivityLaptopOfficeBinding>() {
                 mangSpMoi?.clear()
                 for(snapshot in dataSnapshot.children){
                     val sanPhamMoi = snapshot.getValue(SanPhamMoi::class.java)
-                    if(sanPhamMoi != null){
+                    if(sanPhamMoi != null && sanPhamMoi.description.equals("laptop văn phòng")){
                         mangSpMoi?.add(sanPhamMoi)
                     }
                 }

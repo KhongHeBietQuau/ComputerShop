@@ -10,19 +10,20 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Thanh toán"
+        app:title="Thanh toán online"
         android:background="@color/color_app"
         android:id="@+id/toobar">
 
     </androidx.appcompat.widget.Toolbar>
     <Button
         android:id="@+id/btn_pay_zalopay"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="20dp"
         android:background="@color/color_app"
-        android:text="Ví zalo pay">
+        android:text="Thanh toán qua ví zalo pay">
     </Button>
 
 </LinearLayout>

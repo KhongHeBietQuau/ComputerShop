@@ -57,10 +57,32 @@ public class DeliveredAdminAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         if(holder instanceof DeliveredAdminAdapter.MyViewHolder) {
             DeliveredAdminAdapter.MyViewHolder myViewHolder = (DeliveredAdminAdapter.MyViewHolder) holder;
             SaleOrder saleOrder = array.get(position);
-            myViewHolder.tensp.setText("Tên:      " +saleOrder.getTensp());
+            myViewHolder.tensp.setText(saleOrder.getTensp());
             DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-            myViewHolder.giasp.setText("Giá:      " + decimalFormat.format(saleOrder.getGiasp()) + "VNĐ");
-            myViewHolder.mota.setText("Số lương: " +String.valueOf(saleOrder.getSoluong()));
+            myViewHolder.giasp.setText(decimalFormat.format(saleOrder.getGiasp()) + "VNĐ");
+            myViewHolder.mota.setText(String.valueOf(saleOrder.getSoluong()));
+            myViewHolder.nguoinhan.setText(saleOrder.receiver);
+            myViewHolder.sodienthoai.setText(saleOrder.phone_number);
+
+            myViewHolder.tongtien.setText(decimalFormat.format(saleOrder.soluong * saleOrder.giasp) + "VNĐ");
+            String status_payment = "",status_pay = "";
+            if(saleOrder.payment_method.equals("1"))
+            {
+                status_payment = "thanh toán trực tiếp";
+            }
+            else
+            {
+                status_payment = "thanh toán online";
+            }
+            if(saleOrder.getStatus_pay() == 1){
+                status_pay = "chưa thanh toán";
+            }
+            else{
+                status_pay = "đã thanh toán";
+            }
+            myViewHolder.phuongthucthanhtoan.setText(status_payment);
+            myViewHolder.trangthaithanhtoan.setText(status_pay);
+            myViewHolder.ghichu.setText(saleOrder.note);
             Glide.with(context).load(saleOrder.getHinhsp()).into(myViewHolder.hinhanh);
             myViewHolder.setItemClickListener(new ItemClickListener() {
                 @Override
@@ -132,8 +154,9 @@ public class DeliveredAdminAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tensp,giasp,mota;
+        TextView tensp,giasp,nguoinhan,mota,sodienthoai,tongtien,phuongthucthanhtoan,trangthaithanhtoan,ghichu;
         ImageView hinhanh;
+
         Button btn_cancel;
         private ItemClickListener itemClickListener;
         public MyViewHolder(@NonNull View itemView) {
@@ -142,6 +165,12 @@ public class DeliveredAdminAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             giasp = itemView.findViewById(R.id.itemdt_gia);
             mota = itemView.findViewById(R.id.itemdt_soluong);
             hinhanh= itemView.findViewById(R.id.itemdt_image);
+            nguoinhan= itemView.findViewById(R.id.itemdt_receiver);
+            sodienthoai= itemView.findViewById(R.id.itemdt_phone_number);
+            tongtien= itemView.findViewById(R.id.itemdt_total_money);
+            phuongthucthanhtoan= itemView.findViewById(R.id.itemdt_payment);
+            trangthaithanhtoan= itemView.findViewById(R.id.itemdt_status_payment);
+            ghichu =itemView.findViewById(R.id.itemdt_note);
             btn_cancel= itemView.findViewById(R.id.btn_cancel);
 
             itemView.setOnClickListener(this);

@@ -66,10 +66,32 @@ public class ComfirmAdminAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if(holder instanceof ComfirmAdminAdapter.MyViewHolder) {
             ComfirmAdminAdapter.MyViewHolder myViewHolder = (ComfirmAdminAdapter.MyViewHolder) holder;
             SaleOrder saleOrder = array.get(position);
-            myViewHolder.tensp.setText("Tên:      " +saleOrder.getTensp());
+            myViewHolder.tensp.setText(saleOrder.getTensp());
             DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-            myViewHolder.giasp.setText("Giá:      " + decimalFormat.format(saleOrder.getGiasp()) + "VNĐ");
-            myViewHolder.mota.setText("Số lương: " +String.valueOf(saleOrder.getSoluong()));
+            myViewHolder.giasp.setText(decimalFormat.format(saleOrder.getGiasp()) + "VNĐ");
+            myViewHolder.mota.setText(String.valueOf(saleOrder.getSoluong()));
+            myViewHolder.nguoinhan.setText(saleOrder.receiver);
+            myViewHolder.sodienthoai.setText(saleOrder.phone_number);
+
+            myViewHolder.tongtien.setText(decimalFormat.format(saleOrder.soluong * saleOrder.giasp) + "VNĐ");
+            String status_payment = "",status_pay = "";
+            if(saleOrder.payment_method.equals("1"))
+            {
+                status_payment = "thanh toán trực tiếp";
+            }
+            else
+            {
+                status_payment = "thanh toán online";
+            }
+            if(saleOrder.getStatus_pay() == 1){
+                status_pay = "chưa thanh toán";
+            }
+            else{
+                status_pay = "đã thanh toán";
+            }
+            myViewHolder.phuongthucthanhtoan.setText(status_payment);
+            myViewHolder.trangthaithanhtoan.setText(status_pay);
+            myViewHolder.ghichu.setText(saleOrder.note);
             Glide.with(context).load(saleOrder.getHinhsp()).into(myViewHolder.hinhanh);
             myViewHolder.setItemClickListener(new ItemClickListener() {
                 @Override
@@ -158,6 +180,13 @@ public class ComfirmAdminAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
                                     }
                                 });
+                                DatabaseReference myRefAdminStatusPay = database.getReference("SaleOrders/"+String.valueOf(saleOrder.sale_order_id)+ "/status_pay");
+                                myRefAdminStatusPay.setValue(2, new DatabaseReference.CompletionListener() {
+                                    @Override
+                                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+
+                                    }
+                                });
                                 DatabaseReference myRefAdminTime = database.getReference("Products");
                                 List<SanPhamMoi> mangsp = new ArrayList<>();
 
@@ -170,7 +199,7 @@ public class ComfirmAdminAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                                             SanPhamMoi sanPhamMoi = postSnapshot.getValue(SanPhamMoi.class);
                                             if(sanPhamMoi!= null){
                                                 mangsp.add(sanPhamMoi);
-                                                Toast.makeText(view.getContext(), sanPhamMoi.toString(), Toast.LENGTH_LONG).show();
+                                                //Toast.makeText(view.getContext(), sanPhamMoi.toString(), Toast.LENGTH_LONG).show();
                                                 DatabaseReference myRefAdminTimeSet = database.getReference("SaleOrders/"+String.valueOf(saleOrder.sale_order_id)+ "/warranty_period");
                                                 myRefAdminTimeSet.setValue(sanPhamMoi.warranty_period, new DatabaseReference.CompletionListener() {
                                                     @Override
@@ -227,7 +256,7 @@ public class ComfirmAdminAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tensp,giasp,mota;
+        TextView tensp,giasp,mota,nguoinhan,sodienthoai,tongtien,phuongthucthanhtoan,trangthaithanhtoan,ghichu;
         ImageView hinhanh;
         Button btn_cancel,btn_confirmation;
         private ItemClickListener itemClickListener;
@@ -237,6 +266,12 @@ public class ComfirmAdminAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             giasp = itemView.findViewById(R.id.itemdt_gia);
             mota = itemView.findViewById(R.id.itemdt_soluong);
             hinhanh= itemView.findViewById(R.id.itemdt_image);
+            nguoinhan= itemView.findViewById(R.id.itemdt_receiver);
+            sodienthoai= itemView.findViewById(R.id.itemdt_phone_number);
+            tongtien= itemView.findViewById(R.id.itemdt_total_money);
+            phuongthucthanhtoan= itemView.findViewById(R.id.itemdt_payment);
+            trangthaithanhtoan= itemView.findViewById(R.id.itemdt_status_payment);
+            ghichu =itemView.findViewById(R.id.itemdt_note);
             btn_cancel= itemView.findViewById(R.id.btn_cancel);
             btn_confirmation= itemView.findViewById(R.id.btn_confirmation);
             itemView.setOnClickListener(this);

@@ -43,7 +43,7 @@ class ListProductWarrantyActivity : BaseActivity<ActivityListProductWarrantyBind
         c.add(Calendar.MONTH, 1)
 
         val currentDatePlusOne: Date = c.getTime()
-        Toast.makeText(applicationContext, "Updated Date " + dateFormat.format(currentDatePlusOne), Toast.LENGTH_LONG).show()
+        //Toast.makeText(applicationContext, "Updated Date " + dateFormat.format(currentDatePlusOne), Toast.LENGTH_LONG).show()
     }
 
     private fun InitData(){
