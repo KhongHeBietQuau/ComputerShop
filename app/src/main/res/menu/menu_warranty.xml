@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/confirm"
+        android:title="Chờ xác nhận"
+        android:icon="@drawable/time_left"
+        >
+    </item>
+    <item
+        android:id="@+id/confirmed"
+        android:title="Đặt thành công"
+        android:icon="@drawable/confirmed"
+        >
+    </item>
+    <item
+        android:id="@+id/successful_warranty"
+        android:title="Đã bảo dưỡng "
+        android:icon="@drawable/successful_warranty"
+        >
+    </item>
+    <item
+        android:id="@+id/cancel_warranty"
+        android:title="Hủy bảo dưỡng"
+        android:icon="@drawable/cancel_warranty"
+        >
+    </item>
+</menu>

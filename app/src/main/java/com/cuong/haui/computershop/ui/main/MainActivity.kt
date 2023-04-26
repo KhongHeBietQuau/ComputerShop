@@ -32,6 +32,7 @@ import com.cuong.haui.computershop.ui.listProductWarranty.ListProductWarrantyAct
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
 import com.cuong.haui.computershop.ui.resetPassword.ResetPasswordActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
+import com.cuong.haui.computershop.ui.warrantyManagement.warrantyManagementActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.utils.ViewUtils
 import com.cuong.haui.computershop.view.openActivity
@@ -134,6 +135,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                     finish()
                     startActivity(laptop)
                 }
+                6 -> {
+                    val laptop = Intent(applicationContext, warrantyManagementActivity::class.java)
+                    finish()
+                    startActivity(laptop)
+                }
                 7 -> {
                     val laptop = Intent(applicationContext, ChatMainActivity::class.java)
                     finish()
@@ -194,7 +200,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         arrayOption.add(OptionSupport("Theo dõi đơn hàng",R.drawable.clock))
         arrayOption.add(OptionSupport("Đơn nháp",R.drawable.draft))
         arrayOption.add(OptionSupport("Đặt lịch bảo hành",R.drawable.guarantee))
-        arrayOption.add(OptionSupport("Thông báo",R.drawable.notification))
+        arrayOption.add(OptionSupport("Theo dõi bảo hành",R.drawable.notification))
         arrayOption.add(OptionSupport("Chat với nhân viên",R.drawable.speak))
         arrayOption.add(OptionSupport("Gọi điện",R.drawable.phone))
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))

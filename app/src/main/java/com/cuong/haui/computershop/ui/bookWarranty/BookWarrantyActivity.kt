@@ -101,7 +101,7 @@ class BookWarrantyActivity : BaseActivity<ActivityBookWarrantyBinding>() {
                     val current = LocalDateTime.now().format(formatter)
                     var maintenance = saleOrderWarranty?.let { it1 ->
                         Maintenance(maintenance_id,DefaultFirst1.userCurrent.user_id,0,saleOrderWarranty.sale_order_id,
-                            it1.idsp,current,current,problemMaintain,saleOrderWarranty?.hinhsp,addressStore,pickDateWarranty,"1")
+                            it1.idsp,current,current,problemMaintain,saleOrderWarranty?.hinhsp,addressStore,pickDateWarranty,"1",saleOrderWarranty.tensp,DefaultFirst1.userCurrent.fullname)
                     }
 
                     usersRef.child(maintenance_id.toString())

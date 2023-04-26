@@ -8,13 +8,12 @@
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="160dp"
-        android:layout_height="90dp"
-        android:src="@drawable/instagram"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
-        app:tint="@android:color/white">
-    </ImageView>
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/computer_shop"/>
 
     <EditText
         android:id="@+id/email_login"

@@ -15,6 +15,8 @@ public class Maintenance implements Serializable {
     public String store_maintenance;
     public String time_book_maintenance;
     public String status_maintenance;
+    public String product_name;
+    public String user_name_maintenance;
 
     public int getMaintenance_id() {
         return maintenance_id;
@@ -112,10 +114,26 @@ public class Maintenance implements Serializable {
         this.status_maintenance = status_maintenance;
     }
 
+    public String getProduct_name() {
+        return product_name;
+    }
+
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
+    }
+
+    public String getUser_name_maintenance() {
+        return user_name_maintenance;
+    }
+
+    public void setUser_name_maintenance(String user_name_maintenance) {
+        this.user_name_maintenance = user_name_maintenance;
+    }
+
     public Maintenance() {
     }
 
-    public Maintenance(int maintenance_id, int user_id_maintenance, int admin_id_maintenance, int sale_order_id, int product_id, String creat_at, String update_at, String problem, String thumbnail_url, String store_maintenance, String time_book_maintenance, String status_maintenance) {
+    public Maintenance(int maintenance_id, int user_id_maintenance, int admin_id_maintenance, int sale_order_id, int product_id, String creat_at, String update_at, String problem, String thumbnail_url, String store_maintenance, String time_book_maintenance, String status_maintenance, String product_name, String user_name_maintenance) {
         this.maintenance_id = maintenance_id;
         this.user_id_maintenance = user_id_maintenance;
         this.admin_id_maintenance = admin_id_maintenance;
@@ -128,6 +146,8 @@ public class Maintenance implements Serializable {
         this.store_maintenance = store_maintenance;
         this.time_book_maintenance = time_book_maintenance;
         this.status_maintenance = status_maintenance;
+        this.product_name = product_name;
+        this.user_name_maintenance = user_name_maintenance;
     }
 
     @Override
@@ -145,6 +165,8 @@ public class Maintenance implements Serializable {
                 ", store_maintenance='" + store_maintenance + '\'' +
                 ", time_book_maintenance='" + time_book_maintenance + '\'' +
                 ", status_maintenance='" + status_maintenance + '\'' +
+                ", product_name='" + product_name + '\'' +
+                ", user_name_maintenance='" + user_name_maintenance + '\'' +
                 '}';
     }
 }
