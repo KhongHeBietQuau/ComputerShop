@@ -12,6 +12,8 @@ import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityLaptopOfficeBinding
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.ui.main.MainActivity
+import com.cuong.haui.computershop.ui.main.MainAdminActivity
+import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.database.*
@@ -27,7 +29,12 @@ class LaptopOfficeActivity : BaseActivity<ActivityLaptopOfficeBinding>() {
     }
     private fun CloseScreenLaptopGaming() {
         binding.returnApp.setOnSafeClick {
-            openActivity(MainActivity::class.java,true)
+            if(DefaultFirst1.userCurrent.role == 1) {
+                openActivity(MainActivity::class.java, true)
+            }
+            else if(DefaultFirst1.userCurrent.role == 2){
+                openActivity(MainAdminActivity::class.java, true)
+            }
         }
     }
 

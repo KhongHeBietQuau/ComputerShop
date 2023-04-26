@@ -23,10 +23,13 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
     var sanPhamMoi: SanPhamMoi? = null
 
     override fun initCreate() {
-        initView()
+
         ActionToolBar()
         initData()
-        initControl()
+        if(DefaultFirst1.userCurrent.role ==1) {
+            initView()
+            initControl()
+        }
     }
     private fun initControl() {
         binding.btnthemvaogiohang!!.setOnClickListener { themGioHang() }
@@ -111,13 +114,15 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
 
     override fun onResume() {
         super.onResume()
-        var totalItem = 0
+        if(DefaultFirst1.userCurrent.role ==1) {
+            var totalItem = 0
 
             for (i in 0 until DefaultFirst1.manggiohang.size) {
                 totalItem = totalItem + DefaultFirst1.manggiohang.get(i).getSoluong()
             }
 
             binding.menuSl!!.setText(totalItem.toString())
+        }
 
     }
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityDetailBinding {
