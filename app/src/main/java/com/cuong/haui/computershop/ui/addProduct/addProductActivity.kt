@@ -15,6 +15,7 @@ import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityAddProductBinding
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.ui.main.MainAdminActivity
+import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.android.gms.tasks.Task
@@ -32,6 +33,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
     private  var btnUpload:Button? = null
     private val imageView: ImageView? = null
     var product_id : Int = 0
+    lateinit var sanPhamUpdate : SanPhamMoi
     private var filePath: Uri? = null
 
     private val PICK_IMAGE_REQUEST = 71
@@ -41,6 +43,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun initCreate() {
+        initData()
         getElementLast()
         binding.btnChoose.setOnClickListener{
             chooseImage()
@@ -52,10 +55,33 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
         CloseScreen()
 
     }
+
+    private fun initData() {
+        if(DefaultFirst1.check_update_product ==1){
+        sanPhamUpdate = (intent.getSerializableExtra("updateProduct") as SanPhamMoi?)!!
+
+        if(sanPhamUpdate?.product_id!! >0){
+            binding.txtNameUserFriend.text = "Cập nhật sản phẩm"
+            binding.cpu.setText(sanPhamUpdate.cpu.toString())
+            binding.description.setText(sanPhamUpdate.description.toString())
+            binding.productName.setText(sanPhamUpdate.product_name.toString())
+            binding.currentQuantity.setText(sanPhamUpdate.current_quantity.toString())
+            binding.graphicsCard.setText(sanPhamUpdate.graphics.toString())
+            binding.hardDrive.setText(sanPhamUpdate.hard_drive.toString())
+            binding.precentDiscount.setText(sanPhamUpdate.precent_discount.toString())
+            binding.priceNew.setText(sanPhamUpdate.price_new.toString())
+            binding.ram.setText(sanPhamUpdate.ram.toString())
+            binding.screen.setText(sanPhamUpdate.screen.toString())
+            binding.warrantyPeriod.setText(sanPhamUpdate.warranty_period.toString())
+            product_id = sanPhamUpdate?.product_id!!
+        }
+        }
+    }
+
     private fun CloseScreen() {
 
         binding.returnApp.setOnSafeClick {
-            openActivity(MainAdminActivity::class.java,true)
+            finish()
         }
 
     }
@@ -71,12 +97,12 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                     if (sanPhamMoi != null) {
                         mangSpMoi.add(sanPhamMoi)
                         product_id = sanPhamMoi.product_id+1
-                        Toast.makeText(
+                        /*Toast.makeText(
                             applicationContext,
                             "haha" + product_id,
 
                             Toast.LENGTH_LONG
-                        ).show()
+                        ).show()*/
                     }
                 }
 
@@ -131,7 +157,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
 
                         val product_name = binding.productName.text.toString()
                         val price_new = binding.priceNew.text.toString().toInt()
-                        val price_old = binding.priceOld.text.toString().toInt()
+                        val price_old = DefaultFirst1.userCurrent.user_id
                         val thumbnail_url = imageLink
                         val description = binding.description.text.toString()
                         val cpu = binding.cpu.text.toString()
@@ -140,7 +166,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                         val graphics = binding.graphicsCard.text.toString()
                         val screen = binding.screen.text.toString()
                         val precent_discount = binding.precentDiscount.text.toString().toInt()
-                        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
+                        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
                         val current = LocalDateTime.now().format(formatter)
                         val created_at = current.toString()
                         val update_at = current.toString()
@@ -148,8 +174,11 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                         val current_quantity = binding.currentQuantity.text.toString().toInt()
                         val warranty_period = binding.warrantyPeriod.text.toString().toInt()
                         val category_id = 1
-
-
+                        if(DefaultFirst1.check_update_product ==1){
+                            DefaultFirst1.check_update_product =0
+                        if(sanPhamUpdate?.product_id!! >0)
+                            product_id = sanPhamUpdate?.product_id!!
+                        }
                         val products = SanPhamMoi(
                             product_id,
                             product_name,
@@ -181,7 +210,6 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                                 binding.hardDrive.text.clear()
                                 binding.precentDiscount.text.clear()
                                 binding.priceNew.text.clear()
-                                binding.priceOld.text.clear()
                                 binding.ram.text.clear()
                                 binding.screen.text.clear()
                                 binding.warrantyPeriod.text.clear()

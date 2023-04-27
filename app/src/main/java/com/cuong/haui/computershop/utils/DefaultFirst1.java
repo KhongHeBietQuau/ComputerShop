@@ -17,5 +17,5 @@ public class DefaultFirst1 {
     public static int status_pay_zalopay = 0;
     public static int saleOrder_current_id = 0;
     public static long total_pay_oline = 0;
-
+    public static int check_update_product = 0;
 }

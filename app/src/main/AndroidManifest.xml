@@ -20,6 +20,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".ui.stopSelling.StopSellingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.updateProduct.UpdateProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.productManagement.ProductManagementActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.userManagement.UserManagementActivity"
             android:exported="false" />
         <activity

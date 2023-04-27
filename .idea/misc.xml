@@ -39,11 +39,14 @@
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_order_management.xml" value="0.2" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_order_management_admin.xml" value="0.234375" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_pay_momo.xml" value="0.228125" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_product_management.xml" value="0.2359375" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_sign_up.xml" value="0.2359375" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_splash.xml" value="0.25" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_stop_selling.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_store_list.xml" value="0.25" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_update_product.xml" value="0.2359375" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_user_management.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_warranty_management.xml" value="0.128125" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_warranty_management_admin.xml" value="0.25" />
@@ -78,6 +81,7 @@
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_product_warranty.xml" value="0.15364583333333334" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_sanpham.xml" value="0.16" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_sp_moi.xml" value="0.24895833333333334" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_stop_selling.xml" value="0.24895833333333334" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/item_user_management.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/receive.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/sent.xml" value="0.25" />
