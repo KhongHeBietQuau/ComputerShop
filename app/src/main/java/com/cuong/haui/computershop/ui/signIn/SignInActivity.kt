@@ -11,6 +11,7 @@ import com.cuong.haui.computershop.databinding.ActivitySignInBinding
 import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.main.MainAdminActivity
+import com.cuong.haui.computershop.ui.main.MainHostActivity
 import com.cuong.haui.computershop.ui.signUp.SignUpActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.google.firebase.auth.FirebaseAuth
@@ -94,11 +95,20 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                                             startActivity(intent)
                                             finish()
                                         }
+                                        else if(DefaultFirst1.userCurrent.role==3){
+                                            val intent = Intent(this@SignInActivity, MainHostActivity::class.java)
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                                            startActivity(intent)
+                                            finish()
+                                        }
+                                        else if(DefaultFirst1.userCurrent.role<0){
+                                            Toast.makeText(applicationContext, "Tài khoản của bạn bị khóa" , Toast.LENGTH_LONG).show()
+                                        }
                                     }
 
                                     override fun onCancelled(databaseError: DatabaseError) {
                                         // Getting Post failed, log a message
-                                        Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                                        Toast.makeText(applicationContext, "Lỗi đăng nhập" , Toast.LENGTH_LONG).show()
                                         // ...
                                     }
                                 })
@@ -106,7 +116,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                             }
                         } else {
                             val message = task.exception!!.toString()
-                            Toast.makeText(this, "Error: $message", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Sai tên tài khoản hoặc mật khẩu", Toast.LENGTH_LONG).show()
                             FirebaseAuth.getInstance().signOut()
                             progressDialog.dismiss()
                         }
@@ -139,6 +149,15 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                             finish()
+                        }
+                        else if(DefaultFirst1.userCurrent.role==3){
+                            val intent = Intent(this@SignInActivity, MainHostActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
+                            finish()
+                        }
+                        else if(DefaultFirst1.userCurrent.role<0){
+                            Toast.makeText(applicationContext, "Tài khoản của bạn bị khóa" , Toast.LENGTH_LONG).show()
                         }
                     }
 

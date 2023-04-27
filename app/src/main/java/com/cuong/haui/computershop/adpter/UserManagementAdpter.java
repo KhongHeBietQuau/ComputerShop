@@ -140,7 +140,7 @@ public class UserManagementAdpter extends RecyclerView.Adapter<RecyclerView.View
                                 myRef.setValue(-2, new DatabaseReference.CompletionListener() {
                                     @Override
                                     public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-                                        Toast.makeText(view.getContext(), "Mở khóa thành công", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(view.getContext(), "Khóa thành công", Toast.LENGTH_LONG).show();
                                     }
                                 });
                             }

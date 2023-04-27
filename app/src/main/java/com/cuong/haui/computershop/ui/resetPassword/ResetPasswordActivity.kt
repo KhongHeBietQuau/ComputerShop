@@ -5,6 +5,8 @@ import android.widget.Toast
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityResetPasswordBinding
 import com.cuong.haui.computershop.ui.main.MainActivity
+import com.cuong.haui.computershop.ui.main.MainAdminActivity
+import com.cuong.haui.computershop.ui.main.MainHostActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.view.openActivity
@@ -47,7 +49,12 @@ class ResetPasswordActivity : BaseActivity<ActivityResetPasswordBinding>() {
     }
     private fun CloseScreen() {
         binding.returnApp.setOnSafeClick {
-            openActivity(MainActivity::class.java,true)
+            if(DefaultFirst1.userCurrent.role ==1)
+                openActivity(MainActivity::class.java,true)
+            else if(DefaultFirst1.userCurrent.role ==2)
+                openActivity(MainAdminActivity::class.java,true)
+            else if(DefaultFirst1.userCurrent.role ==3)
+                openActivity(MainHostActivity::class.java,true)
         }
     }
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityResetPasswordBinding {

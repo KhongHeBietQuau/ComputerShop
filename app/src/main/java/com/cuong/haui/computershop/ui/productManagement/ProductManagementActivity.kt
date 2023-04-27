@@ -9,6 +9,7 @@ import com.cuong.haui.computershop.databinding.ActivityProductManagementBinding
 import com.cuong.haui.computershop.ui.addProduct.addProductActivity
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.main.MainAdminActivity
+import com.cuong.haui.computershop.ui.main.MainHostActivity
 import com.cuong.haui.computershop.ui.stopSelling.StopSellingActivity
 import com.cuong.haui.computershop.ui.updateProduct.UpdateProductActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
@@ -35,6 +36,9 @@ class ProductManagementActivity : BaseActivity<ActivityProductManagementBinding>
             }
             else if(DefaultFirst1.userCurrent.role == 2){
                 openActivity(MainAdminActivity::class.java, true)
+            }
+            else if(DefaultFirst1.userCurrent.role == 3){
+                openActivity(MainHostActivity::class.java, true)
             }
         }
     }

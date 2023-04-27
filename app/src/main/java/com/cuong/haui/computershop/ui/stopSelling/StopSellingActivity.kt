@@ -40,7 +40,7 @@ class StopSellingActivity : BaseActivity<ActivityStopSellingBinding>() {
     private fun InitData(){
         var myRef : DatabaseReference = database.getReference("Products")
         val query = FirebaseDatabase.getInstance().getReference()
-            .child("Products").orderByChild("description").equalTo("laptop gaming")
+            .child("Products").orderByChild("description")
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 mangSpMoi?.clear()
@@ -125,7 +125,7 @@ class StopSellingActivity : BaseActivity<ActivityStopSellingBinding>() {
                     mangSpMoi?.clear()
                     for(snapshot in dataSnapshot.children){
                         val sanPhamMoi = snapshot.getValue(SanPhamMoi::class.java)
-                        if(sanPhamMoi != null && sanPhamMoi.description.equals("laptop gaming")){
+                        if(sanPhamMoi != null ){
                             mangSpMoi?.add(sanPhamMoi)
                         }
                     }

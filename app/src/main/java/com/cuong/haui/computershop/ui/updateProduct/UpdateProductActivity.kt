@@ -40,7 +40,7 @@ class UpdateProductActivity : BaseActivity<ActivityUpdateProductBinding>() {
     private fun InitData(){
         var myRef : DatabaseReference = database.getReference("Products")
         val query = FirebaseDatabase.getInstance().getReference()
-            .child("Products").orderByChild("description").equalTo("laptop gaming")
+            .child("Products").orderByChild("description")
         query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (postSnapshot in dataSnapshot.children) {
@@ -116,7 +116,7 @@ class UpdateProductActivity : BaseActivity<ActivityUpdateProductBinding>() {
     }
 
     private fun retrieveUsers() {
-        val usersRef = FirebaseDatabase.getInstance().getReference().child("Users")
+        val usersRef = FirebaseDatabase.getInstance().getReference().child("Products")
         usersRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if(binding.searchEditText?.text.toString() == "")
@@ -124,7 +124,7 @@ class UpdateProductActivity : BaseActivity<ActivityUpdateProductBinding>() {
                     mangSpMoi?.clear()
                     for(snapshot in dataSnapshot.children){
                         val sanPhamMoi = snapshot.getValue(SanPhamMoi::class.java)
-                        if(sanPhamMoi != null && sanPhamMoi.description.equals("laptop gaming")){
+                        if(sanPhamMoi != null ){
                             mangSpMoi?.add(sanPhamMoi)
                         }
                     }

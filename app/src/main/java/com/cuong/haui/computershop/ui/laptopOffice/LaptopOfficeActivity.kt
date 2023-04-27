@@ -46,7 +46,7 @@ class LaptopOfficeActivity : BaseActivity<ActivityLaptopOfficeBinding>() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (postSnapshot in dataSnapshot.children) {
                     val sanPhamMoi = postSnapshot.getValue(SanPhamMoi::class.java)
-                    if(sanPhamMoi != null){
+                    if(sanPhamMoi != null && sanPhamMoi.deleted ==1){
                         mangSpMoi.add(sanPhamMoi)
 
                     }
@@ -102,7 +102,7 @@ class LaptopOfficeActivity : BaseActivity<ActivityLaptopOfficeBinding>() {
                 mangSpMoi?.clear()
                 for(snapshot in dataSnapshot.children){
                     val sanPhamMoi = snapshot.getValue(SanPhamMoi::class.java)
-                    if(sanPhamMoi != null && sanPhamMoi.description.equals("laptop văn phòng")){
+                    if(sanPhamMoi != null && sanPhamMoi.deleted ==1&& sanPhamMoi.description.equals("laptop văn phòng")){
                         mangSpMoi?.add(sanPhamMoi)
                     }
                 }
@@ -125,7 +125,7 @@ class LaptopOfficeActivity : BaseActivity<ActivityLaptopOfficeBinding>() {
                     mangSpMoi?.clear()
                     for(snapshot in dataSnapshot.children){
                         val sanPhamMoi = snapshot.getValue(SanPhamMoi::class.java)
-                        if(sanPhamMoi != null){
+                        if(sanPhamMoi != null && sanPhamMoi.deleted ==1){
                             mangSpMoi?.add(sanPhamMoi)
                         }
                     }

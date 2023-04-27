@@ -16,6 +16,7 @@ import com.cuong.haui.computershop.model.Store
 import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.main.MainAdminActivity
+import com.cuong.haui.computershop.ui.main.MainHostActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
@@ -25,7 +26,20 @@ class UserManagementActivity : BaseActivity<ActivityUserManagementBinding>() {
     private lateinit var database : DatabaseReference
     private lateinit var userAdapter: UserManagementAdpter
     private var mangUser  = ArrayList<User>()
+    var userRole1 = 0
+    var userRole2 = 0
     override fun initCreate() {
+        if(DefaultFirst1.userCurrent.role == 2){
+            userRole1 = 1
+            userRole2 = -1
+        }
+        else if(DefaultFirst1.userCurrent.role == 3){
+            userRole1 = 2
+            userRole2 = -2
+        }
+        if(DefaultFirst1.userCurrent.role ==3){
+            binding.txtNameUserFriend.setText("Quản lý nhân viên")
+        }
         CloseScreen()
         InitData()
         SearchChange()
@@ -38,6 +52,9 @@ class UserManagementActivity : BaseActivity<ActivityUserManagementBinding>() {
             else if(DefaultFirst1.userCurrent.role == 2){
                 openActivity(MainAdminActivity::class.java, true)
             }
+            else if(DefaultFirst1.userCurrent.role == 3){
+                openActivity(MainHostActivity::class.java, true)
+            }
         }
     }
     private fun InitData() {
@@ -48,7 +65,7 @@ class UserManagementActivity : BaseActivity<ActivityUserManagementBinding>() {
                 mangUser.clear()
                 for (postSnapshot in dataSnapshot.children) {
                     val user = postSnapshot.getValue(User::class.java)
-                    if(user != null && (user.role == 1 || user.role ==-1)){
+                    if(user != null && (user.role == userRole1 || user.role ==userRole2)){
                         mangUser.add(user)
 
                     }
@@ -106,7 +123,7 @@ class UserManagementActivity : BaseActivity<ActivityUserManagementBinding>() {
                 mangUser?.clear()
                 for(snapshot in dataSnapshot.children){
                     val user = snapshot.getValue(User::class.java)
-                    if(user != null){
+                    if(user != null  && (user.role == userRole1 || user.role == userRole2)){
                         mangUser?.add(user)
                     }
                 }
@@ -129,7 +146,7 @@ class UserManagementActivity : BaseActivity<ActivityUserManagementBinding>() {
                     mangUser?.clear()
                     for(snapshot in dataSnapshot.children){
                         val user = snapshot.getValue(User::class.java)
-                        if(user != null && (user.role == 1 || user.role == -1)){
+                        if(user != null && (user.role == userRole1 || user.role == userRole2)){
                             mangUser?.add(user)
                         }
                     }

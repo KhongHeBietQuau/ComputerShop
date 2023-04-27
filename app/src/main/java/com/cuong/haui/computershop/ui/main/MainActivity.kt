@@ -269,9 +269,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         var myRef : DatabaseReference = database.getReference("Products")
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
+                mangSpMoi.clear()
                 for (postSnapshot in dataSnapshot.children) {
                     val sanPhamMoi = postSnapshot.getValue(SanPhamMoi::class.java)
-                    if(sanPhamMoi != null){
+                    if(sanPhamMoi != null && sanPhamMoi.deleted ==1){
                         mangSpMoi.add(sanPhamMoi)
 
                     }

@@ -15,7 +15,10 @@ import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.model.Store
 import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.main.MainActivity
+import com.cuong.haui.computershop.ui.main.MainAdminActivity
+import com.cuong.haui.computershop.ui.main.MainHostActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
+import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -29,8 +32,21 @@ class StoreListActivity : BaseActivity<ActivityStoreListBinding>() {
         getElementLast()
         addStore()
         ReadDataStore()
+        CloseScreen()
     }
-
+    private fun CloseScreen() {
+        binding.returnApp.setOnSafeClick {
+            if(DefaultFirst1.userCurrent.role == 1) {
+                openActivity(MainActivity::class.java, true)
+            }
+            else if(DefaultFirst1.userCurrent.role == 2){
+                openActivity(MainAdminActivity::class.java, true)
+            }
+            else if(DefaultFirst1.userCurrent.role == 3){
+                openActivity(MainHostActivity::class.java, true)
+            }
+        }
+    }
     private fun ReadDataStore() {
 
         var myRef : DatabaseReference = FirebaseDatabase.getInstance().getReference("StoreLists")
