@@ -30,6 +30,7 @@ import com.cuong.haui.computershop.ui.laptopOffice.LaptopOfficeActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
 import com.cuong.haui.computershop.ui.orderManagementAdmin.OrderManagementAdminActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
+import com.cuong.haui.computershop.ui.userManagement.UserManagementActivity
 import com.cuong.haui.computershop.ui.warrantyManagementAdmin.WarrantyManagementAdminActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
 import com.cuong.haui.computershop.utils.ViewUtils
@@ -101,11 +102,16 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
                     startActivity(laptop)
                 }
                 5 -> {
-                    val laptop = Intent(applicationContext, ChatAdminMainActivity::class.java)
+                    val laptop = Intent(applicationContext, UserManagementActivity::class.java)
                     finish()
                     startActivity(laptop)
                 }
                 6 -> {
+                    val laptop = Intent(applicationContext, ChatAdminMainActivity::class.java)
+                    finish()
+                    startActivity(laptop)
+                }
+                7 -> {
                     val laptop = Intent(applicationContext, addProductActivity::class.java)
                     finish()
                     startActivity(laptop)
@@ -154,6 +160,7 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         arrayOption.add(OptionSupport("Laptop gaming",R.drawable.laptop_gaming))
         arrayOption.add(OptionSupport("Quản lý đơn hàng",R.drawable.clock))
         arrayOption.add(OptionSupport("Quản lý bảo hành",R.drawable.notification))
+        arrayOption.add(OptionSupport("Quản lý khách hàng",R.drawable.notification))
         arrayOption.add(OptionSupport("Chat với khách hàng",R.drawable.speak))
         arrayOption.add(OptionSupport("Thêm hàng",R.drawable.add_compuetr))
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
