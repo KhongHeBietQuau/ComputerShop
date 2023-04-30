@@ -85,12 +85,12 @@ class MainHostActivity : BaseActivity<ActivityMainHostBinding>() {
                 }
                 1 -> {
                     val dienthoai = Intent(applicationContext, UserManagementActivity::class.java)
-                    finish()
+
                     startActivity(dienthoai)
                 }
                 2 -> {
                     val laptop = Intent(applicationContext, StoreListActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 3 -> {
@@ -99,7 +99,6 @@ class MainHostActivity : BaseActivity<ActivityMainHostBinding>() {
                 }
                 4 -> {
                     val laptop = Intent(applicationContext, ResetPasswordActivity::class.java)
-                    finish()
                     startActivity(laptop)
                 }
 
