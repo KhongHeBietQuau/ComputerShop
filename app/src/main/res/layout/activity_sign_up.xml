@@ -84,11 +84,11 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="6dp"
         android:layout_marginRight="20dp"
-        android:background="@android:color/white"
+        android:background="@color/color_app"
         android:text="Đăng kí"
         android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textSize="17dp"></Button>
+        android:textColor="@color/white"
+        android:textSize="17dp" />
 
     <Button
         android:id="@+id/signin_link_btn"
@@ -99,10 +99,10 @@
         android:layout_marginTop="6dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
-        android:background="@android:color/holo_blue_bright"
+        android:background="@color/color_app"
         android:text="Đăng nhập"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="17dp"></Button>
+        android:textSize="17dp"/>
 
 </RelativeLayout>

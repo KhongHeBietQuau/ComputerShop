@@ -97,8 +97,9 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="10dp"
+                android:background="@color/color_app"
                 android:text="Đặt Hàng"
-                android:textColor="@color/color_app"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"/>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

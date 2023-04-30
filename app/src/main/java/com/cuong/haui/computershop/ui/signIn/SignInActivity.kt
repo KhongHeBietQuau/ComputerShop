@@ -12,8 +12,11 @@ import com.cuong.haui.computershop.model.User
 import com.cuong.haui.computershop.ui.main.MainActivity
 import com.cuong.haui.computershop.ui.main.MainAdminActivity
 import com.cuong.haui.computershop.ui.main.MainHostActivity
+import com.cuong.haui.computershop.ui.sendPasswordResetEmail.SendPasswordResetEmailActivity
 import com.cuong.haui.computershop.ui.signUp.SignUpActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
+import com.cuong.haui.computershop.view.openActivity
+import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
@@ -33,6 +36,9 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
         }
         binding.loginBtn.setOnClickListener {
             loginUser()
+        }
+        binding.forgetPassword.setOnSafeClick {
+            openActivity(SendPasswordResetEmailActivity::class.java,false)
         }
     }
 

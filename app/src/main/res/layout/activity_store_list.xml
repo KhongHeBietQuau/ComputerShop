@@ -52,6 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/btn_add_store"
+            android:background="@color/color_app"
+            android:textColor="@color/white"
             android:text="Thêm"
             android:layout_margin="5dp"/>
     </LinearLayout>

@@ -37,13 +37,14 @@
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_main_admin.xml" value="0.2" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_main_host.xml" value="0.17708333333333334" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_notification_admin.xml" value="0.1" />
-        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_notification_admin_main.xml" value="0.1" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_notification_admin_main.xml" value="0.2" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_order.xml" value="0.23177083333333334" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_order_management.xml" value="0.2" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_order_management_admin.xml" value="0.234375" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_pay_momo.xml" value="0.228125" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_product_management.xml" value="0.2359375" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_reset_password.xml" value="0.25" />
+        <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_send_password_reset_email.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_sign_up.xml" value="0.2359375" />
         <entry key="..\:/DoAnTotNghiep/ComputerShop/app/src/main/res/layout/activity_sign_up_admin.xml" value="0.25" />

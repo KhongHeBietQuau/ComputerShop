@@ -105,21 +105,20 @@
         android:hint="Password...">
 
     </EditText>
+
     <Button
         android:id="@+id/signup_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password_signup"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="6dp"
-        android:background="@android:color/white"
+        android:layout_marginRight="20dp"
+        android:background="@color/color_app"
         android:text="Register"
         android:textAllCaps="false"
-        android:textSize="17dp"
-        android:textColor="@android:color/black"
-        >
-    </Button>
+        android:textColor="@color/white"
+        android:textSize="17dp" />
 
 
 </RelativeLayout>

@@ -29,14 +29,17 @@
     </EditText>
     <Button
         android:id="@+id/btn_update_store"
+        android:background="@color/color_app"
         android:text="Sửa"
         android:padding="15dp"
         android:layout_width="70dp"
         android:layout_height="match_parent"/>
     <Button
+        android:layout_marginLeft="10dp"
         android:id="@+id/btn_delete_store"
         android:text="Xóa"
         android:padding="15dp"
+        android:background="@color/color_app"
         android:layout_width="70dp"
         android:layout_height="match_parent"/>
 

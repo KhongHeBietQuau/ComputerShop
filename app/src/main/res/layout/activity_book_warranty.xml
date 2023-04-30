@@ -97,10 +97,12 @@
        />
     <Button
         android:id="@+id/btn_submit_maintain"
+        android:background="@color/color_app"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
+        android:textColor="@color/white"
         android:text="Đặt lịch"
         android:layout_marginEnd="40dp"
         />

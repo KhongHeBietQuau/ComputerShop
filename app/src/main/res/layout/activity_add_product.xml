@@ -43,6 +43,8 @@
         <Button
             android:id="@+id/btnChoose"
             android:layout_gravity="center"
+            android:background="@color/color_app"
+            android:textColor="@color/white"
             android:text="Chọn ảnh"
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
@@ -157,6 +159,8 @@
         <Button
             android:id="@+id/btnUpload"
             android:layout_gravity="center"
+            android:background="@color/color_app"
+            android:textColor="@color/white"
             android:text="Upload"
             android:layout_width="100dp"
             android:layout_height="wrap_content" />
