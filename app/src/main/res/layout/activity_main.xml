@@ -52,6 +52,7 @@
                     </com.nex3z.notificationbadge.NotificationBadge>
                 </FrameLayout>
 
+
             </androidx.appcompat.widget.Toolbar>
 
             <androidx.core.widget.NestedScrollView

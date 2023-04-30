@@ -8,6 +8,8 @@
     <string name="granted_permission">Permission granted</string>
     <string name="ok">OK</string>
     <string name="gia_25000_d">Giá : 25000 đ</string>
+    <string name="channel_name">Giá : 25000 đ</string>
+    <string name="channel_description">Giá : 25000 đ</string>
     <string name="ten_san_pham">Tên sản phẩm</string>
     <string name="them_vao_gio_hang">Thêm vào giỏ hàng</string>
     <string name="mo_ta_chi_tiet_san_pham">Mô tả chi tiết sản phẩm</string>

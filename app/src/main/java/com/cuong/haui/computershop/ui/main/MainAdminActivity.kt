@@ -28,6 +28,7 @@ import com.cuong.haui.computershop.ui.addProduct.addProductActivity
 import com.cuong.haui.computershop.ui.chatAdminMain.ChatAdminMainActivity
 import com.cuong.haui.computershop.ui.laptopGaming.LaptopGamingActivity
 import com.cuong.haui.computershop.ui.laptopOffice.LaptopOfficeActivity
+import com.cuong.haui.computershop.ui.notificationAdmin.NotificationAdminMainActivity
 import com.cuong.haui.computershop.ui.orderManagement.OrderManagementActivity
 import com.cuong.haui.computershop.ui.orderManagementAdmin.OrderManagementAdminActivity
 import com.cuong.haui.computershop.ui.productManagement.ProductManagementActivity
@@ -130,7 +131,10 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
 
                     startActivity(laptop)
                 }
-
+                10 -> {
+                    val laptop = Intent(applicationContext, NotificationAdminMainActivity::class.java)
+                    startActivity(laptop)
+                }
             }
         })
     }
@@ -179,6 +183,7 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         arrayOption.add(OptionSupport("Chat với khách hàng",R.drawable.speak))
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
         arrayOption.add(OptionSupport("Thống kê",R.drawable.reset_password))
+        arrayOption.add(OptionSupport("Thông báo",R.drawable.reset_password))
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainAdminActivity,arrayOption)
         binding.nameUserCurrent.setText(DefaultFirst1.userCurrent.fullname.toString())
         // them sp moi

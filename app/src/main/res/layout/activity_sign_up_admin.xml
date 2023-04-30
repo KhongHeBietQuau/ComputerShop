@@ -51,14 +51,14 @@
         android:id="@+id/fullname_signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/inputs_background"
-        android:padding="10dp"
         android:layout_below="@+id/logo"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="6dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/inputs_background"
+        android:hint="FullName..."
         android:inputType="textEmailAddress"
-        android:hint="FullName...">
+        android:padding="10dp">
 
     </EditText>
     <EditText
