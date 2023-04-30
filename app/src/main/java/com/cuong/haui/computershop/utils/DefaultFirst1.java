@@ -4,6 +4,8 @@ package com.cuong.haui.computershop.utils;
 
 import com.cuong.haui.computershop.model.GioHang;
 import com.cuong.haui.computershop.model.SaleOrder;
+import com.cuong.haui.computershop.model.SanPhamBanRa;
+import com.cuong.haui.computershop.model.SanPhamMoi;
 import com.cuong.haui.computershop.model.User;
 
 import java.util.ArrayList;
@@ -18,4 +20,7 @@ public class DefaultFirst1 {
     public static int saleOrder_current_id = 0;
     public static long total_pay_oline = 0;
     public static int check_update_product = 0;
+    public static List<SanPhamMoi> mangSpConLai = new ArrayList<>();
+    public static List<SaleOrder> allSaleOrder = new ArrayList<>();
+    public static List<SanPhamBanRa> saleOrderbyProduct = new ArrayList<>();
 }

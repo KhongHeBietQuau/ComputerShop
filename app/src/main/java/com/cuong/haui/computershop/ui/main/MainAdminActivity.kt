@@ -22,6 +22,7 @@ import com.cuong.haui.computershop.adpter.SanPhamMoiAdapter
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityMainAdminBinding
 import com.cuong.haui.computershop.model.OptionSupport
+import com.cuong.haui.computershop.model.SaleOrder
 import com.cuong.haui.computershop.model.SanPhamMoi
 import com.cuong.haui.computershop.ui.addProduct.addProductActivity
 import com.cuong.haui.computershop.ui.chatAdminMain.ChatAdminMainActivity
@@ -32,6 +33,7 @@ import com.cuong.haui.computershop.ui.orderManagementAdmin.OrderManagementAdminA
 import com.cuong.haui.computershop.ui.productManagement.ProductManagementActivity
 import com.cuong.haui.computershop.ui.resetPassword.ResetPasswordActivity
 import com.cuong.haui.computershop.ui.signIn.SignInActivity
+import com.cuong.haui.computershop.ui.statistical.StatisticalActivity
 import com.cuong.haui.computershop.ui.userManagement.UserManagementActivity
 import com.cuong.haui.computershop.ui.warrantyManagementAdmin.WarrantyManagementAdminActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
@@ -80,50 +82,55 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
             when (i) {
                 0 -> {
                     val trangchu = Intent(applicationContext, MainAdminActivity::class.java)
-                    finish()
-                    startActivity(trangchu)
+
                 }
                 1 -> {
                     val dienthoai = Intent(applicationContext, LaptopOfficeActivity::class.java)
-                    finish()
+
                     startActivity(dienthoai)
                 }
                 2 -> {
                     val laptop = Intent(applicationContext, LaptopGamingActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 3 -> {
                     val laptop = Intent(applicationContext, OrderManagementAdminActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 4 -> {
                     val laptop = Intent(applicationContext, WarrantyManagementAdminActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 5 -> {
                     val laptop = Intent(applicationContext, UserManagementActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 6 -> {
                     val laptop = Intent(applicationContext, ProductManagementActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
 
                 7 -> {
                     val laptop = Intent(applicationContext, ChatAdminMainActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 8 -> {
                     val laptop = Intent(applicationContext, ResetPasswordActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
+                9 -> {
+                    val laptop = Intent(applicationContext, StatisticalActivity::class.java)
+
+                    startActivity(laptop)
+                }
+
             }
         })
     }
@@ -164,13 +171,14 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         var arrayOption : ArrayList<OptionSupport> = ArrayList()
         arrayOption.add(OptionSupport("Trang chủ",R.drawable.house))
         arrayOption.add(OptionSupport("Laptop văn phòng",R.drawable.laptop))
-        arrayOption.add(OptionSupport("Laptop gaming",R.drawable.laptop_gaming))
+        arrayOption.add(OptionSupport("Laptop cấu hình cao",R.drawable.laptop_gaming))
         arrayOption.add(OptionSupport("Quản lý đơn hàng",R.drawable.clock))
         arrayOption.add(OptionSupport("Quản lý bảo hành",R.drawable.notification))
         arrayOption.add(OptionSupport("Quản lý khách hàng",R.drawable.notification))
         arrayOption.add(OptionSupport("Quản lý sản phẩm",R.drawable.notification))
         arrayOption.add(OptionSupport("Chat với khách hàng",R.drawable.speak))
         arrayOption.add(OptionSupport("Đổi mật khẩu",R.drawable.reset_password))
+        arrayOption.add(OptionSupport("Thống kê",R.drawable.reset_password))
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainAdminActivity,arrayOption)
         binding.nameUserCurrent.setText(DefaultFirst1.userCurrent.fullname.toString())
         // them sp moi
@@ -180,6 +188,8 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
     private fun inClick(){
         binding.btnDangXuat.setOnSafeClick {
             Firebase.auth.signOut()
+            DefaultFirst1.userCurrent.role =0
+            DefaultFirst1.userCurrent.user_id =0
             openActivity(SignInActivity::class.java, true)
         }
     }
@@ -190,12 +200,36 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
                 mangSpMoi.clear()
                 for (postSnapshot in dataSnapshot.children) {
                     val sanPhamMoi = postSnapshot.getValue(SanPhamMoi::class.java)
+                    if(sanPhamMoi != null)
+                    {
+                        DefaultFirst1.mangSpConLai.add(sanPhamMoi)
+                    }
                     if(sanPhamMoi != null&& sanPhamMoi.deleted ==1){
                         mangSpMoi.add(sanPhamMoi)
 
                     }
                 }
                 spAdapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                Log.w("abc", "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
+
+        // all saleOrder
+        var myRefAllSaleOrder : DatabaseReference = database.getReference("SaleOrders")
+        myRefAllSaleOrder.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                DefaultFirst1.allSaleOrder.clear()
+                for (postSnapshot in dataSnapshot.children) {
+                    val sanPhamMoi = postSnapshot.getValue(SaleOrder::class.java)
+                    if(sanPhamMoi != null){
+                        DefaultFirst1.allSaleOrder.add(sanPhamMoi)
+                    }
+                }
             }
 
             override fun onCancelled(databaseError: DatabaseError) {

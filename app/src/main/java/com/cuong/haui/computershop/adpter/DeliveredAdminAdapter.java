@@ -81,6 +81,7 @@ public class DeliveredAdminAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 status_pay = "đã thanh toán";
             }
             myViewHolder.phuongthucthanhtoan.setText(status_payment);
+            myViewHolder.itemdt_address.setText(saleOrder.delivery_address);
             myViewHolder.trangthaithanhtoan.setText(status_pay);
             myViewHolder.ghichu.setText(saleOrder.note);
             Glide.with(context).load(saleOrder.getHinhsp()).into(myViewHolder.hinhanh);
@@ -154,7 +155,7 @@ public class DeliveredAdminAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tensp,giasp,nguoinhan,mota,sodienthoai,tongtien,phuongthucthanhtoan,trangthaithanhtoan,ghichu;
+        TextView tensp,giasp,nguoinhan,mota,sodienthoai,tongtien,phuongthucthanhtoan,trangthaithanhtoan,ghichu,itemdt_address;
         ImageView hinhanh;
 
         Button btn_cancel;
@@ -167,6 +168,7 @@ public class DeliveredAdminAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             hinhanh= itemView.findViewById(R.id.itemdt_image);
             nguoinhan= itemView.findViewById(R.id.itemdt_receiver);
             sodienthoai= itemView.findViewById(R.id.itemdt_phone_number);
+            itemdt_address= itemView.findViewById(R.id.itemdt_address);
             tongtien= itemView.findViewById(R.id.itemdt_total_money);
             phuongthucthanhtoan= itemView.findViewById(R.id.itemdt_payment);
             trangthaithanhtoan= itemView.findViewById(R.id.itemdt_status_payment);

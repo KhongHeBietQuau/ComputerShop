@@ -155,6 +155,8 @@ class MainHostActivity : BaseActivity<ActivityMainHostBinding>() {
     private fun inClick(){
         binding.btnDangXuat.setOnSafeClick {
             Firebase.auth.signOut()
+            DefaultFirst1.userCurrent.role =0
+            DefaultFirst1.userCurrent.user_id =0
             openActivity(SignInActivity::class.java, true)
         }
     }

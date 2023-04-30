@@ -46,7 +46,7 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
                     val gia: Long =
                         (sanPhamMoi?.price_new?.toLong() ?: 0)
                     DefaultFirst1.manggiohang.get(i).setGiasp(gia)
-                    Toast.makeText(applicationContext, "đang ấn", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(applicationContext, "đang ấn", Toast.LENGTH_LONG).show()
                     flag = true
                 }
             }

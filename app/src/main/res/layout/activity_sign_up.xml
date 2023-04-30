@@ -75,21 +75,20 @@
         android:hint="Password...">
 
     </EditText>
+
     <Button
         android:id="@+id/signup_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password_signup"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="6dp"
+        android:layout_marginRight="20dp"
         android:background="@android:color/white"
-        android:text="Register"
+        android:text="Đăng kí"
         android:textAllCaps="false"
-        android:textSize="17dp"
         android:textColor="@android:color/black"
-        >
-    </Button>
+        android:textSize="17dp"></Button>
 
     <Button
         android:id="@+id/signin_link_btn"
@@ -97,15 +96,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="6dp"
+        android:layout_marginRight="20dp"
         android:layout_marginBottom="10dp"
         android:background="@android:color/holo_blue_bright"
-        android:text="Already have an Account? Sign in"
+        android:text="Đăng nhập"
         android:textAllCaps="false"
-        android:textSize="17dp"
         android:textColor="@android:color/white"
-        >
-    </Button>
+        android:textSize="17dp"></Button>
 
 </RelativeLayout>

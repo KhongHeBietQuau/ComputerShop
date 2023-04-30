@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cuong.haui.computershop.adpter.ConfirmAdapter
+import com.cuong.haui.computershop.adpter.RefundAdapter
 import com.cuong.haui.computershop.base.BaseFragment
 import com.cuong.haui.computershop.databinding.FragmentDeliveredBinding
 import com.cuong.haui.computershop.model.SaleOrder
@@ -15,7 +16,7 @@ import com.google.firebase.database.*
 
 class DeliveredFragment : BaseFragment<FragmentDeliveredBinding>() {
     var database = FirebaseDatabase.getInstance()
-    private lateinit var confirmspAdapter : ConfirmAdapter
+    private lateinit var confirmspAdapter : RefundAdapter
     private var mangSaleOrder  = ArrayList<SaleOrder>()
     override fun initViewCreated() {
         InitData()
@@ -49,7 +50,7 @@ class DeliveredFragment : BaseFragment<FragmentDeliveredBinding>() {
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this.getActivity(), 1)
         binding.recyclerViewDelivered.setLayoutManager(layoutManager)
         binding.recyclerViewDelivered.setHasFixedSize(true)
-        confirmspAdapter = ConfirmAdapter(this.activity, mangSaleOrder)
+        confirmspAdapter = RefundAdapter(this.activity, mangSaleOrder)
         binding.recyclerViewDelivered.setAdapter(confirmspAdapter)
     }
     override fun inflateLayout(

@@ -20,7 +20,7 @@
     </item>
     <item
         android:id="@+id/product_return"
-        android:title="Đơn đã hủy"
+        android:title="Trả hàng"
         android:icon="@drawable/product_return"
         >
     </item>

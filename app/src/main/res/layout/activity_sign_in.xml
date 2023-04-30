@@ -44,21 +44,20 @@
         android:hint="Password...">
 
     </EditText>
+
     <Button
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password_login"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="6dp"
+        android:layout_marginRight="20dp"
         android:background="@android:color/white"
-        android:text="Login"
+        android:text="Đăng nhập"
         android:textAllCaps="false"
-        android:textSize="17dp"
         android:textColor="@android:color/black"
-        >
-    </Button>
+        android:textSize="17dp"></Button>
 
     <Button
         android:id="@+id/signup_link_btn"
@@ -70,7 +69,7 @@
         android:layout_marginTop="6dp"
         android:layout_marginBottom="10dp"
         android:background="@android:color/white"
-        android:text="Need New Account? Sign Up"
+        android:text="Đăng kí"
         android:textAllCaps="false"
         android:textSize="17dp"
         android:textColor="@android:color/black"

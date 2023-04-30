@@ -52,7 +52,7 @@ class ChatAdminMainActivity : BaseActivity<ActivityChatAdminMainBinding>() {
     }
     private fun CloseScreen() {
         binding.returnApp.setOnSafeClick {
-            openActivity(MainAdminActivity::class.java,true)
+            finish()
         }
     }
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityChatAdminMainBinding {

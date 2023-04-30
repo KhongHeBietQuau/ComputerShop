@@ -108,22 +108,22 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             when (i) {
                 0 -> {
                     val trangchu = Intent(applicationContext, MainActivity::class.java)
-                    finish()
+
                     startActivity(trangchu)
                 }
                 1 -> {
                     val dienthoai = Intent(applicationContext, LaptopOfficeActivity::class.java)
-                    finish()
+
                     startActivity(dienthoai)
                 }
                 2 -> {
                     val laptop = Intent(applicationContext, LaptopGamingActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 3 -> {
                     val laptop = Intent(applicationContext, OrderManagementActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 4 -> {
@@ -132,17 +132,17 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 }
                 5 -> {
                     val laptop = Intent(applicationContext, ListProductWarrantyActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 6 -> {
                     val laptop = Intent(applicationContext, warrantyManagementActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 7 -> {
                     val laptop = Intent(applicationContext, ChatMainActivity::class.java)
-                    finish()
+
                     startActivity(laptop)
                 }
                 8 -> {
@@ -196,7 +196,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         var arrayOption : ArrayList<OptionSupport> = ArrayList()
         arrayOption.add(OptionSupport("Trang chủ",R.drawable.house))
         arrayOption.add(OptionSupport("Laptop văn phòng",R.drawable.laptop))
-        arrayOption.add(OptionSupport("Laptop gaming",R.drawable.laptop_gaming))
+        arrayOption.add(OptionSupport("Laptop cấu hình cao",R.drawable.laptop_gaming))
         arrayOption.add(OptionSupport("Theo dõi đơn hàng",R.drawable.clock))
         arrayOption.add(OptionSupport("Đơn nháp",R.drawable.draft))
         arrayOption.add(OptionSupport("Đặt lịch bảo hành",R.drawable.guarantee))
@@ -261,6 +261,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     private fun inClick(){
         binding.btnDangXuat.setOnSafeClick {
             Firebase.auth.signOut()
+            DefaultFirst1.userCurrent.role =0
+            DefaultFirst1.userCurrent.user_id =0
             openActivity(SignInActivity::class.java, true)
         }
     }

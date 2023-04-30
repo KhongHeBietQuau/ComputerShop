@@ -29,12 +29,7 @@ class LaptopOfficeActivity : BaseActivity<ActivityLaptopOfficeBinding>() {
     }
     private fun CloseScreenLaptopGaming() {
         binding.returnApp.setOnSafeClick {
-            if(DefaultFirst1.userCurrent.role == 1) {
-                openActivity(MainActivity::class.java, true)
-            }
-            else if(DefaultFirst1.userCurrent.role == 2){
-                openActivity(MainAdminActivity::class.java, true)
-            }
+            finish()
         }
     }
 

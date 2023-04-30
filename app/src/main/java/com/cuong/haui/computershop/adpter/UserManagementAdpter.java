@@ -91,7 +91,7 @@ public class UserManagementAdpter extends RecyclerView.Adapter<RecyclerView.View
                                     }
                                 });
                             }
-                            if(user.role == -2) {
+                            else if(user.role == -2) {
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference myRef = database.getReference("Users/" + String.valueOf(user.user_id) + "/role");
                                 myRef.setValue(2, new DatabaseReference.CompletionListener() {
@@ -134,7 +134,7 @@ public class UserManagementAdpter extends RecyclerView.Adapter<RecyclerView.View
                                     }
                                 });
                             }
-                            if(user.role == 2) {
+                            else if(user.role == 2) {
                                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                                 DatabaseReference myRef = database.getReference("Users/" + String.valueOf(user.user_id) + "/role");
                                 myRef.setValue(-2, new DatabaseReference.CompletionListener() {

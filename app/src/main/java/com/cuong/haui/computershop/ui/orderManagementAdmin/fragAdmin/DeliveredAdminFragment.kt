@@ -12,6 +12,7 @@ import com.cuong.haui.computershop.R
 import com.cuong.haui.computershop.adpter.ComfirmAdminAdapter
 import com.cuong.haui.computershop.adpter.ConfirmAdapter
 import com.cuong.haui.computershop.adpter.DeliveredAdminAdapter
+import com.cuong.haui.computershop.adpter.RefundAdminAdapter
 import com.cuong.haui.computershop.base.BaseFragment
 import com.cuong.haui.computershop.databinding.FragmentDeliveredAdminBinding
 import com.cuong.haui.computershop.model.SaleOrder
@@ -21,7 +22,7 @@ import com.google.firebase.database.*
 
 class DeliveredAdminFragment : BaseFragment<FragmentDeliveredAdminBinding>() {
     var database = FirebaseDatabase.getInstance()
-    private lateinit var confirmspAdapter : DeliveredAdminAdapter
+    private lateinit var confirmspAdapter : RefundAdminAdapter
     private var mangSaleOrder  = ArrayList<SaleOrder>()
     override fun initViewCreated() {
         InitData()
@@ -30,8 +31,8 @@ class DeliveredAdminFragment : BaseFragment<FragmentDeliveredAdminBinding>() {
         //Toast.makeText(activity, "ngu", Toast.LENGTH_LONG).show()
         var myRef : DatabaseReference = database.getReference("SaleOrders")
         val query = FirebaseDatabase.getInstance().getReference()
-            .child("SaleOrders").orderByChild("user_id").equalTo(DefaultFirst1.userCurrent.user_id.toDouble())
-        myRef.addValueEventListener(object : ValueEventListener {
+            .child("SaleOrders").orderByChild("shipper_id")
+        query.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 mangSaleOrder.clear()
                 for (postSnapshot in dataSnapshot.children) {
@@ -55,7 +56,7 @@ class DeliveredAdminFragment : BaseFragment<FragmentDeliveredAdminBinding>() {
         val layoutManager: RecyclerView.LayoutManager = GridLayoutManager(this.getActivity(), 1)
         binding.recyclerViewDelivered.setLayoutManager(layoutManager)
         binding.recyclerViewDelivered.setHasFixedSize(true)
-        confirmspAdapter = DeliveredAdminAdapter(this.activity, mangSaleOrder)
+        confirmspAdapter = RefundAdminAdapter(this.activity, mangSaleOrder)
         binding.recyclerViewDelivered.setAdapter(confirmspAdapter)
     }
     override fun inflateLayout(

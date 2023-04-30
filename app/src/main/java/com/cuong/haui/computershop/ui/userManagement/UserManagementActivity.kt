@@ -33,7 +33,7 @@ class UserManagementActivity : BaseActivity<ActivityUserManagementBinding>() {
             userRole1 = 1
             userRole2 = -1
         }
-        else if(DefaultFirst1.userCurrent.role == 3){
+         if(DefaultFirst1.userCurrent.role == 3){
             userRole1 = 2
             userRole2 = -2
         }
@@ -46,15 +46,7 @@ class UserManagementActivity : BaseActivity<ActivityUserManagementBinding>() {
     }
     private fun CloseScreen() {
         binding.returnApp.setOnSafeClick {
-            if(DefaultFirst1.userCurrent.role == 1) {
-                openActivity(MainActivity::class.java, true)
-            }
-            else if(DefaultFirst1.userCurrent.role == 2){
-                openActivity(MainAdminActivity::class.java, true)
-            }
-            else if(DefaultFirst1.userCurrent.role == 3){
-                openActivity(MainHostActivity::class.java, true)
-            }
+           finish()
         }
     }
     private fun InitData() {

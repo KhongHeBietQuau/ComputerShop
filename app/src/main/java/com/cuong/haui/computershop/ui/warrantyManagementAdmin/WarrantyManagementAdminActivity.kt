@@ -83,7 +83,7 @@ class WarrantyManagementAdminActivity : BaseActivity<ActivityWarrantyManagementA
     private fun ActionToolBar() {
         setSupportActionBar(binding.toobar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        binding.toobar!!.setNavigationOnClickListener { openActivity(MainAdminActivity::class.java,true) }
+        binding.toobar!!.setNavigationOnClickListener { finish() }
     }
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityWarrantyManagementAdminBinding {
         return ActivityWarrantyManagementAdminBinding.inflate(inflater)

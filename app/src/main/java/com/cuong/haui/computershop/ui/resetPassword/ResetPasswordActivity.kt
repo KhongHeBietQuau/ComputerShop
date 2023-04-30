@@ -49,12 +49,7 @@ class ResetPasswordActivity : BaseActivity<ActivityResetPasswordBinding>() {
     }
     private fun CloseScreen() {
         binding.returnApp.setOnSafeClick {
-            if(DefaultFirst1.userCurrent.role ==1)
-                openActivity(MainActivity::class.java,true)
-            else if(DefaultFirst1.userCurrent.role ==2)
-                openActivity(MainAdminActivity::class.java,true)
-            else if(DefaultFirst1.userCurrent.role ==3)
-                openActivity(MainHostActivity::class.java,true)
+            finish()
         }
     }
     override fun inflateViewBinding(inflater: LayoutInflater): ActivityResetPasswordBinding {

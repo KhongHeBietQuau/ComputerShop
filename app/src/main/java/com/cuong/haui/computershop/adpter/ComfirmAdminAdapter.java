@@ -89,6 +89,7 @@ public class ComfirmAdminAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             else{
                 status_pay = "đã thanh toán";
             }
+            myViewHolder.itemdt_address.setText(saleOrder.delivery_address);
             myViewHolder.phuongthucthanhtoan.setText(status_payment);
             myViewHolder.trangthaithanhtoan.setText(status_pay);
             myViewHolder.ghichu.setText(saleOrder.note);
@@ -256,7 +257,7 @@ public class ComfirmAdminAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView tensp,giasp,mota,nguoinhan,sodienthoai,tongtien,phuongthucthanhtoan,trangthaithanhtoan,ghichu;
+        TextView tensp,giasp,mota,nguoinhan,sodienthoai,tongtien,phuongthucthanhtoan,trangthaithanhtoan,ghichu,itemdt_address;
         ImageView hinhanh;
         Button btn_cancel,btn_confirmation;
         private ItemClickListener itemClickListener;
@@ -264,6 +265,7 @@ public class ComfirmAdminAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             super(itemView);
             tensp = itemView.findViewById(R.id.itemdt_ten);
             giasp = itemView.findViewById(R.id.itemdt_gia);
+            itemdt_address= itemView.findViewById(R.id.itemdt_address);
             mota = itemView.findViewById(R.id.itemdt_soluong);
             hinhanh= itemView.findViewById(R.id.itemdt_image);
             nguoinhan= itemView.findViewById(R.id.itemdt_receiver);

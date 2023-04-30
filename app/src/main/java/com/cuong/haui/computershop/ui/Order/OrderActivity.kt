@@ -242,7 +242,7 @@ class OrderActivity : BaseActivity<ActivityOrderBinding>() {
                         DefaultFirst1.saleOrderCurrent.setStatus("1")
                         DefaultFirst1.saleOrderCurrent.setAdmin_id(0)
                         DefaultFirst1.saleOrderCurrent.setUser_id(DefaultFirst1.userCurrent.user_id)
-                        DefaultFirst1.saleOrderCurrent.setShipper_id(0)
+                        DefaultFirst1.saleOrderCurrent.setShipper_id(1)
                         DefaultFirst1.saleOrderCurrent.setStatus_pay(1)
                         DefaultFirst1.saleOrderCurrent.setWarranty_period(0)
                         DefaultFirst1.saleOrderCurrent.setNote(binding.note.text.toString())
