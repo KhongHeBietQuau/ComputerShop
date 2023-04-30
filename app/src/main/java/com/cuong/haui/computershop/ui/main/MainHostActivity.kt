@@ -142,9 +142,9 @@ class MainHostActivity : BaseActivity<ActivityMainHostBinding>() {
     private fun initData() {
         var arrayOption : ArrayList<OptionSupport> = ArrayList()
         arrayOption.add(OptionSupport("Trang chủ", R.drawable.house))
-        arrayOption.add(OptionSupport("Quản lý nhân viên", R.drawable.clock))
-        arrayOption.add(OptionSupport("Quản lý cửa hàng", R.drawable.notification))
-        arrayOption.add(OptionSupport("Tạo tài khoản nhân viên", R.drawable.notification))
+        arrayOption.add(OptionSupport("Quản lý nhân viên", R.drawable.networking))
+        arrayOption.add(OptionSupport("Quản lý cửa hàng", R.drawable.owner))
+        arrayOption.add(OptionSupport("Tạo tài khoản nhân viên", R.drawable.add_user))
         arrayOption.add(OptionSupport("Đổi mật khẩu", R.drawable.reset_password))
         binding.listviewmanhinhchinh.adapter = OptionAdapter(this@MainHostActivity,arrayOption)
         binding.nameUserCurrent.setText(DefaultFirst1.userCurrent.fullname.toString())
