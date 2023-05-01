@@ -11,7 +11,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/color_app"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Đơn hàng"
+        app:title="Quản lý đơn hàng"
         app:titleTextColor="@color/white">
 
 

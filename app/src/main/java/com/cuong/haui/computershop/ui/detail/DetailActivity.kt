@@ -81,11 +81,13 @@ class DetailActivity : BaseActivity<ActivityDetailBinding>() {
     private fun initData() {
         sanPhamMoi = intent.getSerializableExtra("chitiet") as SanPhamMoi?
         binding.txttensp?.setText(sanPhamMoi?.product_name ?: "")
-        sanPhamMoi?.description  = "CPU:  "+ (sanPhamMoi?.cpu ?: "") + "\nCard đồ họa:  " +
-                (sanPhamMoi?.graphics ?: "")+ "\nỔ cứng:  " + (sanPhamMoi?.hard_drive ?: "") + "\nRAM:  " + (sanPhamMoi?.ram ?: "")+ "\nMàn hình:  " +
-                (sanPhamMoi?.screen ?: "")+ "\nBảo hành:  " + (sanPhamMoi?.warranty_period ?: "")
 
-        binding.txtmotachitiet?.setText(sanPhamMoi?.description ?: "")
+        binding.itemdtCpu?.setText(sanPhamMoi?.cpu ?: "")
+        binding.itemdtGraphic?.setText((sanPhamMoi?.graphics ?: ""))
+        binding.itemdtRam?.setText((sanPhamMoi?.ram ?: ""))
+        binding.itemdtScreen?.setText((sanPhamMoi?.screen ?: ""))
+        binding.itemdtWarranty?.setText((sanPhamMoi?.warranty_period.toString() ?: ""))
+        binding.itemdtHardDrive?.setText((sanPhamMoi?.hard_drive ?: ""))
         binding.imgchitiet?.let { Glide.with(applicationContext).load(sanPhamMoi?.thumbnail_url).into(it) }
         val decimalFormat = DecimalFormat("###,###,###")
         binding.txtgiasp!!.text = "Gia: " + sanPhamMoi?.price_new?.let { decimalFormat.format(it.toDouble()) } + "Đ"

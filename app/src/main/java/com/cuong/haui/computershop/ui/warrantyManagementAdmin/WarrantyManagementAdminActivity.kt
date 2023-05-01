@@ -71,14 +71,7 @@ class WarrantyManagementAdminActivity : BaseActivity<ActivityWarrantyManagementA
     }
     private fun initView() {
 
-        if (DefaultFirst1.manggiohang != null) {
-            binding.menuSl.setText(String.valueOf(DefaultFirst1.manggiohang.size))
-        }
 
-        binding.framegiohang.setOnClickListener {
-            val giohang = Intent(applicationContext, CartActivity::class.java)
-            startActivity(giohang)
-        }
     }
     private fun ActionToolBar() {
         setSupportActionBar(binding.toobar)

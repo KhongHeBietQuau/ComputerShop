@@ -11,9 +11,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="220dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/computer_shop"/>
+        android:src="@drawable/computer_shop" />
 
     <EditText
         android:id="@+id/email_login"
@@ -63,9 +63,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/forgetPassword"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="6dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="130dp"
         android:background="@color/color_app"
         android:text="Đăng nhập"
         android:textAllCaps="false"
@@ -74,16 +74,19 @@
 
     <Button
         android:id="@+id/signup_link_btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="10dp"
-        android:background="@color/color_app"
+        android:layout_marginBottom="665dp"
+        android:background="@color/white"
         android:text="Đăng kí"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@android:color/black"
         android:textSize="17dp" />
 </RelativeLayout>

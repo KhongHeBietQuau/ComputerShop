@@ -51,6 +51,7 @@ public class StatisticalActivity extends AppCompatActivity {
                         //Toast.makeText(view.getContext(), sanPhamMoi.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
+
             }
 
             @Override
@@ -103,6 +104,7 @@ public class StatisticalActivity extends AppCompatActivity {
         DataPoint[] values = new DataPoint[size];
         for (int i=0; i<size; i++) {
             Integer xi = Integer.parseInt(String.valueOf(DefaultFirst1.mangSpConLai.get(i).product_id));
+            //Toast.makeText(getApplicationContext(), String.valueOf(xi), Toast.LENGTH_LONG).show();
             Integer yi = Integer.parseInt(String.valueOf(DefaultFirst1.mangSpConLai.get(i).current_quantity));
             DataPoint v = new DataPoint(xi, yi);
             values[i] = v;
@@ -110,6 +112,7 @@ public class StatisticalActivity extends AppCompatActivity {
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(values);
         graph.addSeries(series);
 //ban ra
+
         GraphView graphbanra = (GraphView) findViewById(R.id.graphBanRa);
         int size2 = DefaultFirst1.mangSpConLai.size();
         DataPoint[] values2 = new DataPoint[size2];

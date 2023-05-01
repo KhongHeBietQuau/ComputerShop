@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -18,7 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SendPasswordResetEmailActivity extends AppCompatActivity {
     private EditText inputEmail;
-    private Button btnReset, btnBack;
+    private Button btnReset;
+    private ImageView return_app;
     private FirebaseAuth auth;
     private ProgressBar progressBar;
     @Override
@@ -27,12 +29,12 @@ public class SendPasswordResetEmailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_send_password_reset_email);
         inputEmail = (EditText) findViewById(R.id.email);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
-        btnBack = (Button) findViewById(R.id.btn_back);
+        return_app = (ImageView) findViewById(R.id.return_app);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         auth = FirebaseAuth.getInstance();
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        return_app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
@@ -56,9 +58,9 @@ public class SendPasswordResetEmailActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<Void> task) {
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(getApplication(), "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplication(), "Chúng tôi đã gửi cho bạn hướng dẫn để đặt lại mật khẩu của bạn trong email!", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    Toast.makeText(getApplication(), "Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplication(), "Lỗi!", Toast.LENGTH_SHORT).show();
                                 }
 
                                 progressBar.setVisibility(View.GONE);

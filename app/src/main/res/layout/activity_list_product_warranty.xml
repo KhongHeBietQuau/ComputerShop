@@ -25,13 +25,13 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:textColor="@color/color_app"
-            android:text="Danh sách sản phẩm còn bảo hành"
+            android:text="Sản phẩm còn bảo hành"
             android:textSize="20sp"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:layout_marginLeft="60dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="4dp"
-            android:layout_marginRight="60dp">
+            android:layout_marginRight="10dp">
 
         </TextView>
     </LinearLayout>

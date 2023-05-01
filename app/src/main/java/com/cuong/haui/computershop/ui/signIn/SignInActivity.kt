@@ -52,11 +52,11 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
         val password = binding.passwordLogin.text.toString()
 
         when {
-            TextUtils.isEmpty(email) -> Toast.makeText(this, "email is required", Toast.LENGTH_LONG)
+            TextUtils.isEmpty(email) -> Toast.makeText(this, "email không được trống", Toast.LENGTH_LONG)
                 .show()
             TextUtils.isEmpty(password) -> Toast.makeText(
                 this,
-                "password is required",
+                "password không được trống",
                 Toast.LENGTH_LONG
             ).show()
             else -> {

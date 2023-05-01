@@ -136,7 +136,7 @@
                         android:layout_marginTop="10dp"
                         android:fontFamily="@font/inter_900"
                         android:gravity="center"
-                        android:text="Thành viên"
+                        android:text="Chủ hệ thống"
                         android:textColor="@color/color_app"
                         android:textSize="15sp"/>
 

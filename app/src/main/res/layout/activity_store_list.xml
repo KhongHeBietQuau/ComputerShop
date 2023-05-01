@@ -28,7 +28,7 @@
             android:layout_marginLeft="60dp"
             android:layout_marginTop="4dp"
             android:layout_marginRight="60dp"
-            android:text="Thêm cửa hàng"
+            android:text="Quản lý cửa hàng"
             android:textAlignment="center"
             android:textColor="@color/color_app"
             android:textSize="20sp">

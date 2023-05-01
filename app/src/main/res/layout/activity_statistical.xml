@@ -16,6 +16,8 @@
         app:titleTextColor="@color/white"/>
     <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="300dp"
         android:id="@+id/graph"/>
     <TextView
@@ -26,11 +28,14 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
+        android:textColor="@color/black"
         android:layout_marginBottom="5dp"
         android:text="Thống kê số lượng hàng còn trong kho">
     </TextView>
     <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_height="300dp"
         android:id="@+id/graphBanRa"/>
     <TextView
@@ -41,6 +46,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
+        android:textColor="@color/black"
         android:text="Thống kê số lượng hàng bán ra">
     </TextView>
 </LinearLayout>
