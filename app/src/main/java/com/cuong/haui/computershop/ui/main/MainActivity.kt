@@ -56,7 +56,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         ViewUtils.setCorners(resources,25f,binding.viewlipper)
         ActionBar()
         if (isConnected(this)) {
-            Toast.makeText(applicationContext, "ok", Toast.LENGTH_LONG).show()
+            //Toast.makeText(applicationContext, "ok", Toast.LENGTH_LONG).show()
             Log.d("cuongnm", FirebaseAuth.getInstance().currentUser.toString())
 
             ActionViewFlipper()

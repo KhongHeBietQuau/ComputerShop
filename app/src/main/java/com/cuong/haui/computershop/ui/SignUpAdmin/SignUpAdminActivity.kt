@@ -98,7 +98,7 @@ class SignUpAdminActivity : BaseActivity<ActivitySignUpAdminBinding>() {
                         }
                         else{
                             val message = task.exception!!.toString()
-                            Toast.makeText(this,"Error: $message", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this,"Lỗi", Toast.LENGTH_LONG).show()
                             mAuth.signOut()
                             progressDialog.dismiss()
 

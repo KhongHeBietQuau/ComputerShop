@@ -73,12 +73,6 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             progressDialog.dismiss()
-                            /*val intent = Intent(this@SignInActivity, MainActivity::class.java)
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-
-                            startActivity(intent)
-                            finish()*/
-                            // phan quyen o day
                             val user = Firebase.auth.currentUser
                             user?.let {
                                 val name = it.displayName

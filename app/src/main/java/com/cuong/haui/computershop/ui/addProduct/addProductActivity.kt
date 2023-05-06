@@ -61,6 +61,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
         sanPhamUpdate = (intent.getSerializableExtra("updateProduct") as SanPhamMoi?)!!
 
         if(sanPhamUpdate?.product_id!! >0){
+            binding.btnUpload.setText("Cập nhật")
             binding.txtNameUserFriend.text = "Cập nhật sản phẩm"
             binding.cpu.setText(sanPhamUpdate.cpu.toString())
             binding.description.setText(sanPhamUpdate.description.toString())
@@ -137,13 +138,13 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
     private fun uploadImage() {
         if (filePath != null) {
             val progressDialog = ProgressDialog(this)
-            progressDialog.setTitle("Uploading...")
+            progressDialog.setTitle("Đăng sử lý...")
             progressDialog.show()
             val ref = storageReference.child("images/" + UUID.randomUUID().toString())
             ref.putFile(filePath!!)
                 .addOnSuccessListener {
                     progressDialog.dismiss()
-                    Toast.makeText(this@addProductActivity, "Uploaded", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this@addProductActivity, "Uploaded", Toast.LENGTH_SHORT).show()
 
                     val downloadUri: Task<Uri> = it.storage.downloadUrl
                     downloadUri.addOnSuccessListener {
@@ -214,12 +215,12 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                                 binding.screen.text.clear()
                                 binding.warrantyPeriod.text.clear()
 
-                                Toast.makeText(this, "Successfully Saved", Toast.LENGTH_SHORT)
+                                Toast.makeText(this, "Thành công", Toast.LENGTH_SHORT)
                                     .show()
 
                             }.addOnFailureListener {
 
-                            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Lỗi", Toast.LENGTH_SHORT).show()
 
 
                         }
@@ -231,13 +232,13 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
                 }
                 .addOnFailureListener { e ->
                     progressDialog.dismiss()
-                    Toast.makeText(this@addProductActivity, "Failed " + e.message, Toast.LENGTH_SHORT)
+                    Toast.makeText(this@addProductActivity, "Lỗi " + e.message, Toast.LENGTH_SHORT)
                         .show()
                 }
                 .addOnProgressListener { taskSnapshot ->
                     val progress = 100.0 * taskSnapshot.bytesTransferred / taskSnapshot
                         .totalByteCount
-                    progressDialog.setMessage("Uploaded " + progress.toInt() + "%")
+                    progressDialog.setMessage("Đang sử lý " + progress.toInt() + "%")
                 }
         }
     }

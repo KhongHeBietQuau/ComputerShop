@@ -48,7 +48,7 @@ public class SendPasswordResetEmailActivity extends AppCompatActivity {
                 String email = inputEmail.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplication(), "Enter your registered email id", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplication(), "vui lòng nhập địa chỉ email của bạn", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

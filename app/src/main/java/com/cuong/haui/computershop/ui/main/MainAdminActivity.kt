@@ -55,7 +55,7 @@ class MainAdminActivity : BaseActivity<ActivityMainAdminBinding>() {
         ViewUtils.setCorners(resources,25f,binding.viewlipper)
         ActionBar()
         if (isConnected(this)) {
-            Toast.makeText(applicationContext, "ok", Toast.LENGTH_LONG).show()
+            //Toast.makeText(applicationContext, "ok", Toast.LENGTH_LONG).show()
             ActionViewFlipper()
             //themList()
             getSpMoi()

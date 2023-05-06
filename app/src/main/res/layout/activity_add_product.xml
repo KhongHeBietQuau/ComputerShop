@@ -333,7 +333,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/color_app"
-        android:text="Upload"
+        android:text="Thêm"
         android:textColor="@color/white" />
 
 </LinearLayout>

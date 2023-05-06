@@ -9,14 +9,14 @@
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
         >
+
         <TextView
             android:id="@+id/txt_sent_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="This is sent message"
             android:textColor="@color/white"
-            android:textSize="18sp">
-        </TextView>
+            android:textSize="18sp"></TextView>
     </RelativeLayout>
 
 </RelativeLayout>

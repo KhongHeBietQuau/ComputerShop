@@ -94,7 +94,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                         }
                         else{
                             val message = task.exception!!.toString()
-                            Toast.makeText(this,"Error: $message", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this,"Lỗi", Toast.LENGTH_LONG).show()
                             mAuth.signOut()
                             progressDialog.dismiss()
 
@@ -132,7 +132,7 @@ class SignUpActivity : BaseActivity<ActivitySignUpBinding>() {
                 }
                 else{
                     val message = task.exception!!.toString()
-                    Toast.makeText(this,"Error: $message", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Lỗi", Toast.LENGTH_LONG).show()
                     FirebaseAuth.getInstance().signOut()
                     progressDialog.dismiss()
                 }
