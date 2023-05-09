@@ -39,16 +39,18 @@
 
     <ImageView
         android:id="@+id/imgView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_gravity="center" />
 
     <Button
         android:id="@+id/btnChoose"
         android:layout_width="100dp"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/color_app"
+        android:layout_marginTop="20dp"
         android:text="Chọn ảnh"
         android:textColor="@color/white" />
 
@@ -329,7 +331,9 @@
 
     <Button
         android:id="@+id/btnUpload"
+        android:layout_marginTop="20dp"
         android:layout_width="100dp"
+        android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@color/color_app"

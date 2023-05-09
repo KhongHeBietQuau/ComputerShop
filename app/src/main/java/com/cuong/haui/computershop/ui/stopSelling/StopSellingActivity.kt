@@ -41,7 +41,7 @@ class StopSellingActivity : BaseActivity<ActivityStopSellingBinding>() {
         var myRef : DatabaseReference = database.getReference("Products")
         val query = FirebaseDatabase.getInstance().getReference()
             .child("Products").orderByChild("description")
-        query.addValueEventListener(object : ValueEventListener {
+        myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 mangSpMoi?.clear()
                 for (postSnapshot in dataSnapshot.children) {

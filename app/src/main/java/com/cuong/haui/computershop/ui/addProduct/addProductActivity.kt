@@ -11,12 +11,11 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import com.bumptech.glide.Glide
 import com.cuong.haui.computershop.base.BaseActivity
 import com.cuong.haui.computershop.databinding.ActivityAddProductBinding
 import com.cuong.haui.computershop.model.SanPhamMoi
-import com.cuong.haui.computershop.ui.main.MainAdminActivity
 import com.cuong.haui.computershop.utils.DefaultFirst1
-import com.cuong.haui.computershop.view.openActivity
 import com.cuong.haui.computershop.view.setOnSafeClick
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.*
@@ -64,6 +63,7 @@ class addProductActivity : BaseActivity<ActivityAddProductBinding>() {
             binding.btnUpload.setText("Cập nhật")
             binding.txtNameUserFriend.text = "Cập nhật sản phẩm"
             binding.cpu.setText(sanPhamUpdate.cpu.toString())
+            Glide.with(applicationContext).load(sanPhamUpdate.getThumbnail_url()).into(binding.imgView)
             binding.description.setText(sanPhamUpdate.description.toString())
             binding.productName.setText(sanPhamUpdate.product_name.toString())
             binding.currentQuantity.setText(sanPhamUpdate.current_quantity.toString())
